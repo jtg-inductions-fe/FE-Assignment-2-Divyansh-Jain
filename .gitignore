@@ -1,0 +1,17 @@
+# Logs
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*
+
+# Files
+.yarn
+node_modules
+dist
+.env
+
+# Editor directories and files
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.sw?

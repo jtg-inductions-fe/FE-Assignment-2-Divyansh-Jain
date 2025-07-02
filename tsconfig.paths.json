@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths": {
+            "@assets/*": ["assets/*"],
+            "@constant": ["constant/index"],
+            "@theme": ["theme/index"]
+        }
+    }
+}
