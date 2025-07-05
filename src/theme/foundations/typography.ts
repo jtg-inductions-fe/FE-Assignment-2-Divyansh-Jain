@@ -16,7 +16,6 @@ const typographyUtil: TypographyUtils = {
     pxToRem: (px: number) => `${px / HTML_FONT_SIZE}` + 'rem',
 };
 
-// TODO: Add the necessary typographies here.
 /**
  * Creates a typography block with various styles
  * @param theme - Theme object to access the breakpoints.
@@ -26,9 +25,10 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     fontFamily: 'Inter',
     htmlFontSize: HTML_FONT_SIZE,
 
-    fontWeightLight: 400,
-    fontWeightRegular: 500,
-    fontWeightMedium: 600,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
 
     h1: {
         fontSize: typographyUtil.pxToRem(30),
@@ -39,6 +39,63 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
             fontSize: typographyUtil.pxToRem(48),
             lineHeight: typographyUtil.pxToRem(62.5),
         },
+    },
+    h2: {
+        fontSize: typographyUtil.pxToRem(20),
+        fontWeight: 600,
+    },
+    h3: {
+        fontSize: typographyUtil.pxToRem(16),
+        fontWeight: 600,
+    },
+    h4: {
+        fontSize: typographyUtil.pxToRem(16),
+        fontWeight: 500,
+    },
+    h5: {
+        fontSize: typographyUtil.pxToRem(12),
+        fontWeight: 400,
+
+        [theme.breakpoints.up('md')]: {
+            fontSize: typographyUtil.pxToRem(14),
+            fontWeight: 400,
+        },
+    },
+    body1: {
+        fontSize: typographyUtil.pxToRem(14),
+        fontWeight: 400,
+    },
+    body2: {
+        fontSize: typographyUtil.pxToRem(12),
+        fontWeight: 400,
+    },
+    subtitle1: {
+        fontSize: typographyUtil.pxToRem(12),
+        fontWeight: 600,
+
+        [theme.breakpoints.up('md')]: {
+            fontSize: typographyUtil.pxToRem(14),
+        },
+    },
+    subtitle2: {
+        fontSize: typographyUtil.pxToRem(12),
+        fontWeight: 400,
+
+        [theme.breakpoints.up('md')]: {
+            fontSize: typographyUtil.pxToRem(14),
+        },
+    },
+    caption: {
+        fontSize: typographyUtil.pxToRem(16),
+        fontWeight: 400,
+    },
+    overline: {
+        fontSize: typographyUtil.pxToRem(12),
+        fontWeight: 600,
+    },
+    button: {
+        fontSize: typographyUtil.pxToRem(14),
+        fontWeight: 600,
     },
 });
 
