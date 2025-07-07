@@ -1,9 +1,4 @@
-import { createContext } from 'react';
-
-import { Product } from '@types';
-export const productContext = createContext<{ products: Product[] } | null>(
-    null,
-);
+import { productContext } from 'context';
 
 export const ProductContextProvider = ({
     children,

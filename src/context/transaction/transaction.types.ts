@@ -1,9 +1,7 @@
-import { Status } from '@enums';
-
 export type Transaction = {
     id?: string | number;
     transaction: string;
-    status: keyof typeof Status;
+    status: 'CANCELLED' | 'IN PROGRESS' | 'COMPLETED';
     amount: number;
     dateTime: string;
 };
