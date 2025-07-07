@@ -1,7 +1,8 @@
 import { lazy } from 'react';
 
-import { MainLayout } from 'layout';
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
+
+import { MainLayout } from '@layout';
 
 const Dashboard = lazy(() =>
     import('./pages').then((module) => ({
@@ -13,7 +14,6 @@ const routes: RouteObject[] = [
     {
         path: '/',
         Component: MainLayout,
-
         children: [{ index: true, Component: Dashboard }],
     },
 ];

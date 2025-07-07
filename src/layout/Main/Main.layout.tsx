@@ -1,11 +1,29 @@
 // TODO : DJ_A2_00 : Code for Layout
 
+import { useState } from 'react';
+
 import { Outlet } from 'react-router-dom';
 
-const Main = () => (
-    <>
-        <Outlet />
-    </>
-);
+import { useMediaQuery, useTheme } from '@mui/material';
+
+import { Header } from '@containers';
+
+const Main = () => {
+    const theme = useTheme();
+    const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
+    const [isSidebarMounted, setIsSidebarMounted] =
+        useState<boolean>(isDesktop);
+
+    const toggleSidebar = () => {
+        setIsSidebarMounted(!isSidebarMounted);
+    };
+
+    return (
+        <>
+            <Header isDesktop={isDesktop} toggleSidebar={toggleSidebar} />
+            <Outlet />
+        </>
+    );
+};
 
 export { Main as MainLayout };
