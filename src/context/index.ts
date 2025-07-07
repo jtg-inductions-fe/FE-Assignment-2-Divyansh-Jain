@@ -1,7 +1,4 @@
-export { CustomerContextProvider, customerContext } from './CustomerContext';
-export { ProductContextProvider, productContext } from './ProductContext';
-export {
-    TransactionContextProvider,
-    transactionContext,
-} from './TransactionContext';
-export { UserContextProvider, userContext } from './UserContext';
+export { customerContext } from './customer/customer.context';
+export { productContext } from './product/product.context';
+export { transactionContext } from './transaction/transaction.context';
+export { userContext } from './user/user.context';

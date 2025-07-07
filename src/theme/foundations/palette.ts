@@ -7,19 +7,24 @@ export const palette: PaletteOptions = {
     primary: {
         main: COLORS.PRIMARY.MAIN,
     },
+    text: {
+        primary: '#111827',
+        secondary: '#6B7280',
+    },
     info: {
-        main: COLORS.BLUE['800'] ?? '#3F83F8',
-        contrastText: COLORS.BLUE['800'],
-        light: COLORS.BLUE['100'],
+        dark: '#1E429F',
+        light: '#E1EFFE',
+        main: '',
     },
     error: {
-        main: COLORS.RED['500'] ?? '#F05252',
-        contrastText: COLORS.RED['800'],
-        light: COLORS.RED['200'],
+        dark: '#9B1C1C',
+        light: '#FBD5D5',
+        main: '',
     },
     success: {
-        main: COLORS.GREEN['500'] ?? '#0E9F6E',
-        light: COLORS.GREEN['100'],
-        contrastText: COLORS.GREEN['800'],
+        light: '#DEF7EC',
+        main: '#0E9F6E',
+        dark: '#03543F',
+        contrastText: '#FFFFFF',
     },
 };

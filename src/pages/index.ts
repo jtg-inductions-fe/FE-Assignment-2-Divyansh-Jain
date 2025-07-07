@@ -1,3 +1,3 @@
-export { Dashboard } from './Dashboard';
-export { NotFoundPage } from './NotFoundPage';
-export { ErrorPage } from './ErrorPage';
+export { Dashboard } from './Dashboard.pages';
+export { NotFoundPage } from './NotFound.pages';
+export { ErrorPage } from './Error.pages';

@@ -1,8 +1,5 @@
-// TODO : Implementation of Dashboard Page
+// TODO : DJ_A2_00 Implementation of Dashboard Page
 import { Box, Button, Typography } from '@mui/material';
-
-import { COLORS } from '@constant';
-
 export const Dashboard = () => (
     <>
         {/* Dummy Content Will be Removed in next PR */}
@@ -13,7 +10,7 @@ export const Dashboard = () => (
             h5. Heading
         </Typography>
 
-        <Box sx={{ color: COLORS.RED['500'] }}>this is box</Box>
+        <Box>this is box</Box>
         <Button variant="contained">Go back to Home </Button>
     </>
 );

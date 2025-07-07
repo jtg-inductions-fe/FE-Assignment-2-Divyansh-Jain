@@ -9,7 +9,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme } from '@theme';
 
 import { Spinner } from './components/Loader/Spinner';
-import { router } from './routes/index';
+import { router } from './router';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 
