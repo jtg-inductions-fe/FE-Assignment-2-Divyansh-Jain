@@ -41,56 +41,31 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     },
     h2: {
         fontSize: typographyUtil.pxToRem(20),
-        fontWeight: 600,
+        fontWeight: 700,
     },
     h3: {
-        fontSize: typographyUtil.pxToRem(16),
+        fontSize: typographyUtil.pxToRem(20),
         fontWeight: 600,
     },
     h4: {
         fontSize: typographyUtil.pxToRem(16),
         fontWeight: 500,
     },
-    h5: {
-        fontSize: typographyUtil.pxToRem(12),
-        fontWeight: 400,
-
-        [theme.breakpoints.up('md')]: {
-            fontSize: typographyUtil.pxToRem(14),
-            fontWeight: 400,
-        },
-    },
     body1: {
-        fontSize: typographyUtil.pxToRem(14),
+        fontSize: typographyUtil.pxToRem(16),
         fontWeight: 400,
     },
     body2: {
-        fontSize: typographyUtil.pxToRem(12),
-        fontWeight: 400,
+        fontSize: typographyUtil.pxToRem(14),
+        fontWeight: 600,
     },
     subtitle1: {
-        fontSize: typographyUtil.pxToRem(12),
+        fontSize: typographyUtil.pxToRem(16),
         fontWeight: 600,
-
-        [theme.breakpoints.up('md')]: {
-            fontSize: typographyUtil.pxToRem(14),
-        },
     },
     subtitle2: {
         fontSize: typographyUtil.pxToRem(12),
         fontWeight: 400,
-
-        [theme.breakpoints.up('md')]: {
-            fontSize: typographyUtil.pxToRem(14),
-        },
-    },
-    caption: {
-        fontSize: typographyUtil.pxToRem(16),
-        fontWeight: 400,
-    },
-    overline: {
-        fontSize: typographyUtil.pxToRem(12),
-        fontWeight: 600,
     },
     button: {
         fontSize: typographyUtil.pxToRem(14),
