@@ -1,6 +1,16 @@
 import { styled, Typography } from '@mui/material';
 
-export const StyledTypography = styled(Typography)(({ theme }) => ({
-    width: '50px',
-    ...theme.mixins.lineClamp(2),
-}));
+interface MyTypographyProps {
+    lines?: number;
+}
+
+export const StyledTypography = styled(Typography, {
+    shouldForwardProp: (prop) => prop !== 'lines',
+})<MyTypographyProps>(({ lines, theme }) => {
+    if (lines == undefined) {
+        return;
+    }
+    return {
+        ...theme.mixins.lineClamp(lines),
+    };
+});
