@@ -1,8 +1,7 @@
 import { lazy } from 'react';
 
+import { MainLayout } from 'layout';
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
-
-import { MainLayout } from './layout/Main/Main.layout';
 
 const Dashboard = lazy(() =>
     import('./pages').then((module) => ({
