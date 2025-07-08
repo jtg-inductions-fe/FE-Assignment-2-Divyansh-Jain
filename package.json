@@ -13,7 +13,8 @@
         "preview": "vite preview",
         "prettier": "prettier . --check",
         "prettier:fix": "npx prettier --write ./",
-        "postinstall": "husky install"
+        "postinstall": "husky install",
+        "type-check": "tsc --noEmit --skipLibCheck"
     },
     "dependencies": {
         "@emotion/react": "11.14.0",

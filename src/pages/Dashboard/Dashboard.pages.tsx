@@ -12,7 +12,7 @@ export const Dashboard = () => (
         <Typography variant="h5" gutterBottom>
             h5. Heading
         </Typography>
-        <CustomTypography>
+        <CustomTypography lines={3}>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Accusantium beatae dignissimos vel, vitae at, nemo amet natus
             laboriosam, ex consectetur sapiente autem quaerat! Rem et iste at
