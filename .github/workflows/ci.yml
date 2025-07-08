@@ -11,12 +11,15 @@ jobs:
 
         steps:
             - name: Checkout Code
-              uses: action/checkout@v4
+              uses: actions/checkout@v4
 
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
-                  node-version: '.nvmrc'
+                  node-version-file: '.nvmrc'
+
+            - name: Corepack Enable
+              run: corepack enable
 
             - name: Install dependencies
               run: yarn install --frozen-lockfile
