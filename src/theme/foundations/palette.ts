@@ -12,12 +12,10 @@ export const palette: PaletteOptions = {
         secondary: '#6B7280',
     },
     info: {
-        dark: '#1E429F',
         light: '#E1EFFE',
         main: '#1E429F',
     },
     error: {
-        dark: '#9B1C1C',
         light: '#FBD5D5',
         main: '#9B1C1C',
     },

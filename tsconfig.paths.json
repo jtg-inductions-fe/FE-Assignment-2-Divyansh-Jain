@@ -4,14 +4,23 @@
         "paths": {
             "@assets/*": ["assets/*"],
             "@constant": ["constant/index"],
+            "@constant/*": ["constant/*"],
             "@theme": ["theme/index"],
+            "@theme/*": ["theme/*"],
             "@context": ["context/index"],
+            "@context/*": ["context/*"],
             "@provider": ["provider/index"],
-            "@hooks": ["provider/hooks"],
+            "@provider/*": ["provider/*"],
+            "@hooks": ["hooks/index"],
+            "@hooks/*": ["hooks/*"],
             "@components": ["components/index"],
+            "@components/*": ["components/*"],
             "@layout": ["layout/index"],
+            "@layout/*": ["layout/*"],
             "@pages": ["pages/index"],
-            "@containers": ["containers/index"]
+            "@pages/*": ["pages/*"],
+            "@containers": ["containers/index"],
+            "@containers/*": ["containers/*"]
         }
     }
 }

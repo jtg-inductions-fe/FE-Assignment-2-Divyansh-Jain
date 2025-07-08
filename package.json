@@ -8,10 +8,11 @@
         "dev": "vite",
         "build": "tsc -b && vite build",
         "build:dev": "tsc -b && vite build --mode development",
-        "lint": "eslint --fix .",
+        "lint": "eslint .",
         "lint:fix": "eslint --fix .",
         "preview": "vite preview",
-        "prettier": "npx prettier --write ./",
+        "prettier": "prettier . --check",
+        "prettier:fix": "npx prettier --write ./",
         "postinstall": "husky install"
     },
     "dependencies": {
@@ -21,8 +22,7 @@
         "@mui/material": "6.4.1",
         "react": "19.0.0",
         "react-dom": "19.0.0",
-        "react-router-dom": "^7.6.3",
-        "recharts": "^3.0.2"
+        "react-router-dom": "^7.6.3"
     },
     "devDependencies": {
         "@types/eslint-plugin-jsx-a11y": "6",
