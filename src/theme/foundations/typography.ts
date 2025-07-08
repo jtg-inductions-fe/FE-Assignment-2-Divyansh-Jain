@@ -25,7 +25,6 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     fontFamily: 'Inter',
     htmlFontSize: HTML_FONT_SIZE,
 
-    fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightSemiBold: 600,

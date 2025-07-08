@@ -5,8 +5,13 @@
             "@assets/*": ["assets/*"],
             "@constant": ["constant/index"],
             "@theme": ["theme/index"],
-            "@types": ["types/index"],
-            "@enums": ["enums/index"]
+            "@context": ["context/index"],
+            "@provider": ["provider/index"],
+            "@hooks": ["provider/hooks"],
+            "@components": ["components/index"],
+            "@layout": ["layout/index"],
+            "@pages": ["pages/index"],
+            "@containers": ["containers/index"]
         }
     }
 }

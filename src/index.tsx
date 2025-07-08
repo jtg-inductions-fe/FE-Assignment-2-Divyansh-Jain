@@ -8,7 +8,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import { theme } from '@theme';
 
-import { Spinner } from './components/Loader/Spinner.component';
+import { Loader } from './components/Loader/Loader.component';
 import { router } from './router';
 
 const rootElement = document.getElementById('root') as HTMLElement;
@@ -17,7 +17,7 @@ createRoot(rootElement).render(
     <StrictMode>
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Suspense fallback={<Spinner />}>
+            <Suspense fallback={<Loader />}>
                 <RouterProvider router={router} />
             </Suspense>
         </ThemeProvider>
