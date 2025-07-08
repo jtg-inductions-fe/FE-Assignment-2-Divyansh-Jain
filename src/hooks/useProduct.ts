@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { productContext } from 'context';
+import { ProductContext } from 'context';
 
 export function useProduct() {
-    return useContext(productContext);
+    return useContext(ProductContext);
 }

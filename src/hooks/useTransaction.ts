@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { transactionContext } from 'context';
+import { TransactionContext } from 'context';
 
 export function useTransaction() {
-    return useContext(transactionContext);
+    return useContext(TransactionContext);
 }

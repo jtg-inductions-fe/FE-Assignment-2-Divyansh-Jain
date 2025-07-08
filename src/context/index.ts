@@ -1,4 +1,4 @@
-export { customerContext } from './customer/customer.context';
-export { productContext } from './product/product.context';
-export { transactionContext } from './transaction/transaction.context';
-export { userContext } from './user/user.context';
+export { CustomerContext } from './Customer';
+export { ProductContext } from './Product';
+export { TransactionContext } from './Transaction';
+export { UserContext } from './User';

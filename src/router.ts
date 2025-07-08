@@ -2,17 +2,11 @@ import { lazy } from 'react';
 
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
 
-import { MainLayout } from './layout/Main.layout';
-import { ErrorPage } from './pages';
+import { MainLayout } from './layout/Main/Main.layout';
 
 const Dashboard = lazy(() =>
     import('./pages').then((module) => ({
         default: module.Dashboard,
-    })),
-);
-const NotFoundPage = lazy(() =>
-    import('./pages').then((module) => ({
-        default: module.NotFoundPage,
     })),
 );
 
@@ -20,12 +14,8 @@ const routes: RouteObject[] = [
     {
         path: '/',
         Component: MainLayout,
-        ErrorBoundary: ErrorPage,
 
-        children: [
-            { index: true, Component: Dashboard },
-            { path: '*', Component: NotFoundPage },
-        ],
+        children: [{ index: true, Component: Dashboard }],
     },
 ];
 
