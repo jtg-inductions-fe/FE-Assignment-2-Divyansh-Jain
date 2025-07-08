@@ -14,12 +14,12 @@ export const palette: PaletteOptions = {
     info: {
         dark: '#1E429F',
         light: '#E1EFFE',
-        main: '',
+        main: '#1E429F',
     },
     error: {
         dark: '#9B1C1C',
         light: '#FBD5D5',
-        main: '',
+        main: '#9B1C1C',
     },
     success: {
         light: '#DEF7EC',

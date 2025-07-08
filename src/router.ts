@@ -6,12 +6,12 @@ import { MainLayout } from './layout/Main.layout';
 import { ErrorPage } from './pages';
 
 const Dashboard = lazy(() =>
-    import('./pages/dashboard/Dashboard.pages').then((module) => ({
+    import('./pages').then((module) => ({
         default: module.Dashboard,
     })),
 );
 const NotFoundPage = lazy(() =>
-    import('./pages/not-found/NotFound.pages').then((module) => ({
+    import('./pages').then((module) => ({
         default: module.NotFoundPage,
     })),
 );
