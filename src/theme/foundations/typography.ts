@@ -28,8 +28,8 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
+    fontWeightSemiBold: 600,
     fontWeightBold: 700,
-
     h1: {
         fontSize: typographyUtil.pxToRem(30),
         fontWeight: 700,
