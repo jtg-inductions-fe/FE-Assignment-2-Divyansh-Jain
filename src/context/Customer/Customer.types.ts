@@ -1,6 +1,6 @@
 export type Customer = {
-    /** Optional unique identifier for the customer */
-    id?: string | number;
+    /** Unique identifier for the customer */
+    id: string | number;
 
     /** Customer's full name */
     fullname: string;

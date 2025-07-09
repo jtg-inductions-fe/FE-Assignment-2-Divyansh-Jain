@@ -1,6 +1,6 @@
 export type User = {
-    /** Optional unique identifier for the user */
-    id?: string | number;
+    /** Unique identifier for the user */
+    id: string | number;
 
     /** User's display name or handle */
     username: string;

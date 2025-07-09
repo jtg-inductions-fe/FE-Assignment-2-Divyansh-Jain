@@ -1,7 +1,7 @@
 // TODO : DJ_A2_00 : Implementation of Dashboard Page
-import { Button, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 
-import { Typography as CustomTypography } from '@components';
+import { Typography } from '@components';
 
 export const Dashboard = () => (
     <>
@@ -12,12 +12,12 @@ export const Dashboard = () => (
         <Typography variant="h5" gutterBottom>
             h5. Heading
         </Typography>
-        <CustomTypography lines={3}>
+        <Typography lines={3}>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Accusantium beatae dignissimos vel, vitae at, nemo amet natus
             laboriosam, ex consectetur sapiente autem quaerat! Rem et iste at
             delectus. Neque, reprehenderit!
-        </CustomTypography>
+        </Typography>
         <Button variant="contained">Go back to Home </Button>
     </>
 );
