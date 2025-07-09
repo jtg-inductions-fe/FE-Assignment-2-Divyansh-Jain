@@ -1,6 +1,6 @@
-import { TypographyOwnProps } from '@mui/material';
+import { TypographyProps } from '@mui/material';
 
-export type StyledTypographyProps = TypographyOwnProps & {
+export type StyledTypographyProps = TypographyProps & {
     /**
      * Number of lines after which the content should be truncated.
      *
