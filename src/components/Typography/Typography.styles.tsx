@@ -1,8 +1,8 @@
 import { styled, Typography } from '@mui/material';
 
-import { MyTypographyProps } from './Typography.types';
+import { StyledTypographyProps } from './Typography.types';
 
-export const StyledTypography = styled(Typography)<MyTypographyProps>(({
+export const StyledTypography = styled(Typography)<StyledTypographyProps>(({
     lines,
     theme: {
         mixins: { lineClamp },
