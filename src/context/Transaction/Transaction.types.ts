@@ -1,6 +1,6 @@
 export type Transaction = {
-    /** Optional unique identifier for the transaction */
-    id?: string | number;
+    /** Unique identifier for the transaction */
+    id: string | number;
 
     /** Description or title of the transaction */
     transaction: string;

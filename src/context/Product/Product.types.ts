@@ -1,6 +1,6 @@
 export type Product = {
-    /** Optional unique identifier for the product */
-    id?: string | number;
+    /** Unique identifier for the product */
+    id: string | number;
 
     /** Name of the product */
     productName: string;
