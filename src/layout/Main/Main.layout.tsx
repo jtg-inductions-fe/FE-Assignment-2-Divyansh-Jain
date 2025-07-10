@@ -8,7 +8,7 @@ import { Header } from '@containers';
 
 const Main = () => {
     const theme = useTheme();
-    const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
+    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
     const [isSidebarMounted, setIsSidebarMounted] =
         useState<boolean>(isDesktop);
 
