@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -9,7 +10,7 @@ import { Stack, useTheme } from '@mui/material';
 import logo from '@assets/images/Logo.svg';
 import { AutoComplete } from '@components';
 import { UserProfile } from '@components';
-import { IconButton } from '@components/IconButton';
+import { IconButton } from '@components';
 import { useProduct, useUser } from '@hooks';
 
 import { HeaderProps } from './Header.types';
@@ -35,8 +36,10 @@ export const Header = ({ isDesktop, toggleSidebar }: HeaderProps) => {
                 alignItems="center"
             >
                 {isDesktop ? (
-                    <Stack direction="row" spacing={5}>
-                        <img src={logo} alt="Logo" />
+                    <Stack direction="row" spacing={5} alignItems="center">
+                        <Link to={'/'}>
+                            <img src={logo} alt="Logo" />
+                        </Link>
                         <AutoComplete
                             suggestions={products.map(
                                 (product) => product.productName,
@@ -56,7 +59,7 @@ export const Header = ({ isDesktop, toggleSidebar }: HeaderProps) => {
                     <IconButton
                         disableRipple
                         elevation={10}
-                        circle
+                        shape="circle"
                         height="32px"
                         width="32px"
                         stringcolor={theme.palette.text.primary}

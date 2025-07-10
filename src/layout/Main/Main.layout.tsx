@@ -1,5 +1,3 @@
-// TODO : DJ_A2_00 : Code for Layout
-
 import { useState } from 'react';
 
 import { Outlet } from 'react-router-dom';

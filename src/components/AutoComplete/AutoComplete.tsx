@@ -9,6 +9,9 @@ import { InputAdornment, TextField } from '@mui/material';
 import { StyledAutocomplete } from './AutoComplete.styles';
 import { FilterFunc, StyledAutoCompleteProps } from './AutoComplete.types';
 
+/** Enhanced Version of MUI's AutoComplete component with better styling
+ */
+
 export const AutoComplete: React.FC<StyledAutoCompleteProps> = ({
     suggestions,
 }) => {
@@ -20,7 +23,7 @@ export const AutoComplete: React.FC<StyledAutoCompleteProps> = ({
      * function used to filter the results for Autocomplete
      *
      * @param inputValue input field value
-     * @returns {void}
+     *
      *
      */
     const filterFunc: FilterFunc = (inputValue) => {

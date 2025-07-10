@@ -11,8 +11,8 @@ import Stack from '@mui/material/Stack';
 import { Typography } from '@components';
 import { IconButton } from '@components/IconButton';
 
-import { StyledPopover } from './StyledPopover';
 import { UserProfileProps } from './UserProfile.types';
+import { UserProfilePopover } from './UserProfilePopover';
 
 export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
     useEffect(() => {
@@ -40,14 +40,14 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
                 onClick={handleClick}
                 disableRipple
                 elevation={5}
-                circle
+                shape="circle"
                 padding={0}
                 height="32px"
                 width="32px"
             >
                 <Avatar alt={user.fullname} src={user.profileUrl} />
             </IconButton>
-            <StyledPopover
+            <UserProfilePopover
                 id={id}
                 open={open}
                 anchorEl={anchorEl}
@@ -73,7 +73,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
                         <ListItemText primary="logout" />
                     </ListItemButton>
                 </Stack>
-            </StyledPopover>
+            </UserProfilePopover>
         </Stack>
     );
 };

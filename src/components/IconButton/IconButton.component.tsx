@@ -4,7 +4,7 @@ import { StyledIconButton } from './IconButton.styles';
 import { StyledIconButtonProps } from './IconButton.types';
 
 /**
- * StyledIconButton component with support for custom props like `circle` and `elevation`.
+ * Enhanced Version of MUI's IconButton component with support for custom props like `circle` and `elevation stringcolor`.
  */
 export const IconButton: React.FC<StyledIconButtonProps> = (props) => (
     <StyledIconButton {...props} />
