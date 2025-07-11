@@ -5,7 +5,7 @@ import { IconButtonProps } from '@mui/material';
  */
 export type StyledIconButtonProps = IconButtonProps & {
     /** Whether the IconButton should be circular */
-    shape?: string;
+    shape?: 'circle' | 'square';
 
     /** Elevation level (shadow depth) */
     elevation?: number;

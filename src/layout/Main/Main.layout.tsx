@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Outlet } from 'react-router-dom';
 
@@ -9,6 +9,9 @@ import { Header } from '@containers';
 const Main = () => {
     const theme = useTheme();
     const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+    useEffect(() => {
+        setIsSidebarMounted(isDesktop);
+    }, [isDesktop]);
     const [isSidebarMounted, setIsSidebarMounted] =
         useState<boolean>(isDesktop);
 

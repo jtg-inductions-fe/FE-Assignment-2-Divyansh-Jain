@@ -14,7 +14,7 @@ export const StyledIconButton = styled(IconButton)<StyledIconButtonProps>(
         stringcolor,
         color,
     }) => ({
-        borderRadius: shape == 'circle' ? '50%' : theme.shape.borderRadius,
+        borderRadius: shape === 'circle' ? '50%' : theme.shape.borderRadius,
         boxShadow: elevation ? theme.shadows[elevation] : 'none',
         width: typeof width === 'number' ? theme.spacing(width) : width,
         height: typeof height === 'number' ? theme.spacing(height) : height,

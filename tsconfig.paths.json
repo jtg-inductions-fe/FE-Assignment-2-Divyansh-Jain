@@ -20,7 +20,9 @@
             "@pages": ["pages/index"],
             "@pages/*": ["pages/*"],
             "@containers": ["containers/index"],
-            "@containers/*": ["containers/*"]
+            "@containers/*": ["containers/*"],
+            "@utilities": ["utilities/index"],
+            "@utilities/*": ["utilities/*"]
         }
     }
 }

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { debounce } from 'utilities/debouce';
 
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, TextField } from '@mui/material';
+
+import { debounce } from '@utilities';
 
 import { StyledAutocomplete } from './AutoComplete.styles';
 import { FilterFunc, StyledAutoCompleteProps } from './AutoComplete.types';
@@ -28,12 +29,17 @@ export const AutoComplete: React.FC<StyledAutoCompleteProps> = ({
      */
     const filterFunc: FilterFunc = (inputValue) => {
         const newResults = inputValue
-            ? results.filter((value) =>
+            ? suggestions.filter((value) =>
                   value.toLowerCase().includes(inputValue.toLowerCase()),
               )
             : suggestions;
         setResults(newResults);
     };
+
+    const debouncedFilter = useCallback(debounce(filterFunc, 800), [
+        suggestions,
+    ]);
+
     return (
         <>
             <StyledAutocomplete
@@ -47,7 +53,7 @@ export const AutoComplete: React.FC<StyledAutoCompleteProps> = ({
                 }}
                 filterOptions={(x) => x}
                 onInputChange={(_, inputValue) => {
-                    debounce(filterFunc, 800)(inputValue);
+                    debouncedFilter(inputValue);
                 }}
                 renderInput={(params) => (
                     <TextField

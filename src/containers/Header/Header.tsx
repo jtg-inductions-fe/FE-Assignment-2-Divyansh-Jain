@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { Stack, useTheme } from '@mui/material';
+import { Divider, Stack, useTheme } from '@mui/material';
 
 import logo from '@assets/images/Logo.svg';
 import { AutoComplete } from '@components';
@@ -14,10 +13,16 @@ import { IconButton } from '@components';
 import { useProduct, useUser } from '@hooks';
 
 import { HeaderProps } from './Header.types';
+
 export const Header = ({ isDesktop, toggleSidebar }: HeaderProps) => {
     const theme = useTheme();
     const navigate = useNavigate();
     const { user } = useUser()!;
+
+    const handleNotificationsClick = () => {
+        void navigate('/notifications');
+    };
+
     useEffect(() => {
         if (!user) {
             throw Error('User does not exists');
@@ -50,7 +55,7 @@ export const Header = ({ isDesktop, toggleSidebar }: HeaderProps) => {
                     <IconButton
                         disableRipple
                         stringcolor={theme.palette.text.primary}
-                        onClick={() => toggleSidebar}
+                        onClick={toggleSidebar}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -58,20 +63,19 @@ export const Header = ({ isDesktop, toggleSidebar }: HeaderProps) => {
                 <Stack direction="row" alignItems="center" gap={3}>
                     <IconButton
                         disableRipple
-                        elevation={10}
+                        elevation={isDesktop ? 10 : 0}
                         shape="circle"
                         height="32px"
                         width="32px"
                         stringcolor={theme.palette.text.primary}
-                        onClick={() => {
-                            void navigate('/notifications');
-                        }}
+                        onClick={handleNotificationsClick}
                     >
                         <NotificationsIcon />
                     </IconButton>
                     <UserProfile user={user} />
                 </Stack>
             </Stack>
+            <Divider />
         </>
     );
 };

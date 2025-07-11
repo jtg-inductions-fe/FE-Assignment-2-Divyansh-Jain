@@ -1,7 +1,9 @@
 import { paperClasses, Popover, styled } from '@mui/material';
-export const UserProfilePopover = styled(Popover)(({}) => ({
+
+/** Custom  Popover for UserProfile */
+export const UserProfilePopover = styled(Popover)(({ theme: { spacing } }) => ({
     [`& .${paperClasses.root}`]: {
-        borderRadius: '12px',
-        aspectRatio: 0.75,
+        marginTop: spacing(8),
+        borderRadius: spacing(3),
     },
 }));
