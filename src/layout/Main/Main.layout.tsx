@@ -9,11 +9,18 @@ import { Header } from '@containers';
 const Main = () => {
     const theme = useTheme();
     const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+
     useEffect(() => {
         setIsSidebarMounted(isDesktop);
     }, [isDesktop]);
+
     const [isSidebarMounted, setIsSidebarMounted] =
         useState<boolean>(isDesktop);
+
+    /**
+     * Toggle's sidebar state for example if isSidebarMounted was true then it will become false after toggleSidebar method is called
+     *
+     */
 
     const toggleSidebar = () => {
         setIsSidebarMounted(!isSidebarMounted);
@@ -21,7 +28,7 @@ const Main = () => {
 
     return (
         <>
-            <Header isDesktop={isDesktop} toggleSidebar={toggleSidebar} />
+            <Header toggleSidebar={toggleSidebar} />
             <Outlet />
         </>
     );

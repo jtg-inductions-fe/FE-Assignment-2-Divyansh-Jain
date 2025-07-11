@@ -6,14 +6,9 @@ import { IconButtonProps } from '@mui/material';
 export type StyledIconButtonProps = IconButtonProps & {
     /** Whether the IconButton should be circular */
     shape?: 'circle' | 'square';
-    /** Elevation level (shadow depth) */
-    elevation?: number;
-    /** Height of the IconButton (e.g., 40, '2rem') */
-    height?: number | string;
-    /** Width of the IconButton (e.g., 40, '2rem') */
-    width?: number | string;
-    /** Padding of the IconButton (e.g., 2, '0.5rem') */
+    /** Boolean property Elevated for Elevation (shadow depth) */
+    elevated?: boolean;
     padding?: number | string;
     /** Overrides the icon color (accepts string like "#000") */
-    stringcolor?: string;
+    customcolor?: string;
 };

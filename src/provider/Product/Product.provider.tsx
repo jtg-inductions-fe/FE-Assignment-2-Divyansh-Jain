@@ -1,12 +1,13 @@
 import { ProductContext } from 'context';
 
-import prodcuts from './Product.data.json';
+import products from './Product.data.json';
+
 export const ProductContextProvider = ({
     children,
 }: {
     children: React.ReactNode;
 }) => (
-    <ProductContext.Provider value={{ products: prodcuts }}>
+    <ProductContext.Provider value={{ products: products }}>
         {children}
     </ProductContext.Provider>
 );

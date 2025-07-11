@@ -7,7 +7,7 @@ import { RouterProvider } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import { Loader } from '@components';
-import { ProductContextProvider, UserContextProvider } from '@provider';
+import { MasterContextProvider } from '@provider';
 import { theme } from '@theme';
 
 import { router } from './router';
@@ -19,11 +19,9 @@ createRoot(rootElement).render(
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <Suspense fallback={<Loader />}>
-                <ProductContextProvider>
-                    <UserContextProvider>
-                        <RouterProvider router={router} />
-                    </UserContextProvider>
-                </ProductContextProvider>
+                <MasterContextProvider>
+                    <RouterProvider router={router} />
+                </MasterContextProvider>
             </Suspense>
         </ThemeProvider>
     </StrictMode>,

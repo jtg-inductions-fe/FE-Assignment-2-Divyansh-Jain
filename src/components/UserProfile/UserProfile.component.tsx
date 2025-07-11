@@ -1,35 +1,54 @@
 import React, { useEffect, useState } from 'react';
 
 import LogoutIcon from '@mui/icons-material/Logout';
-import { useMediaQuery, useTheme } from '@mui/material';
-import Divider from '@mui/material/Divider';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Stack from '@mui/material/Stack';
+import {
+    Divider,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    Stack,
+    useMediaQuery,
+    useTheme,
+} from '@mui/material';
 
-import { Typography } from '@components';
-import { Avatar } from '@components';
-import { IconButton } from '@components/IconButton';
+import { Avatar, IconButton, Typography } from '@components';
+import { typography } from '@theme/foundations';
 
+import { Popover as UserProfilePopover } from './Popover';
 import { UserProfileProps } from './UserProfile.types';
-import { UserProfilePopover } from './UserProfilePopover';
 
 export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
+    const theme = useTheme();
+    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+    const { pxToRem } = typography.typographyUtil;
+    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+
     useEffect(() => {
-        if (!user.email || !user.fullname || !user.username) {
+        if (
+            !user.email.trim() ||
+            !user.fullname.trim() ||
+            !user.username.trim()
+        ) {
             throw Error('Invalid User');
         }
     }, [user]);
 
-    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+    /**
+     * Sets the event target as the anchor element for the Popover
+     *
+     * @param event provides the target element
+     *
+     */
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const theme = useTheme();
-    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+    /**
+     *
+     * Sets the Popover anchor to null
+     *
+     */
     const handleClose = () => {
         setAnchorEl(null);
     };
@@ -42,16 +61,11 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
             <IconButton
                 onClick={handleClick}
                 disableRipple
-                elevation={isDesktop ? 10 : 0}
+                elevated={isDesktop}
                 padding={0}
                 shape="circle"
             >
-                <Avatar
-                    alt={user.fullname}
-                    src={user.profileUrl}
-                    height={theme.spacing(8)}
-                    width={theme.spacing(8)}
-                />
+                <Avatar alt={user.fullname} src={user.profileUrl} />
             </IconButton>
             <UserProfilePopover
                 id={id}
@@ -63,17 +77,12 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
                     horizontal: 'right',
                 }}
             >
-                <Stack py={2}>
+                <Stack py={2} maxWidth={pxToRem(400)}>
                     <Stack alignItems="center" py={4} px={5}>
-                        <Avatar
-                            alt={user.fullname}
-                            src={user.profileUrl}
-                            height={theme.spacing(8)}
-                            width={theme.spacing(8)}
-                        />
-                        <Typography>{user.fullname}</Typography>
-                        <Typography>@{user.username}</Typography>
-                        <Typography>{user.email}</Typography>
+                        <Avatar alt={user.fullname} src={user.profileUrl} />
+                        <Typography lines={1}>{user.fullname}</Typography>
+                        <Typography lines={1}>@{user.username}</Typography>
+                        <Typography lines={1}>{user.email}</Typography>
                     </Stack>
 
                     <Divider orientation="horizontal" flexItem />

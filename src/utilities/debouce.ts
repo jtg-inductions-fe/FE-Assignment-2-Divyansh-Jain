@@ -6,15 +6,15 @@
  * Useful for optimizing performance when dealing with events like
  * window resizing, input typing, or API calls on user interaction.
  *
- * @param fn
- * @param delay
+ * @param fn function which needs to be debounced
+ * @param delay time for which the function needs to wait before the next execution
  *
  */
 
 export function debounce<T extends (...args: string[]) => void>(
     fn: T,
     delay: number = 300,
-): (...args: Parameters<T>) => void {
+): (...args: Parameters<T>) => ReturnType<T> | void {
     let timer: ReturnType<typeof setTimeout>;
 
     return function (...args: Parameters<T>) {

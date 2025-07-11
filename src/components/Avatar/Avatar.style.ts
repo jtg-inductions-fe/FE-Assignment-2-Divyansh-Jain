@@ -1,10 +1,11 @@
 import { Avatar, styled } from '@mui/material';
 
-import { StyledAvatarProps } from './Avata.types';
+import { StyledAvatarProps } from './Avatar.types';
+import { sizeMap } from './Avatar.types';
 
 export const StyledAvatar = styled(Avatar)<StyledAvatarProps>(
-    ({ height, width }) => ({
-        height: height ? height : 'auto',
-        width: width ? width : 'auto',
+    ({ size = 'sm' }) => ({
+        height: sizeMap[size],
+        width: sizeMap[size],
     }),
 );
