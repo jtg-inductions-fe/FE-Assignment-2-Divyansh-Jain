@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import LogoutIcon from '@mui/icons-material/Logout';
-import Avatar from '@mui/material/Avatar';
+import { useMediaQuery, useTheme } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -9,6 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 
 import { Typography } from '@components';
+import { Avatar } from '@components';
 import { IconButton } from '@components/IconButton';
 
 import { UserProfileProps } from './UserProfile.types';
@@ -27,6 +28,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
         setAnchorEl(event.currentTarget);
     };
 
+    const theme = useTheme();
+    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
     const handleClose = () => {
         setAnchorEl(null);
     };
@@ -39,13 +42,16 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
             <IconButton
                 onClick={handleClick}
                 disableRipple
-                elevation={5}
-                shape="circle"
+                elevation={isDesktop ? 10 : 0}
                 padding={0}
-                height="32px"
-                width="32px"
+                shape="circle"
             >
-                <Avatar alt={user.fullname} src={user.profileUrl} />
+                <Avatar
+                    alt={user.fullname}
+                    src={user.profileUrl}
+                    height={theme.spacing(8)}
+                    width={theme.spacing(8)}
+                />
             </IconButton>
             <UserProfilePopover
                 id={id}
@@ -59,7 +65,12 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
             >
                 <Stack py={2}>
                     <Stack alignItems="center" py={4} px={5}>
-                        <Avatar alt={user.fullname} src={user.profileUrl} />
+                        <Avatar
+                            alt={user.fullname}
+                            src={user.profileUrl}
+                            height={theme.spacing(8)}
+                            width={theme.spacing(8)}
+                        />
                         <Typography>{user.fullname}</Typography>
                         <Typography>@{user.username}</Typography>
                         <Typography>{user.email}</Typography>

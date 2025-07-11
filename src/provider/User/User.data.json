@@ -1,7 +1,7 @@
 {
-    "id": "user__001",
-    "profileUrl": "./src/assets/images/neil-sims.jpg",
-    "fullname": "Neil Sims",
-    "username": "neilsims23",
-    "email": "neil.sims@example.com"
+    "id": "user-1",
+    "profileUrl": "micheal-gough.jpg",
+    "fullname": "Micheal Gough",
+    "username": "michealgough23",
+    "email": "emai@example.com"
 }

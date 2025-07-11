@@ -1,5 +1,6 @@
 import {
     Autocomplete,
+    inputBaseClasses,
     outlinedInputClasses,
     paperClasses,
     styled,
@@ -14,12 +15,18 @@ export const StyledAutocomplete = styled(Autocomplete)(
             borderRadius: spacing(4),
             boxShadow: shadows[4],
         },
-
+        [`.${outlinedInputClasses.root}`]: {
+            height: '45px',
+            padding: 0,
+        },
+        [`& .${inputBaseClasses.root}`]: {
+            paddingLeft: '10px',
+        },
         [`+ .${popperClasses.root}`]: {
-            paddingTop: '8px',
+            paddingTop: spacing(3),
             [`& .${paperClasses.root}`]: {
-                borderRadius: '12px',
-                padding: '2rem',
+                boxShadow: shadows[4],
+                borderRadius: spacing(3),
             },
         },
     }),

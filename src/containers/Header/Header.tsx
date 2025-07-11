@@ -36,9 +36,9 @@ export const Header = ({ isDesktop, toggleSidebar }: HeaderProps) => {
             <Stack
                 direction="row"
                 justifyContent="space-between"
-                px={7}
-                py={3}
                 alignItems="center"
+                py={3}
+                px={7}
             >
                 {isDesktop ? (
                     <Stack direction="row" spacing={5} alignItems="center">
@@ -65,10 +65,10 @@ export const Header = ({ isDesktop, toggleSidebar }: HeaderProps) => {
                         disableRipple
                         elevation={isDesktop ? 10 : 0}
                         shape="circle"
-                        height="32px"
-                        width="32px"
                         stringcolor={theme.palette.text.primary}
                         onClick={handleNotificationsClick}
+                        height={theme.spacing(8)}
+                        width={theme.spacing(8)}
                     >
                         <NotificationsIcon />
                     </IconButton>
