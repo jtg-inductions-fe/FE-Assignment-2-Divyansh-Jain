@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Outlet } from 'react-router-dom';
 
-import { useMediaQuery, useTheme } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
 
 import { Header } from '@containers';
 
@@ -26,10 +26,10 @@ const Main = () => {
     };
 
     return (
-        <>
+        <Box height="100vh">
             <Header toggleSidebar={toggleSidebar} />
             <Outlet />
-        </>
+        </Box>
     );
 };
 
