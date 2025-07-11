@@ -10,5 +10,5 @@ export type StyledIconButtonProps = IconButtonProps & {
     elevated?: boolean;
     padding?: number | string;
     /** Overrides the icon color (accepts string like "#000") */
-    customcolor?: string;
+    customColor?: string;
 };

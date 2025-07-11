@@ -127,7 +127,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
                 ) : (
                     <IconButton
                         disableRipple
-                        customcolor={theme.palette.text.primary}
+                        customColor={theme.palette.text.primary}
                         onClick={toggleSidebar}
                     >
                         <MenuIcon />
@@ -138,7 +138,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
                         disableRipple
                         elevated={isDesktop}
                         shape="circle"
-                        customcolor={theme.palette.text.primary}
+                        customColor={theme.palette.text.primary}
                         onClick={handleNotificationsClick}
                         padding={theme.spacing(1)}
                     >
