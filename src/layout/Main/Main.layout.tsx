@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 
-import { Header, Sidebar } from '@containers';
+import { Header, OutletContainer, Sidebar } from '@containers';
 
 const Main = () => {
     const theme = useTheme();
@@ -29,7 +29,9 @@ const Main = () => {
         <Box height="100vh">
             <Header toggleSidebar={toggleSidebar} />
             <Sidebar isSidebarMounted={isSidebarMounted} />
-            <Outlet />
+            <OutletContainer>
+                <Outlet />
+            </OutletContainer>
         </Box>
     );
 };

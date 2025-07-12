@@ -6,3 +6,7 @@ export { IconButton } from './IconButton';
 export { Avatar } from './Avatar';
 export { ErrorComponent } from './Error';
 export { Drawer } from './Drawer';
+export { ListItemButton } from './ListItemButton';
+export { List } from './List';
+export { ListItem } from './ListItem';
+export type { ListItemType } from './ListItem';

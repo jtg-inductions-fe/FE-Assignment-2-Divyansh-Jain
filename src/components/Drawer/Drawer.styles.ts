@@ -1,18 +1,24 @@
 import { Drawer, styled } from '@mui/material';
 import { paperClasses } from '@mui/material';
 
-import { typography } from '@theme/foundations';
+export const StyledDrawer = styled(Drawer)(
+    ({ theme: { breakpoints, spacing } }) => ({
+        [breakpoints.down('lg')]: {
+            width: '80%',
+        },
+        [breakpoints.up('md')]: {
+            width: '22%',
+        },
 
-export const StyledDrawer = styled(Drawer)(({ theme: { breakpoints } }) => {
-    const { pxToRem } = typography.typographyUtil;
-    return {
         [`.${paperClasses.root}`]: {
-            top: pxToRem(64),
-            width: '80vw',
+            [breakpoints.down('lg')]: {
+                width: '80%',
+                paddingTop: spacing(16),
+            },
             [breakpoints.up('md')]: {
-                top: pxToRem(70),
-                width: '20vw',
+                width: '22%',
+                paddingTop: spacing(18),
             },
         },
-    };
-});
+    }),
+);

@@ -1,19 +1,19 @@
-import {
-    Divider,
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemText,
-    useMediaQuery,
-    useTheme,
-} from '@mui/material';
+import { Link } from 'react-router-dom';
+
+import LanguageIcon from '@mui/icons-material/Public';
+import SettingsIcon from '@mui/icons-material/Settings';
+import PreferencesIcon from '@mui/icons-material/Tune';
+import { Stack, useMediaQuery } from '@mui/material';
 
 import { Drawer } from '@components';
+import { ROUTES } from '@routes';
+import { theme } from '@theme';
 
+import sidebarLists from './Sidebar.config';
+import { renderSidebarLists } from './Sidebar.helper';
 import { SidebarProps } from './Sidebar.types';
 
 export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
-    const theme = useTheme();
     const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
     return (
         <>
@@ -21,27 +21,22 @@ export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
                 open={isSidebarMounted}
                 variant={isDesktop ? 'permanent' : 'temporary'}
             >
-                <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map(
-                        (text) => (
-                            <ListItem key={text} disablePadding>
-                                <ListItemButton>
-                                    <ListItemText primary={text} />
-                                </ListItemButton>
-                            </ListItem>
-                        ),
-                    )}
-                </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text) => (
-                        <ListItem key={text} disablePadding>
-                            <ListItemButton>
-                                <ListItemText primary={text} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-                </List>
+                <Stack justifyContent="space-between" height="100%">
+                    <Stack overflow="auto">
+                        {renderSidebarLists(sidebarLists)}
+                    </Stack>
+                    <Stack direction="row" justifyContent="space-around">
+                        <Link to={ROUTES.PREFERENCES}>
+                            <PreferencesIcon />
+                        </Link>
+                        <Link to={ROUTES.LANGUAGES}>
+                            <LanguageIcon />
+                        </Link>
+                        <Link to={ROUTES.SETTINGS}>
+                            <SettingsIcon />
+                        </Link>
+                    </Stack>
+                </Stack>
             </Drawer>
         </>
     );
