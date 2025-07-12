@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import NotFoundImage from '@assets/images/404.png';
+import NotFoundImage from '@assets/images/404.webp';
 import { ErrorComponent } from '@components/Error';
 
 export const NotFound = () => {

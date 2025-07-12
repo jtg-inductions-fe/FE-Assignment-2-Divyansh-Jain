@@ -2,6 +2,7 @@ import { Box, Stack, useMediaQuery } from '@mui/material';
 
 import { Button, Typography } from '@components';
 import { theme } from '@theme';
+import { typography } from '@theme/foundations';
 
 import { ErrorComponentProps } from './Error.types';
 
@@ -19,7 +20,7 @@ export const ErrorComponent = ({
     handleButtonClick,
 }: ErrorComponentProps) => {
     const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-
+    const { pxToRem } = typography.typographyUtil;
     return (
         <Stack
             alignItems="center"
@@ -32,20 +33,21 @@ export const ErrorComponent = ({
             </Box>
             <Stack alignItems="center" gap={5.5} px={2}>
                 <Stack alignItems="center" gap={isDesktop ? 0 : 2.5}>
-                    <Typography variant="h1" textAlign="center">
+                    <Typography variant="h1" textAlign="center" lines={2}>
                         {heading}
                     </Typography>
                     <Typography
                         variant="body1"
                         color={theme.palette.text.secondary}
                         textAlign="center"
+                        lines={4}
                     >
                         {bodyText}
                     </Typography>
                 </Stack>
                 <Button
                     variant="contained"
-                    radius={theme.spacing(3)}
+                    radius={pxToRem(12)}
                     onClick={handleButtonClick}
                 >
                     {buttonText}

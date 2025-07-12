@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import ErrorImage from '@assets/images/ErrorPage-bg.png';
+import ErrorImage from '@assets/images/ErrorPage-bg.webp';
 import { ErrorComponent } from '@components/Error';
 
 export const ErrorPage = () => {
