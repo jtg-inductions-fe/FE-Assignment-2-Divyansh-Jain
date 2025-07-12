@@ -5,3 +5,4 @@ export { AutoComplete } from './AutoComplete';
 export { IconButton } from './IconButton';
 export { Avatar } from './Avatar';
 export { ErrorComponent } from './Error';
+export { Drawer } from './Drawer';
