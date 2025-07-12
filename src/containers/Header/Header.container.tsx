@@ -102,7 +102,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
     };
 
     return (
-        <>
+        <Stack position="fixed" width="100vw" zIndex={theme.zIndex.drawer + 1}>
             <Stack
                 direction="row"
                 justifyContent="space-between"
@@ -148,6 +148,6 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
                 </Stack>
             </Stack>
             <Divider />
-        </>
+        </Stack>
     );
 };

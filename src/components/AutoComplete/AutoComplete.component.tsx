@@ -22,7 +22,7 @@ export const AutoComplete = ({
         getOptionLabel={getOptionLabel}
         onChange={(_, option, reason) => {
             if (reason === 'selectOption') {
-                handleSelection(option as string);
+                handleSelection(getOptionLabel(option));
             }
         }}
         filterOptions={(x) => x}

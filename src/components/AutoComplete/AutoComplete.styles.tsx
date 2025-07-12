@@ -13,7 +13,7 @@ const { pxToRem } = typography.typographyUtil;
 
 export const StyledAutocomplete = styled(Autocomplete)(
     ({ theme: { shadows, spacing } }) => ({
-        width: '30vw',
+        width: '25vw',
 
         [`& .${outlinedInputClasses.notchedOutline}`]: {
             border: 'none',
