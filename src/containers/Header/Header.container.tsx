@@ -5,10 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
-import { Divider, Stack, useMediaQuery, useTheme } from '@mui/material';
+import { Divider, useMediaQuery, useTheme } from '@mui/material';
 
 import logo from '@assets/images/Logo.svg';
-import { AutoComplete, IconButton, UserProfile } from '@components';
+import { AutoComplete, IconButton, Stack, UserProfile } from '@components';
 import { Product } from '@context';
 import { useProduct, useUser } from '@hooks';
 import { debounce } from '@utilities';
@@ -102,7 +102,12 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
     };
 
     return (
-        <Stack position="fixed" width="100vw" zIndex={theme.zIndex.drawer + 1}>
+        <Stack
+            position="fixed"
+            width="100vw"
+            zIndex={theme.zIndex.drawer + 1}
+            backgroundColor="#FFFFFF"
+        >
             <Stack
                 direction="row"
                 justifyContent="space-between"

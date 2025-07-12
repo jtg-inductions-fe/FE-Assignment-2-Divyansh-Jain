@@ -6,12 +6,11 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    Stack,
     useMediaQuery,
     useTheme,
 } from '@mui/material';
 
-import { Avatar, IconButton, Typography } from '@components';
+import { Avatar, IconButton, Stack, Typography } from '@components';
 import { typography } from '@theme/foundations';
 
 import { Popover as UserProfilePopover } from './Popover';
