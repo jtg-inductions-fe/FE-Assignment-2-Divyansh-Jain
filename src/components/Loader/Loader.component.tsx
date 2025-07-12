@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material';
+import { Stack } from '@components';
 
 import { StyledLoader } from './Loader.styles';
 
