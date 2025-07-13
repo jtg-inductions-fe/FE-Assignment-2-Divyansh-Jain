@@ -1,20 +1,22 @@
 import { lazy } from 'react';
 
-import { MainLayout } from 'layout';
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
 
+import { MainLayout } from '@layout';
+
+import { ROUTES } from './routes.constants';
+
 const Dashboard = lazy(() =>
-    import('./pages').then((module) => ({
+    import('@pages').then((module) => ({
         default: module.Dashboard,
     })),
 );
 
 const routes: RouteObject[] = [
     {
-        path: '/',
-        Component: MainLayout,
-
-        children: [{ index: true, Component: Dashboard }],
+        path: ROUTES.HOME,
+        element: <MainLayout />,
+        children: [{ index: true, element: <Dashboard /> }],
     },
 ];
 

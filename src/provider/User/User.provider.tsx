@@ -1,7 +1,8 @@
 import { UserContext } from 'context';
 
+import user from './User.data.json';
 export const UserContextProvider = ({
     children,
 }: {
     children: React.ReactNode;
-}) => <UserContext.Provider value={null}>{children}</UserContext.Provider>;
+}) => <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>;
