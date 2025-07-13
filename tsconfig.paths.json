@@ -22,7 +22,9 @@
             "@containers": ["containers/index"],
             "@containers/*": ["containers/*"],
             "@utilities": ["utilities/index"],
-            "@utilities/*": ["utilities/*"]
+            "@utilities/*": ["utilities/*"],
+            "@routes": ["routes/index"],
+            "@routes/*": ["routes/*"]
         }
     }
 }

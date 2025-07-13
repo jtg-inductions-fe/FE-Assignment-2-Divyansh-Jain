@@ -5,34 +5,36 @@ import { Link, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
-import { Divider, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Divider, Stack, useMediaQuery, useTheme } from '@mui/material';
 
 import logo from '@assets/images/Logo.svg';
-import { AutoComplete, IconButton, Stack, UserProfile } from '@components';
+import { AutoComplete, IconButton, UserProfile } from '@components';
 import { Product } from '@context';
 import { useProduct, useUser } from '@hooks';
+import { ROUTES } from '@routes';
 import { debounce } from '@utilities';
 
 import { HeaderProps } from './Header.types';
 
 export const Header = ({ toggleSidebar }: HeaderProps) => {
     const navigate = useNavigate();
-    const theme = useTheme();
+    const { palette, breakpoints, zIndex, spacing } = useTheme();
+
     const userContext = useUser();
     const productContext = useProduct();
     const { user } = userContext || {};
     const options = productContext?.products || [];
     const [searchResults, setSearchResults] = useState<Product[]>(options);
-    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+    const isDesktop = useMediaQuery(breakpoints.up('md'));
 
     useEffect(() => {
-        if (!userContext || !user) {
+        if (!user) {
             throw Error('User does not exists');
         }
         if (!productContext) {
             throw Error('something went wrong');
         }
-    }, [userContext, user, productContext]);
+    }, [user, productContext]);
 
     /**
      * Retrieves option label from option
@@ -52,7 +54,6 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
      * @param inputValue current value of input field
      *
      */
-
     function filterSearch(inputValue: string) {
         const newSearchResults = options.filter((option) =>
             getOptionLabel(option)
@@ -68,7 +69,6 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
      *
      * @param inputValue current value of input field
      */
-
     const debounceFilterSearch = debounce(filterSearch, 800);
 
     /**
@@ -76,9 +76,8 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
      *
      * @param option
      */
-
     function handleSelection(option: string) {
-        void navigate(`/products/${option}`);
+        void navigate(`${ROUTES.PRODUCTS}/${option}`);
     }
 
     /**
@@ -87,7 +86,6 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
      *
      * @param inputValue current value of input field
      */
-
     function handleInputChange(inputValue: string) {
         debounceFilterSearch(inputValue);
     }
@@ -96,17 +94,16 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
      * Navigates to /notifications on click
      *
      */
-
     const handleNotificationsClick = () => {
-        void navigate('/notifications');
+        void navigate(ROUTES.NOTIFICATIONS);
     };
 
     return (
         <Stack
             position="fixed"
             width="100vw"
-            zIndex={theme.zIndex.drawer + 1}
-            backgroundColor="#FFFFFF"
+            zIndex={zIndex.drawer + 1}
+            sx={{ backgroundColor: palette.common.white }}
         >
             <Stack
                 direction="row"
@@ -117,8 +114,10 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
             >
                 {isDesktop ? (
                     <Stack direction="row" spacing={5} alignItems="center">
-                        <Link to={'/'}>
-                            <img src={logo} alt="Logo" />
+                        <Link to={ROUTES.HOME}>
+                            <Box>
+                                <img src={logo} alt="Logo" />
+                            </Box>
                         </Link>
                         <AutoComplete
                             options={searchResults}
@@ -132,7 +131,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
                 ) : (
                     <IconButton
                         disableRipple
-                        customColor={theme.palette.text.primary}
+                        customColor={palette.text.primary}
                         onClick={toggleSidebar}
                     >
                         <MenuIcon />
@@ -143,9 +142,9 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
                         disableRipple
                         elevated={isDesktop}
                         shape="circle"
-                        customColor={theme.palette.text.primary}
+                        customColor={palette.text.primary}
                         onClick={handleNotificationsClick}
-                        padding={theme.spacing(1)}
+                        padding={spacing(1)}
                     >
                         <NotificationsIcon />
                     </IconButton>

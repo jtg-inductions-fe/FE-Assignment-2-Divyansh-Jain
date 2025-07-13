@@ -11,7 +11,7 @@
  *
  */
 
-export function debounce<T extends (...args: string[]) => void>(
+export function debounce<T extends (...args: Parameters<T>) => void>(
     fn: T,
     delay: number = 300,
 ): (...args: Parameters<T>) => ReturnType<T> | void {

@@ -5,15 +5,14 @@ import { StyledAutoCompleteProps } from './AutoComplete.types';
 
 /** Enhanced Version of MUI's AutoComplete component with better styling
  */
-
 export const AutoComplete = ({
-    handleSelection,
-    handleInputChange,
     placeholder,
-    options,
     StartIcon,
     EndIcon,
+    options,
     getOptionLabel,
+    handleInputChange,
+    handleSelection,
 }: StyledAutoCompleteProps) => (
     <StyledAutocomplete
         disablePortal
@@ -25,7 +24,7 @@ export const AutoComplete = ({
                 handleSelection(getOptionLabel(option));
             }
         }}
-        filterOptions={(x) => x}
+        filterOptions={(suggestions) => suggestions}
         onInputChange={(_, inputValue) => handleInputChange(inputValue)}
         renderInput={(params) => (
             <TextField
@@ -40,7 +39,9 @@ export const AutoComplete = ({
                             </InputAdornment>
                         ),
                         endAdornment: (
-                            <>{EndIcon || params.InputProps.endAdornment}</>
+                            <InputAdornment position="end">
+                                <>{EndIcon || params.InputProps.endAdornment}</>
+                            </InputAdornment>
                         ),
                     },
                 }}

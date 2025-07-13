@@ -8,9 +8,8 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 
 import { Loader } from '@components';
 import { MasterContextProvider } from '@provider';
+import { router } from '@routes';
 import { theme } from '@theme';
-
-import { router } from './router';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 

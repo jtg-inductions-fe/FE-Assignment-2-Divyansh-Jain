@@ -12,17 +12,21 @@ export const palette: PaletteOptions = {
         secondary: '#6B7280',
     },
     info: {
-        light: '#E1EFFE',
-        main: '#1E429F',
+        contrastText: '#1E429F',
+        main: '#E1EFFE',
     },
     error: {
-        light: '#FBD5D5',
-        main: '#9B1C1C',
+        main: '#FBD5D5',
+        contrastText: '#9B1C1C',
     },
     success: {
         light: '#DEF7EC',
         main: '#0E9F6E',
         dark: '#03543F',
         contrastText: '#FFFFFF',
+    },
+    common: {
+        white: '#FFFFFF',
+        black: '#000000',
     },
 };

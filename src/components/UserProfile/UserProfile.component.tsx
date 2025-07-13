@@ -6,12 +6,12 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
+    Stack,
     useMediaQuery,
     useTheme,
 } from '@mui/material';
 
-import { Avatar, IconButton, Stack, Typography } from '@components';
-import { typography } from '@theme/foundations';
+import { Avatar, IconButton, Typography } from '@components';
 
 import { Popover as UserProfilePopover } from './Popover';
 import { UserProfileProps } from './UserProfile.types';
@@ -19,7 +19,7 @@ import { UserProfileProps } from './UserProfile.types';
 export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
     const theme = useTheme();
     const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-    const { pxToRem } = typography.typographyUtil;
+    const { pxToRem } = theme.typography;
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
     useEffect(() => {
@@ -38,7 +38,6 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
      * @param event provides the target element
      *
      */
-
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };

@@ -7,12 +7,14 @@ import {
 } from '@mui/material';
 import popperClasses from '@mui/material/Popper/popperClasses';
 
-import { typography } from '@theme/foundations';
-
-const { pxToRem } = typography.typographyUtil;
-
 export const StyledAutocomplete = styled(Autocomplete)(
-    ({ theme: { shadows, spacing } }) => ({
+    ({
+        theme: {
+            shadows,
+            spacing,
+            typography: { pxToRem },
+        },
+    }) => ({
         width: '25vw',
 
         [`& .${outlinedInputClasses.notchedOutline}`]: {
