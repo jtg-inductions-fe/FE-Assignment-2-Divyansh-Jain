@@ -36,10 +36,10 @@ export const ErrorComponent = ({
                 alt="404 Not Found"
                 maxWidth="100%"
             />
-            <Stack alignItems="center" gap={5.5} px={2}>
+            <Stack alignItems="center" gap={6} px={2}>
                 <Stack
                     alignItems="center"
-                    gap={isDesktop ? 0 : 2.5}
+                    gap={isDesktop ? 0 : 12}
                     maxWidth="100%"
                 >
                     <Typography variant="h1" textAlign="center" lines={2}>
