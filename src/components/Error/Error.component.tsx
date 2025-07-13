@@ -37,7 +37,11 @@ export const ErrorComponent = ({
                 maxWidth="100%"
             />
             <Stack alignItems="center" gap={5.5} px={2}>
-                <Stack alignItems="center" gap={isDesktop ? 0 : 2.5}>
+                <Stack
+                    alignItems="center"
+                    gap={isDesktop ? 0 : 2.5}
+                    maxWidth="100%"
+                >
                     <Typography variant="h1" textAlign="center" lines={2}>
                         {heading}
                     </Typography>

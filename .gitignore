@@ -9,6 +9,9 @@ yarn-error.log*
 node_modules
 dist
 .env
+tsconfig.app.tsbuildinfo
+tsconfig.node.tsbuildinfo
+
 
 # Editor directories and files
 !.vscode/extensions.json
