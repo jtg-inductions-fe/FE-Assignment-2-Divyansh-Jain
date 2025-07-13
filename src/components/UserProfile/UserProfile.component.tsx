@@ -17,9 +17,11 @@ import { Popover as UserProfilePopover } from './Popover';
 import { UserProfileProps } from './UserProfile.types';
 
 export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
-    const theme = useTheme();
-    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-    const { pxToRem } = theme.typography;
+    const {
+        breakpoints,
+        typography: { pxToRem },
+    } = useTheme();
+    const isDesktop = useMediaQuery(breakpoints.up('md'));
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
     useEffect(() => {

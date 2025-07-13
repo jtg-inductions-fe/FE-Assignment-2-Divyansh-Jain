@@ -115,9 +115,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
                 {isDesktop ? (
                     <Stack direction="row" spacing={5} alignItems="center">
                         <Link to={ROUTES.HOME}>
-                            <Box>
-                                <img src={logo} alt="Logo" />
-                            </Box>
+                            <Box component="img" src={logo} alt="Logo" />
                         </Link>
                         <AutoComplete
                             options={searchResults}

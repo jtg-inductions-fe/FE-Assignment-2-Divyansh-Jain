@@ -4,7 +4,7 @@ import { createBrowserRouter, RouteObject } from 'react-router-dom';
 
 import { MainLayout } from '@layout';
 
-import { ROUTES } from './routes';
+import { ROUTES } from './routes.constants';
 
 const Dashboard = lazy(() =>
     import('@pages').then((module) => ({

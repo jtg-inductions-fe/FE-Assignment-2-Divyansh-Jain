@@ -25,8 +25,4 @@ export const palette: PaletteOptions = {
         dark: '#03543F',
         contrastText: '#FFFFFF',
     },
-    common: {
-        white: '#FFFFFF',
-        black: '#000000',
-    },
 };

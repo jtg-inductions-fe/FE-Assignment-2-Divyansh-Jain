@@ -4,8 +4,13 @@ import { sizeMap } from './Avatar.config';
 import { StyledAvatarProps } from './Avatar.types';
 
 export const StyledAvatar = styled(Avatar)<StyledAvatarProps>(
-    ({ size = 'sm' }) => ({
-        height: sizeMap[size],
-        width: sizeMap[size],
+    ({
+        size = 'sm',
+        theme: {
+            typography: { pxToRem },
+        },
+    }) => ({
+        height: pxToRem(sizeMap[size]),
+        width: pxToRem(sizeMap[size]),
     }),
 );
