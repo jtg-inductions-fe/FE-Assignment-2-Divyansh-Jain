@@ -15,8 +15,8 @@ const Dashboard = lazy(() =>
 const routes: RouteObject[] = [
     {
         path: ROUTES.HOME,
-        Component: MainLayout,
-        children: [{ index: true, Component: Dashboard }],
+        element: <MainLayout />,
+        children: [{ index: true, element: <Dashboard /> }],
     },
 ];
 

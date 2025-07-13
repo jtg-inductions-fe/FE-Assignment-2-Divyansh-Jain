@@ -21,7 +21,6 @@ const Main = () => {
      * Toggle's sidebar state for example if isSidebarMounted was true then it will become false after toggleSidebar method is called
      *
      */
-
     const toggleSidebar = () => {
         setIsSidebarMounted(!isSidebarMounted);
     };

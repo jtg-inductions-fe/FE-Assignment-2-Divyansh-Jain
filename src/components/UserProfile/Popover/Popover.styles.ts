@@ -1,6 +1,5 @@
 import { paperClasses, Popover, styled } from '@mui/material';
 
-/** Custom  Popover for UserProfile */
 export const StyledPopover = styled(Popover)(
     ({
         theme: {
