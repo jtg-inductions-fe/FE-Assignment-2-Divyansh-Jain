@@ -4,5 +4,4 @@ export { UserProfile } from './UserProfile';
 export { AutoComplete } from './AutoComplete';
 export { IconButton } from './IconButton';
 export { Avatar } from './Avatar';
-export { Button } from './Button';
 export { ErrorComponent } from './Error';

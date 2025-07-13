@@ -1,8 +1,6 @@
-import { Box, Stack, useMediaQuery } from '@mui/material';
+import { Box, Button, Stack, useMediaQuery, useTheme } from '@mui/material';
 
-import { Button, Typography } from '@components';
-import { theme } from '@theme';
-import { typography } from '@theme/foundations';
+import { Typography } from '@components';
 
 import { ErrorComponentProps } from './Error.types';
 
@@ -19,8 +17,12 @@ export const ErrorComponent = ({
     bodyText,
     handleButtonClick,
 }: ErrorComponentProps) => {
-    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-    const { pxToRem } = typography.typographyUtil;
+    const {
+        breakpoints,
+        palette,
+        typography: { pxToRem },
+    } = useTheme();
+    const isDesktop = useMediaQuery(breakpoints.up('md'));
     return (
         <Stack
             alignItems="center"
@@ -28,9 +30,12 @@ export const ErrorComponent = ({
             gap={isDesktop ? 0 : 4}
             height="80%"
         >
-            <Box>
-                <img src={imagePath} alt="404 Not Found" width="100%" />
-            </Box>
+            <Box
+                component="img"
+                src={imagePath}
+                alt="404 Not Found"
+                maxWidth="100%"
+            />
             <Stack alignItems="center" gap={5.5} px={2}>
                 <Stack alignItems="center" gap={isDesktop ? 0 : 2.5}>
                     <Typography variant="h1" textAlign="center" lines={2}>
@@ -38,7 +43,7 @@ export const ErrorComponent = ({
                     </Typography>
                     <Typography
                         variant="body1"
-                        color={theme.palette.text.secondary}
+                        color={palette.text.secondary}
                         textAlign="center"
                         lines={4}
                     >
@@ -47,7 +52,7 @@ export const ErrorComponent = ({
                 </Stack>
                 <Button
                     variant="contained"
-                    radius={pxToRem(12)}
+                    sx={{ borderRadius: pxToRem(12) }}
                     onClick={handleButtonClick}
                 >
                     {buttonText}
