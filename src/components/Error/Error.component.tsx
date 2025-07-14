@@ -1,4 +1,11 @@
-import { Box, Button, Stack, useMediaQuery, useTheme } from '@mui/material';
+import {
+    Box,
+    Button,
+    Stack,
+    Tooltip,
+    useMediaQuery,
+    useTheme,
+} from '@mui/material';
 
 import { Typography } from '@components';
 
@@ -36,7 +43,7 @@ export const ErrorComponent = ({
                 component="img"
                 src={imagePath}
                 alt={imageTitle}
-                maxWidth="100%"
+                maxWidth={isDesktop ? '50%' : '100%'}
             />
             <Stack alignItems="center" gap={6} px={2}>
                 <Stack
@@ -44,17 +51,19 @@ export const ErrorComponent = ({
                     gap={isDesktop ? 0 : 12}
                     maxWidth="100%"
                 >
-                    <Typography variant="h1" textAlign="center" lines={2}>
+                    <Typography variant="h1" textAlign="center">
                         {heading}
                     </Typography>
-                    <Typography
-                        variant="body1"
-                        color={palette.text.secondary}
-                        textAlign="center"
-                        lines={4}
-                    >
-                        {bodyText}
-                    </Typography>
+                    <Tooltip title={bodyText}>
+                        <Typography
+                            variant="body1"
+                            color={palette.text.secondary}
+                            textAlign="center"
+                            lines={4}
+                        >
+                            {bodyText}
+                        </Typography>
+                    </Tooltip>
                 </Stack>
                 <Button
                     variant="contained"
