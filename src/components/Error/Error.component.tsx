@@ -25,10 +25,10 @@ export const ErrorComponent = ({
     const isDesktop = useMediaQuery(breakpoints.up('md'));
     return (
         <Stack
+            sx={{ height: '100%' }}
             alignItems="center"
             justifyContent="center"
             gap={isDesktop ? 0 : 4}
-            height="80%"
         >
             <Box
                 component="img"
