@@ -3,18 +3,22 @@ import { Link } from 'react-router-dom';
 import LanguageIcon from '@mui/icons-material/Public';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PreferencesIcon from '@mui/icons-material/Tune';
-import { Stack, useMediaQuery } from '@mui/material';
+import { Link as MuiLink, Stack, useMediaQuery, useTheme } from '@mui/material';
 
 import { Drawer } from '@components';
 import { ROUTES } from '@routes';
-import { theme } from '@theme';
 
 import sidebarLists from './Sidebar.config';
 import { renderSidebarLists } from './Sidebar.helper';
 import { SidebarProps } from './Sidebar.types';
 
 export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
-    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+    const {
+        breakpoints,
+        palette: { text },
+    } = useTheme();
+
+    const isDesktop = useMediaQuery(breakpoints.up('md'));
     return (
         <>
             <Drawer
@@ -26,15 +30,27 @@ export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
                         {renderSidebarLists(sidebarLists)}
                     </Stack>
                     <Stack direction="row" justifyContent="space-around">
-                        <Link to={ROUTES.PREFERENCES}>
+                        <MuiLink
+                            component={Link}
+                            to={ROUTES.PREFERENCES}
+                            color={text.primary}
+                        >
                             <PreferencesIcon />
-                        </Link>
-                        <Link to={ROUTES.LANGUAGES}>
+                        </MuiLink>
+                        <MuiLink
+                            component={Link}
+                            to={ROUTES.LANGUAGES}
+                            color={text.primary}
+                        >
                             <LanguageIcon />
-                        </Link>
-                        <Link to={ROUTES.SETTINGS}>
+                        </MuiLink>
+                        <MuiLink
+                            component={Link}
+                            to={ROUTES.SETTINGS}
+                            color={text.primary}
+                        >
                             <SettingsIcon />
-                        </Link>
+                        </MuiLink>
                     </Stack>
                 </Stack>
             </Drawer>
