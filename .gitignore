@@ -9,8 +9,8 @@ yarn-error.log*
 node_modules
 dist
 .env
-tsconfig.app.tsbuildinfo
-tsconfig.node.tsbuildinfo
+*.tsbuildinfo
+
 
 
 # Editor directories and files

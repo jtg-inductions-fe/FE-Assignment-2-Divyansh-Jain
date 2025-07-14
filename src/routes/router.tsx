@@ -26,7 +26,7 @@ const ErrorPage = lazy(() =>
 const routes: RouteObject[] = [
     {
         path: ROUTES.HOME,
-        errorElement: <Navigate to="/error" />,
+        errorElement: <Navigate to={ROUTES.ERROR} />,
         element: <MainLayout />,
         children: [
             { index: true, element: <Dashboard /> },
