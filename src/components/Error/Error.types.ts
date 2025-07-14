@@ -1,6 +1,8 @@
 export type ErrorComponentProps = {
     /**Path for the main image*/
     imagePath: string;
+    /**Title for main image*/
+    imageTitle: string;
     /**Error Message to display on screen*/
     bodyText: string;
     /**Main Heading of the page*/

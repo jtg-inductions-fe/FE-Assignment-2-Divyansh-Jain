@@ -13,6 +13,7 @@ import { ErrorComponentProps } from './Error.types';
 export const ErrorComponent = ({
     buttonText,
     imagePath,
+    imageTitle,
     heading,
     bodyText,
     handleButtonClick,
@@ -23,6 +24,7 @@ export const ErrorComponent = ({
         typography: { pxToRem },
     } = useTheme();
     const isDesktop = useMediaQuery(breakpoints.up('md'));
+
     return (
         <Stack
             sx={{ height: '100%' }}
@@ -33,7 +35,7 @@ export const ErrorComponent = ({
             <Box
                 component="img"
                 src={imagePath}
-                alt="404 Not Found"
+                alt={imageTitle}
                 maxWidth="100%"
             />
             <Stack alignItems="center" gap={6} px={2}>
