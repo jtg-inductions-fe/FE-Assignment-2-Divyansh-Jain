@@ -1,12 +1,12 @@
 import { JSX } from 'react';
 
-import { SidebarListItem } from '@containers/Sidebar/Sidebar.types';
+import { ListItemProps } from '@components/ListItem';
 
 export type CollapsableListItemProps = {
     /**Item which needs to displayed */
-    item: SidebarListItem;
+    item: ListItemProps;
     /**
      * Function to recursively render child items of the provided item.
      */
-    renderItems: (items: SidebarListItem[]) => JSX.Element[];
+    renderItems: (items: ListItemProps[]) => JSX.Element[];
 };
