@@ -6,4 +6,5 @@ export const ROUTES = {
     HOME: '/',
     NOTIFICATIONS: '/notifications',
     PRODUCTS: '/products',
+    ERROR: '/error',
 };

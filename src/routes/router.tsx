@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-import { createBrowserRouter, RouteObject } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom';
 
 import { MainLayout } from '@layout';
 
@@ -12,11 +12,27 @@ const Dashboard = lazy(() =>
     })),
 );
 
+const NotFoundPage = lazy(() =>
+    import('@pages').then((module) => ({
+        default: module.NotFound,
+    })),
+);
+const ErrorPage = lazy(() =>
+    import('@pages').then((module) => ({
+        default: module.ErrorPage,
+    })),
+);
+
 const routes: RouteObject[] = [
     {
         path: ROUTES.HOME,
+        errorElement: <Navigate to={ROUTES.ERROR} />,
         element: <MainLayout />,
-        children: [{ index: true, element: <Dashboard /> }],
+        children: [
+            { index: true, element: <Dashboard /> },
+            { path: ROUTES.ERROR, element: <ErrorPage /> },
+            { path: '*', element: <NotFoundPage /> },
+        ],
     },
 ];
 
