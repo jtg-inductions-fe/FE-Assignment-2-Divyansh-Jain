@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
 import {
-        Box,
+    Box,
     Divider,
     Stack,
     Tooltip,
     useMediaQuery,
-    useTheme
+    useTheme,
 } from '@mui/material';
 
 import { Drawer, List } from '@components';

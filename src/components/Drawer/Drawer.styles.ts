@@ -1,5 +1,5 @@
 import { Drawer, styled } from '@mui/material';
-import {paperClasses } from '@mui/material';
+import { paperClasses } from '@mui/material';
 
 export const StyledDrawer = styled(Drawer)(
     ({
