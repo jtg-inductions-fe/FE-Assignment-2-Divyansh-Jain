@@ -33,6 +33,11 @@ export const AutoComplete = ({
                 slotProps={{
                     input: {
                         ...params.InputProps,
+                        onKeyDown: (e) => {
+                            if (e.key === 'Enter') {
+                                handleSelection(e.currentTarget.value);
+                            }
+                        },
                         startAdornment: (
                             <InputAdornment position="start">
                                 {StartIcon && <StartIcon />}

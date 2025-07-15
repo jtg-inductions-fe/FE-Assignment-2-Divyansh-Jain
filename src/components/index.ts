@@ -9,4 +9,5 @@ export { Drawer } from './Drawer';
 export { ListItemButton } from './ListItemButton';
 export { List } from './List';
 export { ListItem } from './ListItem';
+export { OutletContainer } from './OutletContainer';
 export type { ListItemType } from './ListItem';

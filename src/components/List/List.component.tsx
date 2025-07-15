@@ -13,7 +13,12 @@ import { ListWrapperProps } from './List.types';
  */
 function renderListItems(items: ListItemType[]) {
     return items.map((item) => (
-        <ListItem key={item.text} item={item} renderItems={renderListItems} />
+        <ListItem
+            sx={{ padding: 0 }}
+            key={item.id}
+            item={item}
+            renderItems={renderListItems}
+        />
     ));
 }
 

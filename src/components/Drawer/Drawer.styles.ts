@@ -6,6 +6,7 @@ export const StyledDrawer = styled(Drawer)(
         [breakpoints.down('lg')]: {
             width: '80%',
         },
+
         [breakpoints.up('md')]: {
             width: '22%',
         },

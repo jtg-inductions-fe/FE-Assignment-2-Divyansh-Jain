@@ -29,7 +29,7 @@ export const StyledAutocomplete = styled(Autocomplete)(
         },
 
         [`& .${inputBaseClasses.root}`]: {
-            paddingLeft: spacing(2.5),
+            paddingLeft: spacing(3),
         },
 
         [`+ .${popperClasses.root}`]: {

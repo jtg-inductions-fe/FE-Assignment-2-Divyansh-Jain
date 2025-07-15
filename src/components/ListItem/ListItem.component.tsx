@@ -7,6 +7,7 @@ import {
     Chip,
     Collapse,
     List,
+    ListItem as StyledListItem,
     ListItemIcon,
     ListItemText,
     Tooltip,
@@ -14,36 +15,46 @@ import {
 
 import { ListItemButton, Typography } from '@components';
 
-import { ListItemProps } from './ListItem.types';
+import { StyledListItemProps } from './ListItem.types';
 
-export const ListItem = ({ renderItems, item }: ListItemProps) => {
+export const ListItem = ({
+    renderItems,
+    item,
+    ...otherProps
+}: StyledListItemProps) => {
     const [open, setOpen] = useState(false);
     return (
         <>
-            <ListItemButton
-                key={item.text}
-                {...(item.children && { onClick: () => setOpen(!open) })}
-                {...(item.to && { component: NavLink, to: item.to })}
-            >
-                <ListItemIcon sx={{ color: 'inherit' }}>
-                    {item.Icon && <item.Icon />}
-                </ListItemIcon>
-                <ListItemText color="inherit">
-                    <Tooltip title={item.text}>
-                        <Typography lines={1}>{item.text}</Typography>
-                    </Tooltip>
-                </ListItemText>
-                {item.children && (open ? <ExpandLess /> : <ExpandMore />)}
-                {item.count !== undefined && (
-                    <Chip
-                        label={item.count > 99 ? '99+' : item.count}
-                        color="error"
-                    />
-                )}
-            </ListItemButton>
+            <StyledListItem {...otherProps}>
+                <ListItemButton
+                    key={item.text}
+                    {...(item.children && {
+                        onClick: () => setOpen(!open),
+                        'aria-expanded': open,
+                        'aria-controls': `nested-${item.id}`,
+                    })}
+                    {...(item.to && { component: NavLink, to: item.to })}
+                >
+                    <ListItemIcon sx={{ color: 'inherit' }}>
+                        {item.Icon && <item.Icon />}
+                    </ListItemIcon>
+                    <ListItemText color="inherit">
+                        <Tooltip title={item.text}>
+                            <Typography lines={1}>{item.text}</Typography>
+                        </Tooltip>
+                    </ListItemText>
+                    {item.count !== undefined && (
+                        <Chip
+                            label={item.count > 99 ? '99+' : item.count}
+                            color="error"
+                        />
+                    )}
+                    {item.children && (open ? <ExpandLess /> : <ExpandMore />)}
+                </ListItemButton>
+            </StyledListItem>
             {item.children && (
                 <Collapse in={open} timeout="auto" unmountOnExit>
-                    <List component="div">
+                    <List component="div" id={`nested-${item.id}`}>
                         {item.children && renderItems(item.children)}
                     </List>
                 </Collapse>

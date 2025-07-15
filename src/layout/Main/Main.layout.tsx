@@ -4,7 +4,8 @@ import { Outlet } from 'react-router-dom';
 
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 
-import { Header, OutletContainer, Sidebar } from '@containers';
+import { OutletContainer } from '@components';
+import { Header, Sidebar } from '@containers';
 
 const Main = () => {
     const theme = useTheme();

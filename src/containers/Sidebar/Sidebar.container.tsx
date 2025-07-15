@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
 
-import LanguageIcon from '@mui/icons-material/Public';
-import SettingsIcon from '@mui/icons-material/Settings';
-import PreferencesIcon from '@mui/icons-material/Tune';
-import { Link as MuiLink, Stack, useMediaQuery, useTheme } from '@mui/material';
+import {
+    Box,
+    Divider,
+    Stack,
+    Tooltip,
+    useMediaQuery,
+    useTheme,
+} from '@mui/material';
 
-import { Drawer } from '@components';
-import { ROUTES } from '@routes';
+import { Drawer, List } from '@components';
 
-import sidebarLists from './Sidebar.config';
-import { renderSidebarLists } from './Sidebar.helper';
+import { SidebarList } from './Sidebar.config';
 import { SidebarProps } from './Sidebar.types';
 
 export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
@@ -20,40 +22,30 @@ export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
 
     const isDesktop = useMediaQuery(breakpoints.up('md'));
     return (
-        <>
-            <Drawer
-                open={isSidebarMounted}
-                variant={isDesktop ? 'permanent' : 'temporary'}
-            >
-                <Stack justifyContent="space-between" height="100%">
-                    <Stack overflow="auto">
-                        {renderSidebarLists(sidebarLists)}
-                    </Stack>
-                    <Stack direction="row" justifyContent="space-around">
-                        <MuiLink
-                            component={Link}
-                            to={ROUTES.PREFERENCES}
-                            color={text.primary}
-                        >
-                            <PreferencesIcon />
-                        </MuiLink>
-                        <MuiLink
-                            component={Link}
-                            to={ROUTES.LANGUAGES}
-                            color={text.primary}
-                        >
-                            <LanguageIcon />
-                        </MuiLink>
-                        <MuiLink
-                            component={Link}
-                            to={ROUTES.SETTINGS}
-                            color={text.primary}
-                        >
-                            <SettingsIcon />
-                        </MuiLink>
-                    </Stack>
+        <Drawer
+            open={isSidebarMounted}
+            variant={isDesktop ? 'permanent' : 'temporary'}
+        >
+            <Stack justifyContent="space-between" height="100%">
+                <Stack overflow="auto">
+                    <List items={SidebarList.primary} />
+                    <Divider />
+                    <List items={SidebarList.secondary} />
                 </Stack>
-            </Drawer>
-        </>
+                <Stack direction="row" justifyContent="space-around">
+                    {SidebarList.utility.map((item) => (
+                        <Tooltip key={item.id} title={item.text}>
+                            <Box
+                                component={Link}
+                                to={item.to || ''}
+                                color={text.primary}
+                            >
+                                {item.Icon && <item.Icon />}
+                            </Box>
+                        </Tooltip>
+                    ))}
+                </Stack>
+            </Stack>
+        </Drawer>
     );
 };
