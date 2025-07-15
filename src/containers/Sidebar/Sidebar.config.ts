@@ -30,12 +30,7 @@ export const SidebarList: SidebarListConfig = {
                 {
                     id: 'sidebar-pages-errorPage',
                     text: 'Error Page',
-                    to: ROUTES.HOME,
-                },
-                {
-                    id: 'sidebar-pages-notFound',
-                    text: '404 Not found page',
-                    to: ROUTES.PRODUCTS,
+                    to: ROUTES.ERROR,
                 },
             ],
         },
