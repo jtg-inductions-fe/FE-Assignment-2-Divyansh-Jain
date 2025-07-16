@@ -10,6 +10,7 @@ import {
     ListItem as StyledListItem,
     ListItemIcon,
     ListItemText,
+    Stack,
     Tooltip,
 } from '@mui/material';
 
@@ -43,13 +44,17 @@ export const ListItem = ({
                             <Typography lines={1}>{item.text}</Typography>
                         </Tooltip>
                     </ListItemText>
-                    {item.count !== undefined && (
-                        <Chip
-                            label={item.count > 99 ? '99+' : item.count}
-                            color="error"
-                        />
-                    )}
-                    {item.children && (open ? <ExpandLess /> : <ExpandMore />)}
+                    <Stack gap={1} flexDirection="row" alignItems="center">
+                        {item.count !== undefined && (
+                            <Chip
+                                label={item.count > 99 ? '99+' : item.count}
+                                color="error"
+                            />
+                        )}
+                        {item.children &&
+                            item.children.length > 0 &&
+                            (open ? <ExpandLess /> : <ExpandMore />)}
+                    </Stack>
                 </ListItemButton>
             </StyledListItem>
             {item.children && (

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Outlet } from 'react-router-dom';
 
-import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Stack, useMediaQuery, useTheme } from '@mui/material';
 
 import { OutletContainer } from '@components';
 import { Header, Sidebar } from '@containers';
@@ -27,12 +27,14 @@ const Main = () => {
     };
 
     return (
-        <Box height="100vh">
+        <Box>
             <Header toggleSidebar={toggleSidebar} />
-            <Sidebar isSidebarMounted={isSidebarMounted} />
-            <OutletContainer>
-                <Outlet />
-            </OutletContainer>
+            <Stack direction="row">
+                <Sidebar isSidebarMounted={isSidebarMounted} />
+                <OutletContainer>
+                    <Outlet />
+                </OutletContainer>
+            </Stack>
         </Box>
     );
 };

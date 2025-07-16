@@ -17,6 +17,7 @@ import { SidebarProps } from './Sidebar.types';
 export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
     const {
         breakpoints,
+        spacing,
         palette: { text },
     } = useTheme();
 
@@ -32,7 +33,11 @@ export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
                     <Divider />
                     <List items={SidebarList.secondary} />
                 </Stack>
-                <Stack direction="row" justifyContent="space-around">
+                <Stack
+                    direction="row"
+                    justifyContent="space-around"
+                    padding={spacing(1)}
+                >
                     {SidebarList.utility.map((item) => (
                         <Tooltip key={item.id} title={item.text}>
                             <Box

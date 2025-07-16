@@ -1,24 +1,19 @@
 import { Box, styled } from '@mui/material';
 
 export const StyledOutletContainer = styled(Box)(
-    ({
-        theme: {
-            breakpoints,
-            typography: { pxToRem },
-        },
-    }) => ({
+    ({ theme: { breakpoints, spacing } }) => ({
         margin: 0,
-        height: '100%',
-        width: '100%',
+        flexGrow: 1,
+        height: '100vh',
+
+        padding: spacing(0, 4),
 
         [breakpoints.up('xs')]: {
-            paddingTop: pxToRem(64),
-            paddingLeft: 0,
+            paddingTop: spacing(20),
         },
 
         [breakpoints.up('md')]: {
-            paddingTop: pxToRem(70),
-            paddingLeft: '22%',
+            paddingTop: spacing(22),
         },
     }),
 );
