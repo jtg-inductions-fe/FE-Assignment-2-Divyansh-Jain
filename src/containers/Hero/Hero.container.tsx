@@ -11,9 +11,9 @@ import { COLS_DESKTOP, COLS_MOBILE, ROW_HEIGHT } from './Hero.constants';
 export const Hero = () => {
     const { breakpoints } = useTheme();
     const isDesktop = useMediaQuery(breakpoints.up('md'));
+
     return (
         <ImageList
-            sx={{ padding: '1rem' }}
             cols={isDesktop ? COLS_DESKTOP : COLS_MOBILE}
             rowHeight={ROW_HEIGHT}
             gap={isDesktop ? 11 : 5}
