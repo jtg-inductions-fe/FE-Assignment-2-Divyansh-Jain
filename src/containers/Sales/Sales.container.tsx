@@ -10,75 +10,60 @@ import {
 } from 'recharts';
 
 import InfoIcon from '@mui/icons-material/ShoppingBag';
-import { Stack, Tooltip, useTheme } from '@mui/material';
+import { Paper, Stack, Tooltip, useTheme } from '@mui/material';
 
 import { Typography } from '@components';
 
-const data = [
-    {
-        date: '01 Apr',
-        Sales: 80,
-        amt: 0,
-    },
-    {
-        date: '02 Apr',
-        Sales: 90,
-        amt: 40,
-    },
-    {
-        date: '03 Apr',
-        Sales: 85,
-        amt: 80,
-    },
-    {
-        date: '04 Apr',
-        Sales: 90,
-        amt: 120,
-    },
-    {
-        date: '05 Apr',
-        Sales: 75,
-        amt: 160,
-    },
-    {
-        date: '06 Apr',
-        Sales: 95,
-        amt: 200,
-    },
-    {
-        date: '07 Apr',
-        Sales: 80,
-        amt: 240,
-    },
-];
+import salesData from './Sales.data.json';
+
+const CustomLegend = () => (
+    <Stack direction="row" gap={1}>
+        <Typography variant="h3">Sales</Typography>
+        <Tooltip title="Sales">
+            <InfoIcon />
+        </Tooltip>
+    </Stack>
+);
 
 export const Sales = () => {
     const { palette } = useTheme();
+    // const [data,setData] = useState<>();
+    // useEffect(() => {
+    //     if(salesData.statusCode!==200) {
+    //         throw Error('Invalid Sales Data')
+    //     }
+    //     setData(salesData.data)
+    // },[salesData])
 
     return (
-        <ResponsiveContainer width="100%" height={500}>
-            <LineChart data={data}>
-                <XAxis dataKey="date" padding={{ left: 60 }} strokeWidth={0} />
-                <YAxis dataKey="amt" unit="K" strokeWidth={0} />
-                <ContextCard />
-                <Legend
-                    content={
-                        <Stack alignItems="center" direction="row" spacing={3}>
-                            <Typography variant="h3">Sales</Typography>
-                            <Tooltip title="this tootltop title">
-                                <InfoIcon />
-                            </Tooltip>
-                        </Stack>
-                    }
-                />
-                <CartesianGrid vertical={false} strokeWidth=".3px" x={100} />
-                <Line
-                    type="monotone"
-                    dataKey="Sales"
-                    stroke={palette.primary.main}
-                    strokeWidth="4px"
-                />
-            </LineChart>
-        </ResponsiveContainer>
+        <Paper>
+            <ResponsiveContainer width="100%" height={500}>
+                <LineChart data={salesData.data}>
+                    <XAxis
+                        dataKey="date"
+                        padding={{ left: 60 }}
+                        strokeWidth={0}
+                    />
+                    <YAxis dataKey="amt" unit="K" strokeWidth={0} />
+                    <ContextCard />
+                    <Legend
+                        verticalAlign="top"
+                        align="left"
+                        content={<CustomLegend />}
+                    />
+                    <CartesianGrid
+                        vertical={false}
+                        strokeWidth=".3px"
+                        x={100}
+                    />
+                    <Line
+                        type="monotone"
+                        dataKey="Sales"
+                        stroke={palette.primary.main}
+                        strokeWidth="4px"
+                    />
+                </LineChart>
+            </ResponsiveContainer>
+        </Paper>
     );
 };
