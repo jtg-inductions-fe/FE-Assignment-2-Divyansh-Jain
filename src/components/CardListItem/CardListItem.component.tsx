@@ -23,7 +23,9 @@ export const CardListItem = ({
                 <Stack direction="row" alignItems="center" gap={2}>
                     <Avatar src={imageUrl} alt={imageLabel} />
                     <Box>
-                        <Typography variant="h3">{primaryText}</Typography>
+                        <Typography variant="subtitle1">
+                            {primaryText}
+                        </Typography>
                         <Typography
                             variant="subtitle2"
                             color={palette.text.secondary}
@@ -32,7 +34,7 @@ export const CardListItem = ({
                         </Typography>
                     </Box>
                 </Stack>
-                <Typography>{label}</Typography>
+                <Typography variant="subtitle1">{label}</Typography>
             </Stack>
         </Stack>
     );
