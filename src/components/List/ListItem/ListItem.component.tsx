@@ -31,7 +31,11 @@ export const ListItem = ({
         <>
             <MuiListItem {...otherProps}>
                 <ListItemButton
-                    sx={{ '&.active': palette.primary.main }}
+                    sx={{
+                        '&.active': {
+                            color: palette.primary.main,
+                        },
+                    }}
                     {...(item.children && {
                         onClick: () => setOpen(!open),
                         'aria-expanded': open,
