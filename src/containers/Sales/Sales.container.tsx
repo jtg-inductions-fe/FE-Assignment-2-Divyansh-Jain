@@ -2,16 +2,22 @@ import {
     CartesianGrid,
     Line,
     LineChart,
-    Tooltip as ContextCard,
+    Tooltip,
     XAxis,
     YAxis,
 } from 'recharts';
 
 import { InfoOutlined } from '@mui/icons-material';
-import { Box, Stack, Tooltip, useMediaQuery, useTheme } from '@mui/material';
+import {
+    Box,
+    Stack,
+    Tooltip as MuiTooltip,
+    useMediaQuery,
+    useTheme,
+} from '@mui/material';
 
 import { Paper, ResponsiveContainer, Typography } from '@components';
-import { ContextCard as CustomContextCard } from '@components/ContextCard';
+import { ContextCard } from '@components/ContextCard';
 import { useSales } from '@hooks';
 
 export const Sales = () => {
@@ -36,11 +42,11 @@ export const Sales = () => {
             <Stack>
                 <Stack direction="row" gap={3} sx={{ px: 4, py: 11 }}>
                     <Typography variant="h2">Sales</Typography>
-                    <Tooltip title="Note : This sales data is of year 2024">
+                    <MuiTooltip title="Note : This sales data is of year 2024">
                         <Box color={palette.text.secondary}>
                             <InfoOutlined color="inherit" />
                         </Box>
-                    </Tooltip>
+                    </MuiTooltip>
                 </Stack>
                 <ResponsiveContainer width="100%" height={500}>
                     <LineChart data={data} margin={{ right: 40 }}>
@@ -61,10 +67,10 @@ export const Sales = () => {
                             strokeWidth={0}
                             hide={isMobile}
                         />
-                        <ContextCard
+                        <Tooltip
                             offset={-78}
                             content={({ payload, active, label }) => (
-                                <CustomContextCard
+                                <ContextCard
                                     active={active}
                                     payload={payload}
                                     label={label}
