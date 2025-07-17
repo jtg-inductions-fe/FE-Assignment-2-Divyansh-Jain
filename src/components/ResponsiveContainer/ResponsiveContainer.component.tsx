@@ -1,11 +1,12 @@
+import { ResponsiveContainerProps } from 'recharts';
+
 import { StyledResponsiveContainer } from './ResponsiveContainer.styles';
-import { StyledResponsiveContainerProps } from './ResponsiveContainer.types';
 
 /**Recharts Responsive Container with Some additional styles applied */
 export const ResponsiveContainer = ({
     children,
     ...otherProps
-}: StyledResponsiveContainerProps) => (
+}: ResponsiveContainerProps) => (
     <StyledResponsiveContainer {...otherProps}>
         {children}
     </StyledResponsiveContainer>

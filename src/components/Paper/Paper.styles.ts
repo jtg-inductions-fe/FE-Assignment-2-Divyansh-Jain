@@ -1,8 +1,6 @@
-import { Paper, styled } from '@mui/material';
+import { Paper, PaperProps, styled } from '@mui/material';
 
-import { StyledPaperProps } from './Paper.types';
-
-export const StyledPaper = styled(Paper)<StyledPaperProps>(
+export const StyledPaper = styled(Paper)<PaperProps>(
     ({
         theme: {
             spacing,

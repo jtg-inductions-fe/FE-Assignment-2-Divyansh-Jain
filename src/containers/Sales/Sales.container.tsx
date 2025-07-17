@@ -20,6 +20,8 @@ import { Paper, ResponsiveContainer, Typography } from '@components';
 import { ContextCard } from '@components/ContextCard';
 import { useSales } from '@hooks';
 
+import { dataFormatter } from './Sales.helper';
+
 export const Sales = () => {
     const {
         palette,
@@ -29,13 +31,6 @@ export const Sales = () => {
 
     const { data } = useSales() || {};
     const isMobile = useMediaQuery(breakpoints.down('sm'));
-
-    /**
-     * Formats the name and value according to custom logic or display preferences.
-     */
-    function dataFormatter(name: string, value: string) {
-        return [name, `$${value}K`];
-    }
 
     return (
         <Paper component="section" aria-label="Sales">
