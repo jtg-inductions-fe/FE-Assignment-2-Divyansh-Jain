@@ -1,0 +1,46 @@
+{
+    "customers": [
+        {
+            "id": "user-2",
+            "fullname": "Neil Sims",
+            "profileUrl": "",
+            "email": "email@example.com",
+            "totalSpent": 367
+        },
+        {
+            "id": "user-3",
+            "fullname": "Bonnie Green",
+            "profileUrl": "",
+            "email": "email@example.com",
+            "totalSpent": 67
+        },
+        {
+            "id": "user-1",
+            "fullname": "Micheal Gough",
+            "profileUrl": "",
+            "email": "email@example.com",
+            "totalSpent": 3467
+        },
+        {
+            "id": "user-4",
+            "fullname": "Thomas Lean",
+            "profileUrl": "",
+            "email": "email@example.com",
+            "totalSpent": 2367
+        },
+        {
+            "id": "user-5",
+            "fullname": "Lana Byrd",
+            "profileUrl": "",
+            "email": "email@example.com",
+            "totalSpent": 367
+        },
+        {
+            "id": "user-6",
+            "fullname": "Karen Nelson",
+            "profileUrl": "",
+            "email": "email@example.com",
+            "totalSpent": 1367
+        }
+    ]
+}
