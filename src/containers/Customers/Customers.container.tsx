@@ -11,7 +11,7 @@ export const Customers = () => {
     return (
         <Paper component="section" sx={{ flexGrow: 1 }}>
             <Stack gap={4}>
-                <Typography variant="h2">Latest Customers</Typography>
+                <Typography variant="h3">Latest Customers</Typography>
                 <List>
                     {customers.map((customer) => (
                         <CardListItem

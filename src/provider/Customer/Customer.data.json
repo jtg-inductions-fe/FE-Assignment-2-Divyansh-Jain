@@ -3,42 +3,42 @@
         {
             "id": "user-2",
             "fullname": "Neil Sims",
-            "profileUrl": "",
+            "profileUrl": "neil-sims.jpg",
             "email": "email@example.com",
             "totalSpent": 367
         },
         {
             "id": "user-3",
             "fullname": "Bonnie Green",
-            "profileUrl": "",
+            "profileUrl": "bonnie-green.jpg",
             "email": "email@example.com",
             "totalSpent": 67
         },
         {
             "id": "user-1",
             "fullname": "Micheal Gough",
-            "profileUrl": "",
+            "profileUrl": "micheal-gough.jpg",
             "email": "email@example.com",
             "totalSpent": 3467
         },
         {
             "id": "user-4",
             "fullname": "Thomas Lean",
-            "profileUrl": "",
+            "profileUrl": "thomas-lean.jpg",
             "email": "email@example.com",
             "totalSpent": 2367
         },
         {
             "id": "user-5",
             "fullname": "Lana Byrd",
-            "profileUrl": "",
+            "profileUrl": "lana-byrd.jpg",
             "email": "email@example.com",
             "totalSpent": 367
         },
         {
             "id": "user-6",
             "fullname": "Karen Nelson",
-            "profileUrl": "",
+            "profileUrl": "karen-nelson.jpg",
             "email": "email@example.com",
             "totalSpent": 1367
         }
