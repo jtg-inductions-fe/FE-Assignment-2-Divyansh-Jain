@@ -2,18 +2,17 @@ import {
     CartesianGrid,
     Line,
     LineChart,
-    ResponsiveContainer,
     Tooltip as ContextCard,
     XAxis,
     YAxis,
 } from 'recharts';
 
 import { InfoOutlined } from '@mui/icons-material';
-import { Stack, Tooltip, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Stack, Tooltip, useMediaQuery, useTheme } from '@mui/material';
 
-import { Paper, Typography } from '@components';
-
-import salesData from './Sales.data.json';
+import { Paper, ResponsiveContainer, Typography } from '@components';
+import { ContextCard as CustomContextCard } from '@components/ContextCard';
+import { useSales } from '@hooks';
 
 export const Sales = () => {
     const {
@@ -21,7 +20,16 @@ export const Sales = () => {
         breakpoints,
         typography: { pxToRem },
     } = useTheme();
+
+    const { data } = useSales() || {};
     const isMobile = useMediaQuery(breakpoints.down('sm'));
+
+    /**
+     * Formats the name and value according to custom logic or display preferences.
+     */
+    function dataFormatter(name: string, value: string) {
+        return [name, `$${value}K`];
+    }
 
     return (
         <Paper component="section" aria-label="Sales">
@@ -29,13 +37,16 @@ export const Sales = () => {
                 <Stack direction="row" gap={3} sx={{ px: 4, py: 11 }}>
                     <Typography variant="h2">Sales</Typography>
                     <Tooltip title="Note : This sales data is of year 2024">
-                        <InfoOutlined />
+                        <Box color={palette.text.secondary}>
+                            <InfoOutlined color="inherit" />
+                        </Box>
                     </Tooltip>
                 </Stack>
-                <ResponsiveContainer width="90%" height={500}>
-                    <LineChart data={salesData.data}>
+                <ResponsiveContainer width="100%" height={500}>
+                    <LineChart data={data} margin={{ right: 40 }}>
                         <XAxis
                             dataKey="date"
+                            interval={0}
                             padding={{ left: 60 }}
                             strokeWidth={0}
                             {...(isMobile && {
@@ -43,7 +54,6 @@ export const Sales = () => {
                                 fontSize: 12,
                                 fontWeight: 400,
                             })}
-                            minTickGap={0}
                         />
                         <YAxis
                             dataKey="amt"
@@ -51,7 +61,17 @@ export const Sales = () => {
                             strokeWidth={0}
                             hide={isMobile}
                         />
-                        <ContextCard />
+                        <ContextCard
+                            offset={-78}
+                            content={({ payload, active, label }) => (
+                                <CustomContextCard
+                                    active={active}
+                                    payload={payload}
+                                    label={label}
+                                    formatter={dataFormatter}
+                                />
+                            )}
+                        />
                         <CartesianGrid
                             vertical={false}
                             strokeWidth={pxToRem(0.3)}
@@ -59,7 +79,7 @@ export const Sales = () => {
                         />
                         <Line
                             type="monotone"
-                            dataKey="Sales"
+                            dataKey="sales"
                             stroke={palette.primary.main}
                             strokeWidth={pxToRem(4)}
                         />
