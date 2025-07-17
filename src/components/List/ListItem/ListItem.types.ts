@@ -24,7 +24,7 @@ export type ListItemType = {
 };
 
 export type StyledListItemProps = ListItemProps & {
-    /** Optional icon to display alongside the list item text. */
+    /**Item to be displayed */
     item: ListItemType;
     /**Method used to render items provided as arguments*/
     renderItems: (items: ListItemType[]) => JSX.Element[];

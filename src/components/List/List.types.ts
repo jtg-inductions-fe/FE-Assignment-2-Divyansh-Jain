@@ -1,6 +1,6 @@
 import { ListProps } from '@mui/material';
 
-import { ListItemType } from '@components/ListItem/ListItem.types';
+import { ListItemType } from './ListItem';
 
 export type ListWrapperProps = ListProps & {
     /**Items to be rendered */

@@ -4,8 +4,9 @@ import { Outlet } from 'react-router-dom';
 
 import { Box, Stack, useMediaQuery, useTheme } from '@mui/material';
 
-import { OutletContainer } from '@components';
 import { Header, Sidebar } from '@containers';
+
+import { StyledBox } from './Main.styles';
 
 const Main = () => {
     const theme = useTheme();
@@ -31,9 +32,9 @@ const Main = () => {
             <Header toggleSidebar={toggleSidebar} />
             <Stack direction="row">
                 <Sidebar isSidebarMounted={isSidebarMounted} />
-                <OutletContainer>
+                <StyledBox>
                     <Outlet />
-                </OutletContainer>
+                </StyledBox>
             </Stack>
         </Box>
     );

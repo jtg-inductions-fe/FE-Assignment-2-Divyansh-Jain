@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 import { IconButtonProps } from '@mui/material';
 
 /**
@@ -14,7 +16,7 @@ export type StyledIconButtonProps = IconButtonProps & {
      * Accepts a number (interpreted as pixels) or a string (e.g., "1rem", "10px 20px", "5%")
      *
      */
-    padding?: number | string;
+    padding?: CSSProperties['padding'];
     /** Overrides the icon color (accepts string like "#000") */
     customColor?: string;
 };

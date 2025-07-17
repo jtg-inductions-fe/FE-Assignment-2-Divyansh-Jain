@@ -7,14 +7,16 @@ import {
     Chip,
     Collapse,
     List,
-    ListItem as StyledListItem,
+    ListItem as MuiListItem,
+    ListItemButton,
     ListItemIcon,
     ListItemText,
     Stack,
     Tooltip,
+    useTheme,
 } from '@mui/material';
 
-import { ListItemButton, Typography } from '@components';
+import { Typography } from '@components';
 
 import { StyledListItemProps } from './ListItem.types';
 
@@ -23,12 +25,13 @@ export const ListItem = ({
     item,
     ...otherProps
 }: StyledListItemProps) => {
+    const { palette } = useTheme();
     const [open, setOpen] = useState(false);
     return (
         <>
-            <StyledListItem {...otherProps}>
+            <MuiListItem {...otherProps}>
                 <ListItemButton
-                    key={item.text}
+                    sx={{ '&.active': palette.primary.main }}
                     {...(item.children && {
                         onClick: () => setOpen(!open),
                         'aria-expanded': open,
@@ -36,29 +39,42 @@ export const ListItem = ({
                     })}
                     {...(item.to && { component: NavLink, to: item.to })}
                 >
-                    <ListItemIcon sx={{ color: 'inherit' }}>
-                        {item.Icon && <item.Icon />}
-                    </ListItemIcon>
+                    {item.Icon && (
+                        <ListItemIcon sx={{ color: 'inherit' }}>
+                            <item.Icon />
+                        </ListItemIcon>
+                    )}
+
                     <ListItemText color="inherit">
                         <Tooltip title={item.text}>
                             <Typography lines={1}>{item.text}</Typography>
                         </Tooltip>
                     </ListItemText>
-                    <Stack gap={1} flexDirection="row" alignItems="center">
-                        {item.count !== undefined && (
-                            <Chip
-                                label={item.count > 99 ? '99+' : item.count}
-                                color="error"
-                            />
-                        )}
-                        {item.children &&
-                            item.children.length > 0 &&
-                            (open ? <ExpandLess /> : <ExpandMore />)}
-                    </Stack>
+
+                    {item.count || item.children ? (
+                        <Stack gap={1} flexDirection="row" alignItems="center">
+                            {item.count !== undefined && (
+                                <Chip
+                                    label={item.count > 99 ? '99+' : item.count}
+                                    color="error"
+                                />
+                            )}
+                            {item.children &&
+                                item.children.length > 0 &&
+                                (open ? <ExpandLess /> : <ExpandMore />)}
+                        </Stack>
+                    ) : (
+                        <></>
+                    )}
                 </ListItemButton>
-            </StyledListItem>
+            </MuiListItem>
             {item.children && (
-                <Collapse in={open} timeout="auto" unmountOnExit>
+                <Collapse
+                    in={open}
+                    timeout="auto"
+                    unmountOnExit
+                    sx={{ paddingLeft: 14 }}
+                >
                     <List component="div" id={`nested-${item.id}`}>
                         {item.children && renderItems(item.children)}
                     </List>
