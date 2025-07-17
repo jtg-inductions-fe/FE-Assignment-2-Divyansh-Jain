@@ -1,7 +1,7 @@
-import img1 from '@assets/images/dashboard-image-1.jpeg';
-import img2 from '@assets/images/dashboard-image-2.jpeg';
-import img3 from '@assets/images/dashboard-image-3.jpeg';
-import img4 from '@assets/images/dashboard-image-4.png';
+import img1 from '@assets/images/dashboard-image-1.webp';
+import img2 from '@assets/images/dashboard-image-2.webp';
+import img3 from '@assets/images/dashboard-image-3.webp';
+import img4 from '@assets/images/dashboard-image-4.webp';
 
 import { ImageConfig } from './Hero.types';
 
