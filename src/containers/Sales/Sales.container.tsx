@@ -19,8 +19,9 @@ import {
 import { Paper, Typography } from '@components';
 import { ContextCard } from '@components';
 import { useSales } from '@hooks';
+import { numberFormatter } from '@utilities';
 
-import { dataFormatter, numberFormatter } from './Sales.helper';
+import { dataFormatter } from './Sales.helper';
 import { StyledResponsiveContainer } from './Sales.styles';
 
 export const Sales = () => {
