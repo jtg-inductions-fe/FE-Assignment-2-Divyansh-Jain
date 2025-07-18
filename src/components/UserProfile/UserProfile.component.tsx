@@ -7,6 +7,7 @@ import {
     ListItemIcon,
     ListItemText,
     Stack,
+    Tooltip,
     useMediaQuery,
     useTheme,
 } from '@mui/material';
@@ -77,12 +78,36 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
                     horizontal: 'right',
                 }}
             >
-                <Stack py={2} maxWidth={pxToRem(400)}>
+                <Stack py={2} width={pxToRem(300)}>
                     <Stack alignItems="center" py={4} px={5}>
                         <Avatar alt={user.fullname} src={user.profileUrl} />
-                        <Typography lines={1}>{user.fullname}</Typography>
-                        <Typography lines={1}>@{user.username}</Typography>
-                        <Typography lines={1}>{user.email}</Typography>
+                        <Tooltip title={user.fullname}>
+                            <Typography
+                                variant="subtitle1"
+                                lines={1}
+                                maxWidth="80%"
+                            >
+                                {user.fullname}
+                            </Typography>
+                        </Tooltip>
+                        <Tooltip title={user.username}>
+                            <Typography
+                                variant="subtitle2"
+                                lines={1}
+                                maxWidth="80%"
+                            >
+                                @{user.username}
+                            </Typography>
+                        </Tooltip>
+                        <Tooltip title={user.email}>
+                            <Typography
+                                variant="body1"
+                                lines={1}
+                                maxWidth="80%"
+                            >
+                                {user.email}
+                            </Typography>
+                        </Tooltip>
                     </Stack>
 
                     <Divider orientation="horizontal" flexItem />
@@ -90,7 +115,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
                         <ListItemIcon>
                             <LogoutIcon />
                         </ListItemIcon>
-                        <ListItemText primary="logout" />
+                        <ListItemText primary="Logout" />
                     </ListItemButton>
                 </Stack>
             </UserProfilePopover>

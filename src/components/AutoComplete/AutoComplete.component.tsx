@@ -16,7 +16,6 @@ export const AutoComplete = ({
 }: StyledAutoCompleteProps) => (
     <StyledAutocomplete
         disablePortal
-        freeSolo
         options={options}
         getOptionLabel={getOptionLabel}
         onChange={(_, option, reason) => {
@@ -33,6 +32,7 @@ export const AutoComplete = ({
                 slotProps={{
                     input: {
                         ...params.InputProps,
+
                         startAdornment: (
                             <InputAdornment position="start">
                                 {StartIcon && <StartIcon />}
@@ -40,7 +40,7 @@ export const AutoComplete = ({
                         ),
                         endAdornment: (
                             <InputAdornment position="end">
-                                <>{EndIcon || params.InputProps.endAdornment}</>
+                                {EndIcon && <EndIcon />}
                             </InputAdornment>
                         ),
                     },

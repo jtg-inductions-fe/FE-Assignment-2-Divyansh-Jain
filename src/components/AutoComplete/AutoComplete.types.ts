@@ -1,3 +1,6 @@
+import { SvgIconTypeMap } from '@mui/material';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+
 export type StyledAutoCompleteProps = {
     /** Array of filtered option provided to Autocomplete*/
     options: string[] | object[];
@@ -6,9 +9,9 @@ export type StyledAutoCompleteProps = {
     /**Placeholder value to display on input box*/
     placeholder?: string;
     /**Icon display at the starting position of input*/
-    StartIcon?: React.ElementType;
+    StartIcon?: OverridableComponent<SvgIconTypeMap<unknown, 'svg'>>;
     /**Icon display at the ending position of input*/
-    EndIcon?: React.ElementType;
+    EndIcon?: OverridableComponent<SvgIconTypeMap<unknown, 'svg'>>;
     /**Method to handle Input Change e.g filtering logic*/
     handleInputChange: (inputValue: string) => void;
     /**Method to handle Selection of option e.g navigation*/

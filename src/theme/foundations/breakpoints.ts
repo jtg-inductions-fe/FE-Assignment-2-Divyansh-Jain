@@ -7,10 +7,7 @@ Tablet: 768px and above
 Small Desktop: 1024px and above
 Desktop: 1440px and above
 Large Desktop: 1920 and above
-
-
 */
-
 export const breakpoints: BreakpointsOptions = {
     values: {
         xs: 320,
