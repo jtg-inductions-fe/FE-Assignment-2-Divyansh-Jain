@@ -16,7 +16,7 @@ export const CardListItem = ({
 }: CardListItemProps) => {
     const { palette } = useTheme();
     return (
-        <Stack>
+        <Stack maxWidth="100%">
             <Stack
                 direction="row"
                 justifyContent="space-between"
@@ -28,10 +28,10 @@ export const CardListItem = ({
                     direction="row"
                     alignItems="center"
                     gap={2}
-                    maxWidth="50%"
+                    maxWidth="90%"
                 >
                     {avatarSrc && <Avatar src={avatarSrc} alt={avatarAlt} />}
-                    <Box>
+                    <Box maxWidth="80%">
                         <Tooltip title={leftTitle}>
                             <Typography
                                 variant="subtitle1"
@@ -53,18 +53,9 @@ export const CardListItem = ({
                         </Tooltip>
                     </Box>
                 </Stack>
-                <Stack
-                    direction="row"
-                    alignItems="center"
-                    gap={1}
-                    maxWidth="50%"
-                >
+                <Stack direction="row" alignItems="center" gap={1}>
                     <Tooltip title={rightTitle}>
-                        <Typography
-                            variant="subtitle1"
-                            lines={1}
-                            maxWidth="100%"
-                        >
+                        <Typography variant="subtitle1" lines={1}>
                             {rightTitle}
                         </Typography>
                     </Tooltip>
@@ -74,7 +65,6 @@ export const CardListItem = ({
                                 variant="subtitle1"
                                 color={palette.text.secondary}
                                 lines={1}
-                                maxWidth="100%"
                             >
                                 {rightSubtitle}
                             </Typography>
