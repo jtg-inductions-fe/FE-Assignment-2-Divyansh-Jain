@@ -12,7 +12,11 @@ export const Customers = () => {
     return (
         <Paper
             component="section"
-            sx={{ minWidth: pxToRem(300), maxWidth: pxToRem(1024) }}
+            sx={{
+                minWidth: pxToRem(300),
+                maxWidth: pxToRem(1024),
+                flexGrow: 1,
+            }}
             aria-label="Latest Customers"
         >
             <Stack gap={4}>
