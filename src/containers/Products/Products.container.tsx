@@ -1,15 +1,20 @@
-import { List, Stack } from '@mui/material';
+import { List, Stack, useTheme } from '@mui/material';
 
 import { CardListItem, Paper, Typography } from '@components';
 import { useProduct } from '@hooks';
 
 export const Products = () => {
     const { products } = useProduct() || {};
-
+    const {
+        typography: { pxToRem },
+    } = useTheme();
     return (
         <Paper
             component="section"
-            sx={{ flexGrow: 3 }}
+            sx={{
+                flexGrow: 3,
+                minWidth: pxToRem(300),
+            }}
             aria-label="Top Products"
         >
             <Stack gap={4}>
