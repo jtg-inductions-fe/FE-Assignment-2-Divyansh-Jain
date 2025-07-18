@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, useTheme } from '@mui/material';
+import { Box, Divider, Stack, Tooltip, useTheme } from '@mui/material';
 
 import { Avatar, Typography } from '@components';
 
@@ -22,28 +22,63 @@ export const CardListItem = ({
                 justifyContent="space-between"
                 alignItems="center"
                 py={2}
+                gap={5}
             >
-                <Stack direction="row" alignItems="center" gap={2}>
+                <Stack
+                    direction="row"
+                    alignItems="center"
+                    gap={2}
+                    maxWidth="50%"
+                >
                     {avatarSrc && <Avatar src={avatarSrc} alt={avatarAlt} />}
                     <Box>
-                        <Typography variant="subtitle1">{leftTitle}</Typography>
-                        <Typography
-                            variant="subtitle2"
-                            color={palette.text.secondary}
-                        >
-                            {leftSubtitle}
-                        </Typography>
+                        <Tooltip title={leftTitle}>
+                            <Typography
+                                variant="subtitle1"
+                                lines={1}
+                                maxWidth="100%"
+                            >
+                                {leftTitle}
+                            </Typography>
+                        </Tooltip>
+                        <Tooltip title={leftSubtitle}>
+                            <Typography
+                                variant="subtitle2"
+                                color={palette.text.secondary}
+                                lines={1}
+                                maxWidth="100%"
+                            >
+                                {leftSubtitle}
+                            </Typography>
+                        </Tooltip>
                     </Box>
                 </Stack>
-                <Stack direction="row" alignItems="center" gap={1}>
-                    <Typography variant="subtitle1">{rightTitle}</Typography>
-                    {rightSubtitle && (
+                <Stack
+                    direction="row"
+                    alignItems="center"
+                    gap={1}
+                    maxWidth="50%"
+                >
+                    <Tooltip title={rightTitle}>
                         <Typography
                             variant="subtitle1"
-                            color={palette.text.secondary}
+                            lines={1}
+                            maxWidth="100%"
                         >
-                            {rightSubtitle}
+                            {rightTitle}
                         </Typography>
+                    </Tooltip>
+                    {rightSubtitle && (
+                        <Tooltip title={rightSubtitle}>
+                            <Typography
+                                variant="subtitle1"
+                                color={palette.text.secondary}
+                                lines={1}
+                                maxWidth="100%"
+                            >
+                                {rightSubtitle}
+                            </Typography>
+                        </Tooltip>
                     )}
                 </Stack>
             </Stack>
