@@ -7,12 +7,12 @@ export function dataFormatter(name: string, value: string | number) {
     if (typeof value === 'string') {
         return {
             name,
-            value: `$${value}`,
+            value: `\$${value}`,
         };
     }
 
     return {
         name,
-        value: `$${numberFormatter(value)}`,
+        value: `\$${numberFormatter(value)}`,
     };
 }

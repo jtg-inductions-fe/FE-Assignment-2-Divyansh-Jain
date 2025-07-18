@@ -16,10 +16,9 @@ import {
     useTheme,
 } from '@mui/material';
 
-import { Paper, Typography } from '@components';
-import { ContextCard } from '@components';
+import { ContextCard, Paper, Typography } from '@components';
 import { useSales } from '@hooks';
-import { numberFormatter } from '@utilities';
+import { formatToDayMonth, numberFormatter } from '@utilities';
 
 import { dataFormatter } from './Sales.helper';
 import { StyledResponsiveContainer } from './Sales.styles';
@@ -36,8 +35,8 @@ export const Sales = () => {
 
     return (
         <Paper component="section" aria-label="Sales">
-            <Stack>
-                <Stack direction="row" gap={3} sx={{ px: 4, py: 11 }}>
+            <Stack gap={4}>
+                <Stack direction="row" gap={3} sx={{ px: 2, py: 4 }}>
                     <Typography variant="h2">Sales</Typography>
                     <MuiTooltip title="Note : This sales data is of year 2025">
                         <Box color={palette.text.secondary}>
@@ -51,6 +50,7 @@ export const Sales = () => {
                             dataKey="date"
                             interval={0}
                             padding={{ left: 60 }}
+                            tickFormatter={formatToDayMonth}
                             strokeWidth={0}
                             {...(isMobile && {
                                 angle: 45,
@@ -72,7 +72,7 @@ export const Sales = () => {
                                 <ContextCard
                                     active={active}
                                     payload={payload}
-                                    label={label}
+                                    xLabel={formatToDayMonth(label as string)}
                                     formatter={dataFormatter}
                                 />
                             )}

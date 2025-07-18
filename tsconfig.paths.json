@@ -24,7 +24,9 @@
             "@utilities": ["utilities/index"],
             "@utilities/*": ["utilities/*"],
             "@routes": ["routes/index"],
-            "@routes/*": ["routes/*"]
+            "@routes/*": ["routes/*"],
+            "@types": ["types/index"],
+            "@types/*": ["types/*"]
         }
     }
 }

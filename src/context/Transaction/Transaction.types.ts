@@ -1,3 +1,5 @@
+import { TDateISO } from '@types';
+
 export type Transaction = {
     /** Unique identifier for the transaction */
     id: string | number;
@@ -12,5 +14,5 @@ export type Transaction = {
     amount: number;
 
     /** Date and time of the transaction */
-    dateTime: Date;
+    dateTime: TDateISO;
 };

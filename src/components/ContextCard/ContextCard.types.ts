@@ -6,7 +6,7 @@ export type ContextCardProps = {
         value: string;
     }[];
     /**label provided to x-axis*/
-    label?: string | number;
+    xLabel?: string | number;
     /**represent whether the tick is active or not*/
     active: boolean;
     /**

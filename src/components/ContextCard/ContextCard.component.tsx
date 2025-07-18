@@ -17,12 +17,12 @@ export const ContextCard = (props: ContextCardProps) => {
 
     const isMobile = useMediaQuery(breakpoints.down('sm'));
 
-    const { payload, active, label, formatter } = props;
+    const { payload, active, xLabel, formatter } = props;
     if (active && payload?.length) {
         return (
             <StyledContextCard>
                 <Typography variant="subtitle2" color={text.secondary}>
-                    {label}
+                    {xLabel}
                 </Typography>
                 {payload.map((ele) => {
                     const { name, value } = formatter(ele.name, ele.value);
