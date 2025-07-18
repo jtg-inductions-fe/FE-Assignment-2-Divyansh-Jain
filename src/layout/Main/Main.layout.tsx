@@ -16,8 +16,7 @@ const Main = () => {
         setIsSidebarMounted(isDesktop);
     }, [isDesktop]);
 
-    const [isSidebarMounted, setIsSidebarMounted] =
-        useState<boolean>(isDesktop);
+    const [isSidebarMounted, setIsSidebarMounted] = useState<boolean>(false);
 
     /**
      * Toggle's sidebar state for example if isSidebarMounted was true then it will become false after toggleSidebar method is called
