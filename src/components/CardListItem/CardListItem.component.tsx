@@ -38,7 +38,10 @@ export const CardListItem = ({
                 <Stack direction="row" alignItems="center" gap={1}>
                     <Typography variant="subtitle1">{rightTitle}</Typography>
                     {rightSubtitle && (
-                        <Typography variant="subtitle2">
+                        <Typography
+                            variant="subtitle1"
+                            color={palette.text.secondary}
+                        >
                             {rightSubtitle}
                         </Typography>
                     )}
