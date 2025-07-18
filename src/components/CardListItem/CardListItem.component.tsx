@@ -1,15 +1,16 @@
-import { Box, Stack, useTheme } from '@mui/material';
+import { Box, Divider, Stack, useTheme } from '@mui/material';
 
 import { Avatar, Typography } from '@components';
 
 import { CardListItemProps } from './CardListItem.types';
 
 export const CardListItem = ({
-    imageUrl,
-    imageLabel,
-    primaryText,
-    secondaryText,
-    label,
+    src,
+    alt,
+    primaryText1,
+    secondaryText1,
+    primaryText2,
+    secondaryText2,
 }: CardListItemProps) => {
     const { palette } = useTheme();
     return (
@@ -21,21 +22,30 @@ export const CardListItem = ({
                 py={2}
             >
                 <Stack direction="row" alignItems="center" gap={2}>
-                    <Avatar src={imageUrl} alt={imageLabel} />
+                    {src && <Avatar src={src} alt={alt} />}
                     <Box>
                         <Typography variant="subtitle1">
-                            {primaryText}
+                            {primaryText1}
                         </Typography>
                         <Typography
                             variant="subtitle2"
                             color={palette.text.secondary}
                         >
-                            {secondaryText}
+                            {secondaryText1}
                         </Typography>
                     </Box>
                 </Stack>
-                <Typography variant="subtitle1">{label}</Typography>
+                <Stack direction="row" alignItems="center" gap={1}>
+                    <Typography variant="subtitle1">{primaryText2}</Typography>
+                    {secondaryText2 && (
+                        <Typography variant="subtitle2">
+                            {secondaryText2}
+                        </Typography>
+                    )}
+                </Stack>
             </Stack>
+            {}
+            <Divider />
         </Stack>
     );
 };
