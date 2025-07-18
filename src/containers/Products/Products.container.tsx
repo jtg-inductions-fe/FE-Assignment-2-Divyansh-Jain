@@ -7,7 +7,11 @@ export const Products = () => {
     const { products } = useProduct() || {};
 
     return (
-        <Paper component="section" sx={{ flexGrow: 3 }}>
+        <Paper
+            component="section"
+            sx={{ flexGrow: 3 }}
+            aria-label="Top Products"
+        >
             <Stack gap={4}>
                 <Typography variant="h3">Top Products</Typography>
                 <List>
