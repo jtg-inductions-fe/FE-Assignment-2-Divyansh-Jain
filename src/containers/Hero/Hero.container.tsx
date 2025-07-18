@@ -26,7 +26,7 @@ export const Hero = () => {
                 >
                     <img
                         style={{ maxHeight: '100%' }}
-                        src={`${item.imageUrl}`}
+                        src={item.imageUrl}
                         alt={item.imageLabel}
                     />
                 </ImageListItem>
