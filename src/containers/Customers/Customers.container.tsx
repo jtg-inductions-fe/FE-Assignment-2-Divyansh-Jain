@@ -1,20 +1,25 @@
 import { List, Stack } from '@mui/material';
 
 import { CardListItem, Paper, Typography } from '@components';
+import { numberFormatter } from '@containers/Sales/Sales.helper';
 import { useCustomer } from '@hooks';
 
 export const Customers = () => {
     const { customers } = useCustomer() || {};
 
     return (
-        <Paper component="section" sx={{ flexGrow: 1 }}>
+        <Paper
+            component="section"
+            sx={{ flexGrow: 1 }}
+            aria-label="Latest Customers"
+        >
             <Stack gap={4}>
                 <Typography variant="h3">Latest Customers</Typography>
                 <List>
                     {customers?.map((customer, index, arr) => (
                         <CardListItem
                             key={customer.id}
-                            rightTitle={`$${customer.totalSpent}`}
+                            rightTitle={`$${numberFormatter(customer.totalSpent)}`}
                             leftTitle={customer.fullname}
                             leftSubtitle={customer.email}
                             avatarSrc={customer.profileUrl}
