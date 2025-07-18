@@ -20,11 +20,11 @@ export const ContextCard = (props: ContextCardProps) => {
                 <Typography variant="subtitle2" color={text.secondary}>
                     {label}
                 </Typography>
-                {payload.map((ele, index) => {
+                {payload.map((ele) => {
                     const [name, value] = formatter(ele.name, ele.value);
                     return (
                         <Stack
-                            key={index}
+                            key={name}
                             direction="row"
                             alignItems="center"
                             gap={2}
