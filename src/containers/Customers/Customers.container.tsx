@@ -11,14 +11,15 @@ export const Customers = () => {
             <Stack gap={4}>
                 <Typography variant="h3">Latest Customers</Typography>
                 <List>
-                    {customers?.map((customer) => (
+                    {customers?.map((customer, index, arr) => (
                         <CardListItem
                             key={customer.id}
-                            primaryText2={customer.totalSpent.toString()}
-                            primaryText1={customer.fullname}
-                            secondaryText1={customer.email}
-                            src={customer.profileUrl}
-                            alt={customer.fullname}
+                            rightTitle={`$${customer.totalSpent}`}
+                            leftTitle={customer.fullname}
+                            leftSubtitle={customer.email}
+                            avatarSrc={customer.profileUrl}
+                            avatarAlt={customer.fullname}
+                            showDivider={index < arr.length - 1}
                         />
                     ))}
                 </List>

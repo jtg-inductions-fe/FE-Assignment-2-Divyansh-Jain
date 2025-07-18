@@ -4,13 +4,15 @@ import { Avatar, Typography } from '@components';
 
 import { CardListItemProps } from './CardListItem.types';
 
+/** CardList component with optional avatar support. */
 export const CardListItem = ({
-    src,
-    alt,
-    primaryText1,
-    secondaryText1,
-    primaryText2,
-    secondaryText2,
+    avatarSrc,
+    avatarAlt,
+    leftTitle,
+    leftSubtitle,
+    rightTitle,
+    rightSubtitle,
+    showDivider,
 }: CardListItemProps) => {
     const { palette } = useTheme();
     return (
@@ -22,30 +24,27 @@ export const CardListItem = ({
                 py={2}
             >
                 <Stack direction="row" alignItems="center" gap={2}>
-                    {src && <Avatar src={src} alt={alt} />}
+                    {avatarSrc && <Avatar src={avatarSrc} alt={avatarAlt} />}
                     <Box>
-                        <Typography variant="subtitle1">
-                            {primaryText1}
-                        </Typography>
+                        <Typography variant="subtitle1">{leftTitle}</Typography>
                         <Typography
                             variant="subtitle2"
                             color={palette.text.secondary}
                         >
-                            {secondaryText1}
+                            {leftSubtitle}
                         </Typography>
                     </Box>
                 </Stack>
                 <Stack direction="row" alignItems="center" gap={1}>
-                    <Typography variant="subtitle1">{primaryText2}</Typography>
-                    {secondaryText2 && (
+                    <Typography variant="subtitle1">{rightTitle}</Typography>
+                    {rightSubtitle && (
                         <Typography variant="subtitle2">
-                            {secondaryText2}
+                            {rightSubtitle}
                         </Typography>
                     )}
                 </Stack>
             </Stack>
-            {}
-            <Divider />
+            {showDivider && <Divider />}
         </Stack>
     );
 };
