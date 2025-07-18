@@ -1,15 +1,15 @@
 export type Transaction = {
     /** Unique identifier for the transaction */
     id: string | number;
-
-    /** Description or title of the transaction */
-    transaction: string;
-
+    to?: string;
+    from?: string;
+    /** Type REFUND OR TRANSFER */
+    type: string;
     /** Current status of the transaction */
-    status: 'CANCELLED' | 'IN PROGRESS' | 'COMPLETED';
+    status: string;
 
     /** Amount involved in the transaction */
-    amount: number;
+    amount: string;
 
     /** Date and time of the transaction */
     dateTime: string;
