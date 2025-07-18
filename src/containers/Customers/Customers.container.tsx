@@ -1,8 +1,8 @@
 import { List, Stack } from '@mui/material';
 
 import { CardListItem, Paper, Typography } from '@components';
-import { numberFormatter } from '@containers/Sales/Sales.helper';
 import { useCustomer } from '@hooks';
+import { numberFormatter } from '@utilities';
 
 export const Customers = () => {
     const { customers } = useCustomer() || {};
