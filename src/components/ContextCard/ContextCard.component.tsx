@@ -24,7 +24,7 @@ export const ContextCard = (props: ContextCardProps) => {
                     const [name, value] = formatter(ele.name, ele.value);
                     return (
                         <Stack
-                            key={name}
+                            key={value}
                             direction="row"
                             alignItems="center"
                             gap={2}
