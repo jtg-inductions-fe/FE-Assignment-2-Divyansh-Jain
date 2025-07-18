@@ -3,7 +3,7 @@ export type Sales = {
     date: string;
 
     /** Total amount in revenue or earnings for the given date */
-    amt: number;
+    amount: number;
 
     /** Number of individual sales made on the given date */
     sales: number;

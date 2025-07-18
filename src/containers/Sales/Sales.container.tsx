@@ -16,11 +16,12 @@ import {
     useTheme,
 } from '@mui/material';
 
-import { Paper, ResponsiveContainer, Typography } from '@components';
-import { ContextCard } from '@components/ContextCard';
+import { Paper, Typography } from '@components';
+import { ContextCard } from '@components';
 import { useSales } from '@hooks';
 
-import { dataFormatter } from './Sales.helper';
+import { dataFormatter, numberFormatter } from './Sales.helper';
+import { StyledResponsiveContainer } from './Sales.styles';
 
 export const Sales = () => {
     const {
@@ -43,7 +44,7 @@ export const Sales = () => {
                         </Box>
                     </MuiTooltip>
                 </Stack>
-                <ResponsiveContainer width="100%" height={500}>
+                <StyledResponsiveContainer width="100%" height={500}>
                     <LineChart data={data} margin={{ right: 40 }}>
                         <XAxis
                             dataKey="date"
@@ -57,10 +58,10 @@ export const Sales = () => {
                             })}
                         />
                         <YAxis
-                            dataKey="amt"
-                            unit="K"
+                            dataKey="amount"
                             strokeWidth={0}
                             hide={isMobile}
+                            tickFormatter={numberFormatter}
                         />
                         <Tooltip
                             offset={-78}
@@ -85,7 +86,7 @@ export const Sales = () => {
                             strokeWidth={pxToRem(4)}
                         />
                     </LineChart>
-                </ResponsiveContainer>
+                </StyledResponsiveContainer>
             </Stack>
         </Paper>
     );

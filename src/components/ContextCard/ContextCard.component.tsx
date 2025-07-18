@@ -21,7 +21,7 @@ export const ContextCard = (props: ContextCardProps) => {
                     {label}
                 </Typography>
                 {payload.map((ele) => {
-                    const [name, value] = formatter(ele.name, ele.value);
+                    const { name, value } = formatter(ele.name, ele.value);
                     return (
                         <Stack
                             key={value}

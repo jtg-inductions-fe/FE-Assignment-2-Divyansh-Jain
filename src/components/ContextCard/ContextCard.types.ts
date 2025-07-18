@@ -12,5 +12,8 @@ export type ContextCardProps = {
     /**
      * Formats the name and value according to custom logic or display preferences.
      */
-    formatter: (name: string, value: string) => string[];
+    formatter: (
+        name: string,
+        value: string | number,
+    ) => { name: string; value: string };
 };

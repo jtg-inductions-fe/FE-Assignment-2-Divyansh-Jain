@@ -4,38 +4,38 @@
     "data": [
         {
             "date": "01 Apr",
-            "sales": 80,
-            "amt": 0
+            "sales": 80000,
+            "amount": 0
         },
         {
             "date": "02 Apr",
-            "sales": 90,
-            "amt": 40
+            "sales": 90000,
+            "amount": 40000
         },
         {
             "date": "03 Apr",
-            "sales": 85,
-            "amt": 80
+            "sales": 85000,
+            "amount": 80000
         },
         {
             "date": "04 Apr",
-            "sales": 90,
-            "amt": 120
+            "sales": 90000,
+            "amount": 120000
         },
         {
             "date": "05 Apr",
-            "sales": 75,
-            "amt": 160
+            "sales": 75000,
+            "amount": 160000
         },
         {
             "date": "06 Apr",
-            "sales": 95,
-            "amt": 200
+            "sales": 95000,
+            "amount": 200000
         },
         {
             "date": "07 Apr",
-            "sales": 80,
-            "amt": 240
+            "sales": 80000,
+            "amount": 240000
         }
     ]
 }

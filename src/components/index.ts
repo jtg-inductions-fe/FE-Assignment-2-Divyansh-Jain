@@ -9,4 +9,4 @@ export { Drawer } from './Drawer';
 export { List } from './List';
 export type { ListItemType } from './List';
 export { Paper } from './Paper';
-export { ResponsiveContainer } from './ResponsiveContainer';
+export { ContextCard } from './ContextCard';
