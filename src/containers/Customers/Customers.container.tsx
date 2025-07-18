@@ -1,4 +1,4 @@
-import { List, Stack, useTheme } from '@mui/material';
+import { List, Stack } from '@mui/material';
 
 import { CardListItem, Paper, Typography } from '@components';
 import { useCustomer } from '@hooks';
@@ -6,15 +6,11 @@ import { numberFormatter } from '@utilities';
 
 export const Customers = () => {
     const { customers } = useCustomer() || {};
-    const {
-        typography: { pxToRem },
-    } = useTheme();
+
     return (
         <Paper
             component="section"
             sx={{
-                minWidth: pxToRem(300),
-                maxWidth: pxToRem(1024),
                 flexGrow: 1,
             }}
             aria-label="Latest Customers"

@@ -16,7 +16,7 @@ export const CardListItem = ({
 }: CardListItemProps) => {
     const { palette } = useTheme();
     return (
-        <Stack maxWidth="100%">
+        <Stack>
             <Stack
                 direction="row"
                 justifyContent="space-between"
@@ -24,20 +24,11 @@ export const CardListItem = ({
                 py={2}
                 gap={5}
             >
-                <Stack
-                    direction="row"
-                    alignItems="center"
-                    gap={2}
-                    maxWidth="90%"
-                >
+                <Stack direction="row" alignItems="center" gap={2}>
                     {avatarSrc && <Avatar src={avatarSrc} alt={avatarAlt} />}
-                    <Box maxWidth="80%">
+                    <Box>
                         <Tooltip title={leftTitle}>
-                            <Typography
-                                variant="subtitle1"
-                                lines={1}
-                                maxWidth="100%"
-                            >
+                            <Typography variant="subtitle1">
                                 {leftTitle}
                             </Typography>
                         </Tooltip>
@@ -45,8 +36,6 @@ export const CardListItem = ({
                             <Typography
                                 variant="subtitle2"
                                 color={palette.text.secondary}
-                                lines={1}
-                                maxWidth="100%"
                             >
                                 {leftSubtitle}
                             </Typography>
@@ -55,7 +44,7 @@ export const CardListItem = ({
                 </Stack>
                 <Stack direction="row" alignItems="center" gap={1}>
                     <Tooltip title={rightTitle}>
-                        <Typography variant="subtitle1" lines={1}>
+                        <Typography variant="subtitle1">
                             {rightTitle}
                         </Typography>
                     </Tooltip>
@@ -64,7 +53,6 @@ export const CardListItem = ({
                             <Typography
                                 variant="subtitle1"
                                 color={palette.text.secondary}
-                                lines={1}
                             >
                                 {rightSubtitle}
                             </Typography>
