@@ -1,11 +1,15 @@
 import { TransactionContext } from 'context';
 
+import transactionsData from './Transaction.data.json';
+
 export const TransactionContextProvider = ({
     children,
 }: {
     children: React.ReactNode;
 }) => (
-    <TransactionContext.Provider value={null}>
+    <TransactionContext.Provider
+        value={{ transactions: transactionsData.transactions }}
+    >
         {children}
     </TransactionContext.Provider>
 );

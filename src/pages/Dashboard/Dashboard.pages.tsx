@@ -2,7 +2,7 @@
 
 import { Stack, useMediaQuery, useTheme } from '@mui/material';
 
-import { Customers, Hero, Products, Sales } from '@containers';
+import { Customers, Hero, Products, Sales, Transactions } from '@containers';
 
 export const Dashboard = () => {
     const { breakpoints } = useTheme();
@@ -16,6 +16,7 @@ export const Dashboard = () => {
                 <Customers />
                 <Products />
             </Stack>
+            <Transactions />
         </Stack>
     );
 };
