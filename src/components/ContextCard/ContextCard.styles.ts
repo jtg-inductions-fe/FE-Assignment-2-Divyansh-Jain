@@ -6,9 +6,14 @@ export const StyledContextCard = styled(Box)(
             spacing,
             typography: { pxToRem },
             palette,
+            breakpoints,
         },
     }) => ({
-        padding: spacing(4, 6),
+        padding: spacing(2, 4),
+
+        [breakpoints.down('sm')]: {
+            padding: spacing(4, 6),
+        },
         borderRadius: pxToRem(12),
         background: palette.common.white,
         filter: `drop-shadow(0 2px 2px  ${palette.grey[400]})`,

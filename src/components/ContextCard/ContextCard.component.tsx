@@ -1,4 +1,4 @@
-import { Chip, Stack, useTheme } from '@mui/material';
+import { Chip, Stack, useMediaQuery, useTheme } from '@mui/material';
 
 import { Typography } from '@components';
 
@@ -12,7 +12,11 @@ import { ContextCardProps } from './ContextCard.types';
 export const ContextCard = (props: ContextCardProps) => {
     const {
         palette: { text },
+        breakpoints,
     } = useTheme();
+
+    const isMobile = useMediaQuery(breakpoints.down('sm'));
+
     const { payload, active, label, formatter } = props;
     if (active && payload?.length) {
         return (
@@ -25,14 +29,19 @@ export const ContextCard = (props: ContextCardProps) => {
                     return (
                         <Stack
                             key={value}
-                            direction="row"
+                            direction={isMobile ? 'column' : 'row'}
                             alignItems="center"
                             gap={2}
                         >
-                            <Chip className="active-circle" />
-                            <Typography variant="body1" color={text.secondary}>
-                                {name}
-                            </Typography>
+                            <Stack direction="row" alignItems="center" gap={1}>
+                                <Chip className="active-circle" />
+                                <Typography
+                                    variant="body1"
+                                    color={text.secondary}
+                                >
+                                    {name}
+                                </Typography>
+                            </Stack>
                             <Typography variant="h4">{value}</Typography>
                         </Stack>
                     );

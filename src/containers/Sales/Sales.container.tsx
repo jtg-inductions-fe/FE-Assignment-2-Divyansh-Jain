@@ -62,10 +62,12 @@ export const Sales = () => {
                             dataKey="amount"
                             strokeWidth={0}
                             hide={isMobile}
+                            tickCount={data?.length}
                             tickFormatter={numberFormatter}
                         />
                         <Tooltip
-                            offset={-78}
+                            offset={isMobile ? -45 : -70}
+                            allowEscapeViewBox={{ x: true }}
                             content={({ payload, active, label }) => (
                                 <ContextCard
                                     active={active}
