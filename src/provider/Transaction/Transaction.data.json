@@ -1,51 +1,57 @@
 {
     "transactions": [
         {
-            "id": "1",
+            "id": "txn-01",
+            "transaction": "Payment from Bonnie Green",
+            "type": "CREDIT",
             "from": "Bonnie Green",
-            "type": "TRANSFER",
             "status": "COMPLETED",
-            "amount": "$2300",
+            "amount": 2300,
             "dateTime": "Apr 23 ,2021"
         },
         {
-            "id": "2",
+            "id": "txn-02",
+            "transaction": "Payment to Bonnie Green",
+            "type": "DEBIT",
             "to": "Bonnie Green",
-            "type": "REFUND",
             "status": "COMPLETED",
-            "amount": "$2300",
+            "amount": 650,
             "dateTime": "Apr 23 ,2021"
         },
         {
-            "id": "3",
-            "from": "Jese Leos",
-            "type": "TRANSFER",
+            "id": "txn-03",
+            "transaction": "Payment failed from Jese Leos",
+            "type": "CREDIT",
             "status": "CANCELLED",
-            "amount": "$2300",
+            "from": "Jese Leos",
+            "amount": 234,
             "dateTime": "Apr 18 ,2021"
         },
         {
-            "id": "4",
+            "id": "txn-04",
+            "transaction": "Payment from Bonnie Green",
+            "type": "CREDIT",
             "from": "Bonnie Green",
-            "type": "TRANSFER",
             "status": "IN PROGRESS",
-            "amount": "$5000",
+            "amount": 5000,
             "dateTime": "Apr 15 ,2021"
         },
         {
-            "id": "5",
+            "id": "txn-05",
+            "transaction": "Payment from Jese Leos",
+            "type": "CREDIT",
             "from": "Jese Leos",
-            "type": "TRANSFER",
             "status": "IN PROGRESS",
-            "amount": "$2300",
+            "amount": 2300,
             "dateTime": "Apr 15 ,2021"
         },
         {
-            "id": "6",
+            "id": "txn-06",
+            "transaction": "Payment from THEMSBERG LLC",
+            "type": "CREDIT",
             "from": "THEMSBERG LLC",
-            "type": "TRANSFER",
             "status": "COMPLETED",
-            "amount": "$280",
+            "amount": 280,
             "dateTime": "Apr 11 ,2021"
         }
     ]
