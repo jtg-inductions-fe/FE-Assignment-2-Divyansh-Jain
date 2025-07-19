@@ -9,6 +9,7 @@ import { Paper, Typography } from '@components';
 import { useTransaction } from '@hooks';
 import { formatToDayMonthYear, numberFormatter, titleCase } from '@utilities';
 
+import { TransactionTableConfig } from './Transactions.config';
 import {
     generateTransactionMessage,
     getStatusColor,
@@ -44,14 +45,9 @@ export const Transactions = () => {
                             <StyledTableRow
                                 sx={{ background: palette.grey[50] }}
                             >
-                                {[
-                                    'TRANSACTION',
-                                    'DATE & TIME',
-                                    'AMOUNT',
-                                    'STATUS',
-                                ].map((colName) => (
-                                    <TableCell key={colName}>
-                                        {colName}
+                                {TransactionTableConfig.map(({ id, name }) => (
+                                    <TableCell key={id}>
+                                        {name.toUpperCase()}
                                     </TableCell>
                                 ))}
                             </StyledTableRow>
