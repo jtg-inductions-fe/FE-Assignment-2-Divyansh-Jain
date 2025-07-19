@@ -1,4 +1,4 @@
-import { Chip, Stack } from '@mui/material';
+import { Box, Chip, Stack, useTheme } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,79 +8,109 @@ import TableRow from '@mui/material/TableRow';
 
 import { Paper, Typography } from '@components';
 import { useTransaction } from '@hooks';
+import { numberFormatter } from '@utilities';
+
+import {
+    generateTransactionMessage,
+    getStatusColor,
+} from './Transactions.helper';
 
 export const Transactions = () => {
     const { transactions } = useTransaction() || {};
-
-    const getStatusColor = (status: string) => {
-        switch (status) {
-            case 'COMPLETED':
-                return 'success';
-            case 'IN PROGRESS':
-                return 'info';
-            case 'CANCELLED':
-                return 'error';
-        }
-    };
+    const { palette, breakpoints } = useTheme();
 
     return (
-        <Paper component="section">
-            <TableContainer sx={{ overflowX: 'auto', minWidth: '768px' }}>
-                <Table aria-label="transaction table">
-                    <TableHead>
-                        <TableRow>
-                            {[
-                                'Transaction',
-                                'DATE & TIME',
-                                'AMOUNT',
-                                'STATUS',
-                            ].map((colName) => (
-                                <TableCell key={colName}>{colName}</TableCell>
-                            ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {transactions?.map((transaction, index) => (
-                            <TableRow key={index}>
-                                <TableCell>
-                                    <Stack
-                                        direction="row"
-                                        alignItems="center"
-                                        gap={2}
-                                        width="max-content"
-                                    >
-                                        <Typography variant="body2">
-                                            Payment{' '}
-                                            {transaction.type === 'REFUND'
-                                                ? `Refund to`
-                                                : 'from'}
-                                        </Typography>
-                                        <Typography variant="subtitle1">
-                                            {transaction.type === 'REFUND'
-                                                ? transaction.to
-                                                : transaction.from}
-                                        </Typography>
-                                    </Stack>
-                                </TableCell>
-                                <TableCell sx={{ width: '30%' }}>
-                                    {transaction.dateTime}
-                                </TableCell>
-                                <TableCell sx={{ width: '30%' }}>
-                                    {transaction.amount}
-                                </TableCell>
-                                <TableCell>
-                                    <Chip
-                                        label={transaction.status}
-                                        color={getStatusColor(
-                                            transaction.status,
-                                        )}
-                                    />
-                                </TableCell>
+        <Paper component="section" aria-label="transaction">
+            <Stack gap={4}>
+                <Box>
+                    <Typography variant="h3">Transactions</Typography>
+                    <Typography variant="body2" color={palette.text.secondary}>
+                        This is a list of latest transactions.
+                    </Typography>
+                </Box>
+                <TableContainer>
+                    <Table
+                        size="small"
+                        sx={{
+                            minWidth: breakpoints.values.md,
+                            overflow: 'auto',
+                            cursor: 'pointer',
+                        }}
+                        aria-label="transaction"
+                    >
+                        <TableHead>
+                            <TableRow sx={{ background: palette.grey[50] }}>
+                                {[
+                                    'TRANSACTION',
+                                    'DATE & TIME',
+                                    'AMOUNT',
+                                    'STATUS',
+                                ].map((colName) => (
+                                    <TableCell key={colName}>
+                                        {colName}
+                                    </TableCell>
+                                ))}
                             </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                        </TableHead>
+                        <TableBody>
+                            {transactions?.map((transaction, index) => (
+                                <TableRow
+                                    key={index}
+                                    sx={{
+                                        backgroundColor:
+                                            index & 1 && palette.grey[50],
+                                    }}
+                                    hover
+                                >
+                                    <TableCell sx={{ maxWidth: '80%' }}>
+                                        <Stack
+                                            direction="row"
+                                            alignItems="center"
+                                            gap={2}
+                                            minWidth={0}
+                                        >
+                                            <Typography
+                                                variant="body2"
+                                                lines={1}
+                                                minWidth={0}
+                                            >
+                                                {generateTransactionMessage(
+                                                    transaction,
+                                                )}
+                                            </Typography>
+                                            <Typography lines={1} minWidth={0}>
+                                                {transaction.type === 'CREDIT'
+                                                    ? transaction.from
+                                                    : transaction.to}
+                                            </Typography>
+                                        </Stack>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Typography
+                                            variant="body2"
+                                            color={palette.text.secondary}
+                                        >
+                                            {transaction.dateTime}
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        {transaction.type === 'DEBIT' && '-'}
+                                        {`\$${numberFormatter(transaction.amount)}`}
+                                    </TableCell>
+                                    <TableCell>
+                                        <Chip
+                                            label={transaction.status}
+                                            color={getStatusColor(
+                                                transaction.status,
+                                            )}
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Stack>
         </Paper>
     );
 };
