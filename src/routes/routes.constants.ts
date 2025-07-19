@@ -18,4 +18,8 @@ export const ROUTES = {
     PREFERENCES: '/preferences',
     LANGUAGES: '/languages',
     SETTINGS: '/settings',
+    FACEBOOK: 'https://www.facebook.com/',
+    TWITTER: 'https://x.com/',
+    GITHUB: 'https://github.com/',
+    LINKEDIN: 'https://in.linkedin.com/',
 };
