@@ -20,12 +20,13 @@ export const palette: PaletteOptions = {
         contrastText: '#9B1C1C',
     },
     success: {
-        light: '#DEF7EC',
-        main: '#0E9F6E',
-        dark: '#03543F',
-        contrastText: '#FFFFFF',
+        main: '#DEF7EC',
+        contrastText: '#03543F',
     },
     background: {
         default: '#F9FAFB',
+    },
+    grey: {
+        '50': '#F9FAFB',
     },
 };

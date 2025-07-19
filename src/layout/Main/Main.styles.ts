@@ -5,7 +5,6 @@ export const StyledBox = styled(Box)(({ theme: { breakpoints, spacing } }) => ({
     flexGrow: 1,
     overflowX: 'hidden',
     height: '100vh',
-
     padding: spacing(0, 4),
 
     [breakpoints.up('xs')]: {
