@@ -3,7 +3,7 @@
         {
             "id": "txn-01",
             "type": "CREDIT",
-            "transactionDirection": "RECIEVED",
+            "transactionDirection": "RECEIVED",
             "from": "Bonnie Green",
             "status": "COMPLETED",
             "amount": 2300,
@@ -21,7 +21,7 @@
         {
             "id": "txn-03",
             "type": "CREDIT",
-            "transactionDirection": "RECIEVED",
+            "transactionDirection": "RECEIVED",
             "status": "CANCELLED",
             "from": "Jese Leos",
             "amount": 234,
@@ -30,7 +30,7 @@
         {
             "id": "txn-04",
             "type": "CREDIT",
-            "transactionDirection": "RECIEVED",
+            "transactionDirection": "RECEIVED",
             "from": "Bonnie Green",
             "status": "IN PROGRESS",
             "amount": 5000,
@@ -40,7 +40,7 @@
             "id": "txn-05",
             "type": "CREDIT",
             "from": "Jese Leos",
-            "transactionDirection": "RECIEVED",
+            "transactionDirection": "RECEIVED",
             "status": "IN PROGRESS",
             "amount": 2300,
             "dateTime": "2021-04-15T00:00:00Z"
@@ -48,7 +48,7 @@
         {
             "id": "txn-06",
             "type": "CREDIT",
-            "transactionDirection": "RECIEVED",
+            "transactionDirection": "RECEIVED",
             "from": "THEMSBERG LLC",
             "status": "COMPLETED",
             "amount": 280,

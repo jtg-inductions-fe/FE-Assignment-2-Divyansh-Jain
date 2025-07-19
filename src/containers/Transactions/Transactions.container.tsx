@@ -84,7 +84,7 @@ export const Transactions = () => {
                                                 variant="body2"
                                             >
                                                 {transaction.transactionDirection ===
-                                                'RECIEVED'
+                                                'RECEIVED'
                                                     ? transaction.from
                                                     : transaction.to}
                                             </Typography>
