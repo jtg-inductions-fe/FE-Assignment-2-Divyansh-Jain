@@ -4,16 +4,16 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 
 import { Paper, Typography } from '@components';
 import { useTransaction } from '@hooks';
-import { numberFormatter } from '@utilities';
+import { formatToDayMonthYear, numberFormatter } from '@utilities';
 
 import {
     generateTransactionMessage,
     getStatusColor,
 } from './Transactions.helper';
+import { StyledTableCell, StyledTableRow } from './Transactions.styles';
 
 export const Transactions = () => {
     const { transactions } = useTransaction() || {};
@@ -39,7 +39,9 @@ export const Transactions = () => {
                         aria-label="transaction"
                     >
                         <TableHead>
-                            <TableRow sx={{ background: palette.grey[50] }}>
+                            <StyledTableRow
+                                sx={{ background: palette.grey[50] }}
+                            >
                                 {[
                                     'TRANSACTION',
                                     'DATE & TIME',
@@ -50,19 +52,12 @@ export const Transactions = () => {
                                         {colName}
                                     </TableCell>
                                 ))}
-                            </TableRow>
+                            </StyledTableRow>
                         </TableHead>
                         <TableBody>
                             {transactions?.map((transaction, index) => (
-                                <TableRow
-                                    key={index}
-                                    sx={{
-                                        backgroundColor:
-                                            index & 1 && palette.grey[50],
-                                    }}
-                                    hover
-                                >
-                                    <TableCell sx={{ maxWidth: '80%' }}>
+                                <StyledTableRow key={index} hover>
+                                    <StyledTableCell>
                                         <Stack
                                             direction="row"
                                             alignItems="center"
@@ -75,7 +70,9 @@ export const Transactions = () => {
                                                 minWidth={0}
                                             >
                                                 {generateTransactionMessage(
-                                                    transaction,
+                                                    transaction.status,
+                                                    transaction.type,
+                                                    transaction.transactionDirection,
                                                 )}
                                             </Typography>
                                             <Typography lines={1} minWidth={0}>
@@ -84,28 +81,30 @@ export const Transactions = () => {
                                                     : transaction.to}
                                             </Typography>
                                         </Stack>
-                                    </TableCell>
-                                    <TableCell>
+                                    </StyledTableCell>
+                                    <StyledTableCell>
                                         <Typography
                                             variant="body2"
                                             color={palette.text.secondary}
                                         >
-                                            {transaction.dateTime}
+                                            {formatToDayMonthYear(
+                                                transaction.dateTime,
+                                            )}
                                         </Typography>
-                                    </TableCell>
-                                    <TableCell>
+                                    </StyledTableCell>
+                                    <StyledTableCell>
                                         {transaction.type === 'DEBIT' && '-'}
                                         {`\$${numberFormatter(transaction.amount)}`}
-                                    </TableCell>
-                                    <TableCell>
+                                    </StyledTableCell>
+                                    <StyledTableCell>
                                         <Chip
                                             label={transaction.status}
                                             color={getStatusColor(
                                                 transaction.status,
                                             )}
                                         />
-                                    </TableCell>
-                                </TableRow>
+                                    </StyledTableCell>
+                                </StyledTableRow>
                             ))}
                         </TableBody>
                     </Table>
