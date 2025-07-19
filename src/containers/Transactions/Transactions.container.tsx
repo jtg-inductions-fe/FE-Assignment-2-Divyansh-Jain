@@ -47,7 +47,12 @@ export const Transactions = () => {
                             >
                                 {TransactionTableConfig.map(({ id, name }) => (
                                     <TableCell key={id}>
-                                        {name.toUpperCase()}
+                                        <Typography
+                                            variant="body2"
+                                            color={palette.text.secondary}
+                                        >
+                                            {name.toUpperCase()}
+                                        </Typography>
                                     </TableCell>
                                 ))}
                             </StyledTableRow>
