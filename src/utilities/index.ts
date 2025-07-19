@@ -1,2 +1,2 @@
 export { debounce } from './debounce';
-export { numberFormatter, formatToDayMonth } from './formatter';
+export { numberFormatter, formatToDayMonth } from './formatters';
