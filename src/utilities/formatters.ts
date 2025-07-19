@@ -91,12 +91,18 @@ export function formatToDayMonth(isoDate: string): string {
  *
  * @example
  * titleCase("completed"); // "Completed"
- * titleCase("IN PROGRESS"); // "In progress"
+ * titleCase("IN PROGRESS"); // "In Progress"
  * titleCase(""); // ""
  */
 export function titleCase(str: string) {
     if (str.length > 0) {
-        return str[0].toUpperCase() + str.slice(1).toLowerCase();
+        const strArray = str.split(' ');
+
+        const titleCasedString = strArray.map(
+            (s) => s[0].toUpperCase() + s.slice(1).toLowerCase(),
+        );
+
+        return titleCasedString.join(' ');
     }
     return str;
 }
