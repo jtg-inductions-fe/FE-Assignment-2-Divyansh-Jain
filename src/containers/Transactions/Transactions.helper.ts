@@ -9,7 +9,13 @@
  * @returns A string representing the color category.
  */
 
-export const getStatusColor = (status: string) => {
+import {
+    TransactionDirection,
+    TransactionStatus,
+    TransactionType,
+} from '@context';
+
+export const getStatusColor = (status: TransactionStatus) => {
     switch (status) {
         case 'COMPLETED':
             return 'success';
@@ -39,21 +45,21 @@ export const getStatusColor = (status: string) => {
  * - "Paid to"
  */
 export function generateTransactionMessage(
-    status: string,
-    type: string,
-    transactionDirection: string,
+    status: TransactionStatus,
+    type: TransactionType,
+    transactionDirection: TransactionDirection,
 ) {
     if (status === 'CANCELLED') {
         return 'Payment failed';
     }
 
-    if (type === 'CREDIT' && transactionDirection === 'RECIEVED') {
+    if (type === 'CREDIT' && transactionDirection === 'RECEIVED') {
         return 'Payment from';
     }
 
     if (type === 'DEBIT') {
         if (transactionDirection === 'REFUNDED') return 'Payment Refund to';
 
-        if (transactionDirection === 'TRANSFERED') return 'Paid to';
+        if (transactionDirection === 'TRANSFERRED') return 'Paid to';
     }
 }

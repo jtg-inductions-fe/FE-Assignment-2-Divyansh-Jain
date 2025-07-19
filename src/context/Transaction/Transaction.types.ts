@@ -1,3 +1,9 @@
+export type TransactionDirection = 'TRANSFERRED' | 'RECEIVED' | 'REFUNDED';
+
+export type TransactionStatus = 'CANCELLED' | 'IN PROGRESS' | 'COMPLETED';
+
+export type TransactionType = 'CREDIT' | 'DEBIT';
+
 export type Transaction = {
     /** Unique identifier for the transaction */
     id: string | number;
@@ -6,7 +12,7 @@ export type Transaction = {
     /**Name of Person Who has Initiated The Transaction */
     from?: string;
     /**Denotes Type of Transation e.g (DEBIT , CREDIT) */
-    type: 'CREDIT' | 'DEBIT';
+    type: TransactionType;
     /**
      * Denotes the business direction of the transaction.
      *
@@ -15,9 +21,9 @@ export type Transaction = {
      * - "RECEIVED" → Money received from a customer
      * - "REFUNDED" → Money refunded to a customer
      */
-    transactionDirection: 'TRANSFER' | 'RECIEVED' | 'REFUNDED';
+    transactionDirection: TransactionDirection;
     /** Current status of the transaction */
-    status: 'CANCELLED' | 'IN PROGRESS' | 'COMPLETED';
+    status: TransactionStatus;
     /** Amount involved in the transaction */
     amount: number;
     /** Date and time of the transaction */
