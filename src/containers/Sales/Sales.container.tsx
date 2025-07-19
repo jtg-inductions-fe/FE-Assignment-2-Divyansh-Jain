@@ -18,7 +18,11 @@ import {
 
 import { ContextCard, Paper, Typography } from '@components';
 import { useSales } from '@hooks';
-import { formatToDayMonth, numberFormatter } from '@utilities';
+import {
+    formatToDayMonth,
+    formatToDayMonthYear,
+    numberFormatter,
+} from '@utilities';
 
 import { dataFormatter } from './Sales.helper';
 import { StyledResponsiveContainer } from './Sales.styles';
@@ -27,9 +31,8 @@ export const Sales = () => {
     const {
         palette,
         breakpoints,
-        typography: { pxToRem },
+        typography: { pxToRem, subtitle2 },
     } = useTheme();
-
     const { data } = useSales() || {};
     const isMobile = useMediaQuery(breakpoints.down('sm'));
 
@@ -54,8 +57,8 @@ export const Sales = () => {
                             strokeWidth={0}
                             {...(isMobile && {
                                 angle: 45,
-                                fontSize: 12,
-                                fontWeight: 400,
+                                fontSize: subtitle2.fontSize,
+                                fontWeight: subtitle2.fontWeight,
                             })}
                         />
                         <YAxis
@@ -72,7 +75,9 @@ export const Sales = () => {
                                 <ContextCard
                                     active={active}
                                     payload={payload}
-                                    xLabel={formatToDayMonth(label as string)}
+                                    xLabel={formatToDayMonthYear(
+                                        label as string,
+                                    )}
                                     formatter={dataFormatter}
                                 />
                             )}
