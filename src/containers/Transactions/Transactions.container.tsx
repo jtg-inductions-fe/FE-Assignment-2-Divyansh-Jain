@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 
 import { Paper, Typography } from '@components';
 import { useTransaction } from '@hooks';
-import { formatToDayMonthYear, numberFormatter } from '@utilities';
+import { formatToDayMonthYear, numberFormatter, titleCase } from '@utilities';
 
 import {
     generateTransactionMessage,
@@ -24,13 +24,15 @@ export const Transactions = () => {
             <Stack gap={4}>
                 <Box>
                     <Typography variant="h3">Transactions</Typography>
-                    <Typography variant="body2" color={palette.text.secondary}>
+                    <Typography
+                        variant="caption"
+                        color={palette.text.secondary}
+                    >
                         This is a list of latest transactions.
                     </Typography>
                 </Box>
                 <TableContainer>
                     <Table
-                        size="small"
                         sx={{
                             minWidth: breakpoints.values.md,
                             overflow: 'auto',
@@ -61,7 +63,7 @@ export const Transactions = () => {
                                         <Stack
                                             direction="row"
                                             alignItems="center"
-                                            gap={2}
+                                            gap={1}
                                             minWidth={0}
                                         >
                                             <Typography
@@ -75,8 +77,13 @@ export const Transactions = () => {
                                                     transaction.transactionDirection,
                                                 )}
                                             </Typography>
-                                            <Typography lines={1} minWidth={0}>
-                                                {transaction.type === 'CREDIT'
+                                            <Typography
+                                                lines={1}
+                                                minWidth={0}
+                                                variant="body2"
+                                            >
+                                                {transaction.transactionDirection ===
+                                                'RECIEVED'
                                                     ? transaction.from
                                                     : transaction.to}
                                             </Typography>
@@ -84,7 +91,7 @@ export const Transactions = () => {
                                     </StyledTableCell>
                                     <StyledTableCell>
                                         <Typography
-                                            variant="body2"
+                                            variant="caption"
                                             color={palette.text.secondary}
                                         >
                                             {formatToDayMonthYear(
@@ -93,12 +100,17 @@ export const Transactions = () => {
                                         </Typography>
                                     </StyledTableCell>
                                     <StyledTableCell>
-                                        {transaction.type === 'DEBIT' && '-'}
-                                        {`\$${numberFormatter(transaction.amount)}`}
+                                        <Typography variant="h4">
+                                            {transaction.type === 'DEBIT' &&
+                                                '-'}
+                                            {`\$${numberFormatter(transaction.amount)}`}
+                                        </Typography>
                                     </StyledTableCell>
                                     <StyledTableCell>
                                         <Chip
-                                            label={transaction.status}
+                                            label={titleCase(
+                                                transaction.status,
+                                            )}
                                             color={getStatusColor(
                                                 transaction.status,
                                             )}
