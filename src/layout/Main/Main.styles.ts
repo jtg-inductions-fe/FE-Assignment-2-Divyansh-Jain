@@ -3,6 +3,7 @@ import { Box, styled } from '@mui/material';
 export const StyledBox = styled(Box)(({ theme: { breakpoints, spacing } }) => ({
     margin: 0,
     flexGrow: 1,
+    overflowX: 'hidden',
     height: '100vh',
 
     padding: spacing(0, 4),
