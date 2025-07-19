@@ -8,3 +8,5 @@ export { ErrorComponent } from './Error';
 export { Drawer } from './Drawer';
 export { List } from './List';
 export type { ListItemType } from './List';
+export { Paper } from './Paper';
+export { ContextCard } from './ContextCard';

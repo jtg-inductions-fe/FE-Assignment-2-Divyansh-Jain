@@ -1,23 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { Outlet } from 'react-router-dom';
 
-import { Box, Stack, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 
 import { Header, Sidebar } from '@containers';
 
 import { StyledBox } from './Main.styles';
 
 const Main = () => {
-    const theme = useTheme();
-    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-
-    useEffect(() => {
-        setIsSidebarMounted(isDesktop);
-    }, [isDesktop]);
-
-    const [isSidebarMounted, setIsSidebarMounted] =
-        useState<boolean>(isDesktop);
+    const [isSidebarMounted, setIsSidebarMounted] = useState<boolean>(false);
 
     /**
      * Toggle's sidebar state for example if isSidebarMounted was true then it will become false after toggleSidebar method is called
