@@ -21,7 +21,7 @@ export const Footer = () => {
                 gap={8}
             >
                 <Typography variant="body1" color={palette.text.secondary}>
-                    © 2021 Themesberg, LLC. All rights reserved.
+                    &copy; 2021 Themesberg, LLC. All rights reserved.
                 </Typography>
 
                 <Stack direction="row" gap={6}>
