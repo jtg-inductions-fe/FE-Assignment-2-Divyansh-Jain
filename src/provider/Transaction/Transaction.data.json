@@ -2,7 +2,6 @@
     "transactions": [
         {
             "id": "txn-01",
-            "transaction": "Payment from Bonnie Green",
             "type": "CREDIT",
             "from": "Bonnie Green",
             "status": "COMPLETED",
@@ -11,7 +10,6 @@
         },
         {
             "id": "txn-02",
-            "transaction": "Payment to Bonnie Green",
             "type": "DEBIT",
             "to": "Bonnie Green",
             "status": "COMPLETED",
@@ -20,7 +18,6 @@
         },
         {
             "id": "txn-03",
-            "transaction": "Payment failed from Jese Leos",
             "type": "CREDIT",
             "status": "CANCELLED",
             "from": "Jese Leos",
@@ -29,7 +26,6 @@
         },
         {
             "id": "txn-04",
-            "transaction": "Payment from Bonnie Green",
             "type": "CREDIT",
             "from": "Bonnie Green",
             "status": "IN PROGRESS",
@@ -38,7 +34,6 @@
         },
         {
             "id": "txn-05",
-            "transaction": "Payment from Jese Leos",
             "type": "CREDIT",
             "from": "Jese Leos",
             "status": "IN PROGRESS",
@@ -47,7 +42,6 @@
         },
         {
             "id": "txn-06",
-            "transaction": "Payment from THEMSBERG LLC",
             "type": "CREDIT",
             "from": "THEMSBERG LLC",
             "status": "COMPLETED",
