@@ -64,6 +64,7 @@ export const CardListItem = ({
                             <Typography
                                 variant="subtitle1"
                                 color={palette.text.secondary}
+                                lines={1}
                             >
                                 {rightSubtitle}
                             </Typography>
