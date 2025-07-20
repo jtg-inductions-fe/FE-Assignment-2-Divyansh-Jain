@@ -1,5 +1,3 @@
-// TODO : DJ_A2_00 : Implementation of Dashboard Page
-
 import { Stack, useMediaQuery, useTheme } from '@mui/material';
 
 import {
