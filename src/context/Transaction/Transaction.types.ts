@@ -12,5 +12,5 @@ export type Transaction = {
     amount: number;
 
     /** Date and time of the transaction */
-    dateTime: Date;
+    dateTime: string;
 };

@@ -3,6 +3,7 @@ import { ProductContextProvider } from 'provider/Product';
 import { TransactionContextProvider } from 'provider/Transaction';
 import { UserContextProvider } from 'provider/User';
 
+import { SalesProvider } from '@provider/Sales';
 export const MasterContextProvider = ({
     children,
 }: {
@@ -11,7 +12,9 @@ export const MasterContextProvider = ({
     <UserContextProvider>
         <TransactionContextProvider>
             <CustomerContextProvider>
-                <ProductContextProvider>{children}</ProductContextProvider>
+                <SalesProvider>
+                    <ProductContextProvider>{children}</ProductContextProvider>
+                </SalesProvider>
             </CustomerContextProvider>
         </TransactionContextProvider>
     </UserContextProvider>
