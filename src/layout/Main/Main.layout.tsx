@@ -22,7 +22,7 @@ const Main = () => {
     return (
         <Box>
             <Header toggleSidebar={toggleSidebar} />
-            <Stack direction="row">
+            <Stack direction="row" justifyContent="center">
                 <Sidebar isSidebarMounted={isSidebarMounted} />
                 <StyledBox>
                     <Outlet />
