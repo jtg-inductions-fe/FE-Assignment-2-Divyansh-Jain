@@ -68,7 +68,7 @@ export const Transactions = () => {
                                             minWidth={0}
                                         >
                                             <Typography
-                                                variant="body2"
+                                                variant="caption"
                                                 lines={1}
                                                 minWidth={0}
                                             >
