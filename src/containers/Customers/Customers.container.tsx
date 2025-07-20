@@ -30,12 +30,15 @@ export const Customers = () => {
                         customers?.map((customer, index, arr) => (
                             <CardListItem
                                 key={customer.id}
-                                rightTitle={`\$${numberFormatter(customer.totalSpent)}`}
+                                rightTitle={customer.totalSpent}
                                 leftTitle={customer.fullname}
                                 leftSubtitle={customer.email}
                                 avatarSrc={customer.profileUrl}
                                 avatarAlt={customer.fullname}
                                 showDivider={index < arr.length - 1}
+                                numberFormatter={(value) =>
+                                    `$${numberFormatter(value)}`
+                                }
                             />
                         ))
                     ) : (

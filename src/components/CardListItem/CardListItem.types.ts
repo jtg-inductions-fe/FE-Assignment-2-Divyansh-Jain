@@ -12,11 +12,19 @@ export type CardListItemProps = {
     leftSubtitle: string;
 
     /** Primary title displayed on the right (bold, black text) */
-    rightTitle: string;
+    rightTitle: string | number;
 
     /** Subtitle displayed on the right (gray text, optional) */
     rightSubtitle?: string;
 
+    /**Method to format number accordingly
+     *
+     * @param value number to be formatted
+     *
+     * @return {string} returns the formatted in number in form of string
+     *
+     */
+    numberFormatter?: (value: number) => string;
     /** Whether to show a bottom divider line */
     showDivider: boolean;
 };

@@ -2,7 +2,6 @@ import { List, ListItem, Stack, useMediaQuery, useTheme } from '@mui/material';
 
 import { CardListItem, Paper, Typography } from '@components';
 import { useProduct } from '@hooks';
-import { numberFormatter } from '@utilities';
 
 export const Products = () => {
     const { products } = useProduct() || {};
@@ -30,7 +29,7 @@ export const Products = () => {
                         products.map((product, index, arr) => (
                             <CardListItem
                                 key={product.id}
-                                rightTitle={numberFormatter(product.sales)}
+                                rightTitle={product.sales}
                                 rightSubtitle="sales"
                                 leftTitle={product.productName}
                                 leftSubtitle={product.techStack}
