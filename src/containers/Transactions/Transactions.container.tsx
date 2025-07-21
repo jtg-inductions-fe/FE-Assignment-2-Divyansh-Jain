@@ -1,4 +1,4 @@
-import { Box, Chip, Stack, useTheme } from '@mui/material';
+import { Box, Chip, Stack, Tooltip, useTheme } from '@mui/material';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
@@ -8,6 +8,7 @@ import { Paper, Typography } from '@components';
 import { useTransaction } from '@hooks';
 import {
     formatToDayMonthYear,
+    formatWithComma,
     numberFormatter,
     sentenceCase,
 } from '@utilities';
@@ -64,76 +65,105 @@ export const Transactions = () => {
                                 </StyledTableRow>
                             </TableHead>
                             <TableBody>
-                                {transactions.map((transaction) => (
-                                    <StyledTableRow key={transaction.id} hover>
-                                        <StyledTableCell
-                                            sx={{
-                                                width: pxToRem(500),
-                                                maxWidth: pxToRem(500),
-                                            }}
+                                {transactions.map((transaction) => {
+                                    const transactionMessage =
+                                        generateTransactionMessage(
+                                            transaction.transactionStatus,
+                                            transaction.transactionType,
+                                            transaction.transactionDirection,
+                                        );
+
+                                    const transactionAmountSign =
+                                        transaction.transactionType === 'DEBIT'
+                                            ? '-'
+                                            : '';
+
+                                    const otherParty =
+                                        transaction.transactionDirection ===
+                                        'RECEIVED'
+                                            ? transaction.from
+                                            : transaction.to;
+
+                                    return (
+                                        <StyledTableRow
+                                            key={transaction.id}
+                                            hover
                                         >
-                                            <Typography
-                                                variant="caption"
-                                                noWrap
-                                                minWidth={0}
-                                                display="inline-block"
+                                            <StyledTableCell
+                                                sx={{
+                                                    width: pxToRem(300),
+                                                    maxWidth: pxToRem(300),
+                                                }}
                                             >
-                                                {generateTransactionMessage(
-                                                    transaction.transactionStatus,
-                                                    transaction.transactionType,
-                                                    transaction.transactionDirection,
-                                                )}
-                                            </Typography>
-                                            &nbsp;
-                                            <Typography
-                                                noWrap
-                                                minWidth={0}
-                                                variant="body2"
-                                                display="inline-block"
-                                                maxWidth="70%"
-                                            >
-                                                {transaction.transactionDirection ===
-                                                'RECEIVED'
-                                                    ? transaction.from
-                                                    : transaction.to}
-                                            </Typography>
-                                        </StyledTableCell>
-                                        <StyledTableCell>
-                                            <Typography
-                                                variant="caption"
-                                                color={palette.text.secondary}
-                                            >
-                                                {formatToDayMonthYear(
-                                                    transaction.dateTime,
-                                                )}
-                                            </Typography>
-                                        </StyledTableCell>
-                                        <StyledTableCell>
-                                            <Typography variant="h4">
-                                                {transaction.transactionType ===
-                                                    'DEBIT' && '-'}
-                                                {`\$${numberFormatter(transaction.amount, { commas: true })}`}
-                                            </Typography>
-                                        </StyledTableCell>
-                                        <StyledTableCell>
-                                            <Chip
-                                                label={sentenceCase(
-                                                    transaction.transactionStatus,
-                                                )}
-                                                sx={(theme) => ({
-                                                    ...theme.typography
-                                                        .subtitle2,
-                                                })}
-                                                color={
-                                                    STATUS_COLOR_MAP[
-                                                        transaction
-                                                            .transactionStatus
-                                                    ]
-                                                }
-                                            />
-                                        </StyledTableCell>
-                                    </StyledTableRow>
-                                ))}
+                                                <Typography
+                                                    variant="caption"
+                                                    noWrap
+                                                    minWidth={0}
+                                                    display="inline-block"
+                                                >
+                                                    {transactionMessage}
+                                                </Typography>
+                                                &nbsp;
+                                                <Tooltip title={otherParty}>
+                                                    <Typography
+                                                        noWrap
+                                                        minWidth={0}
+                                                        variant="body2"
+                                                        display="inline-block"
+                                                        maxWidth="60%"
+                                                    >
+                                                        {otherParty}
+                                                    </Typography>
+                                                </Tooltip>
+                                            </StyledTableCell>
+                                            <StyledTableCell>
+                                                <Typography
+                                                    variant="caption"
+                                                    color={
+                                                        palette.text.secondary
+                                                    }
+                                                >
+                                                    {formatToDayMonthYear(
+                                                        transaction.dateTime,
+                                                    )}
+                                                </Typography>
+                                            </StyledTableCell>
+                                            <StyledTableCell>
+                                                <Tooltip
+                                                    title={
+                                                        transactionAmountSign +
+                                                        '$' +
+                                                        formatWithComma(
+                                                            transaction.amount,
+                                                        )
+                                                    }
+                                                >
+                                                    <Typography variant="h4">
+                                                        {transactionAmountSign +
+                                                            `\$${numberFormatter(transaction.amount, { commas: true })}`}
+                                                    </Typography>
+                                                </Tooltip>
+                                            </StyledTableCell>
+                                            <StyledTableCell>
+                                                <Chip
+                                                    label={sentenceCase(
+                                                        transaction.transactionStatus,
+                                                    )}
+                                                    sx={(theme) => ({
+                                                        ...theme.typography
+                                                            .subtitle2,
+                                                    })}
+                                                    color={
+                                                        STATUS_COLOR_MAP[
+                                                            transaction
+                                                                .transactionStatus
+                                                        ]
+                                                    }
+                                                />
+                                            </StyledTableCell>
+                                        </StyledTableRow>
+                                    );
+                                })}
                             </TableBody>
                         </StyledTable>
                     </TableContainer>
