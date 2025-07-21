@@ -6,6 +6,8 @@ export type SidebarProps = {
      * Typically used to control animation, layout shifts, or conditional rendering.
      */
     isSidebarMounted: boolean;
+    /**Method to toggle sidebar on sidebar item click */
+    toggleSidebar: () => void;
 };
 
 export type SidebarListConfig = {

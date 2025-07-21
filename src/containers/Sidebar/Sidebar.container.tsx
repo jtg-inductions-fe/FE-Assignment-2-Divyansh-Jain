@@ -14,7 +14,7 @@ import { Drawer, List } from '@components';
 import { SidebarList } from './Sidebar.config';
 import { SidebarProps } from './Sidebar.types';
 
-export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
+export const Sidebar = ({ isSidebarMounted, toggleSidebar }: SidebarProps) => {
     const {
         breakpoints,
         spacing,
@@ -29,9 +29,15 @@ export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
         >
             <Stack justifyContent="space-between" height="100%">
                 <Stack overflow="auto">
-                    <List items={SidebarList.primary} />
+                    <List
+                        items={SidebarList.primary}
+                        toggleSidebar={toggleSidebar}
+                    />
                     <Divider />
-                    <List items={SidebarList.secondary} />
+                    <List
+                        items={SidebarList.secondary}
+                        toggleSidebar={toggleSidebar}
+                    />
                 </Stack>
                 <Stack
                     direction="row"

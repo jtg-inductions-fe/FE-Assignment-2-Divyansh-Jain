@@ -23,6 +23,7 @@ import { StyledListItemProps } from './ListItem.types';
 export const ListItem = ({
     renderItems,
     item,
+    toggleSidebar,
     ...otherProps
 }: StyledListItemProps) => {
     const { palette } = useTheme();
@@ -41,7 +42,11 @@ export const ListItem = ({
                         'aria-expanded': open,
                         'aria-controls': `nested-${item.id}`,
                     })}
-                    {...(item.to && { component: NavLink, to: item.to })}
+                    {...(item.to && {
+                        onClick: toggleSidebar,
+                        component: NavLink,
+                        to: item.to,
+                    })}
                 >
                     {item.Icon && (
                         <ListItemIcon sx={{ color: 'inherit' }}>
@@ -80,7 +85,8 @@ export const ListItem = ({
                     sx={{ paddingLeft: 14 }}
                 >
                     <List component="div" id={`nested-${item.id}`}>
-                        {item.children && renderItems(item.children)}
+                        {item.children &&
+                            renderItems(item.children, toggleSidebar)}
                     </List>
                 </Collapse>
             )}

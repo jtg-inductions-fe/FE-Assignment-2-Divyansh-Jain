@@ -27,5 +27,10 @@ export type StyledListItemProps = ListItemProps & {
     /**Item to be displayed */
     item: ListItemType;
     /**Method used to render items provided as arguments*/
-    renderItems: (items: ListItemType[]) => JSX.Element[];
+    renderItems: (
+        items: ListItemType[],
+        toggleSidebar: () => void,
+    ) => JSX.Element[];
+    /**Method to toggle Sidebar on Sidebar Item click */
+    toggleSidebar: () => void;
 };
