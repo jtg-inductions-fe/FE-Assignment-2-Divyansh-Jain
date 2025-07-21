@@ -82,27 +82,21 @@ export function formatToDayMonth(isoDate: string): string {
     const fullDate = formatToDayMonthYear(isoDate);
     return fullDate.split(',')[0];
 }
-
 /**
- * Converts a string to title case, capitalizing the first letter and making the rest lowercase.
+ * Converts a string to sentence case: capitalizes the first letter,
+ * and makes the rest of the string lowercase.
  *
  * @param str - The input string to convert.
- * @returns The string with the first character in uppercase and the rest in lowercase.
+ * @returns The sentence-cased string.
  *
  * @example
- * titleCase("completed"); // "Completed"
- * titleCase("IN PROGRESS"); // "In Progress"
- * titleCase(""); // ""
+ * sentenceCase("completed"); // "Completed"
+ * sentenceCase("IN PROGRESS"); // "In progress"
+ * sentenceCase(""); // ""
  */
-export function titleCase(str: string) {
-    if (str.length > 0) {
-        const strArray = str.split(' ');
-
-        const titleCasedString = strArray.map((word) =>
-            word ? word[0].toUpperCase() + word.slice(1).toLowerCase() : '',
-        );
-
-        return titleCasedString.join(' ');
-    }
-    return str;
+export function sentenceCase(str: string): string {
+    const trimmed = str.trim();
+    return trimmed.length > 0
+        ? trimmed[0].toUpperCase() + trimmed.slice(1).toLowerCase()
+        : str;
 }

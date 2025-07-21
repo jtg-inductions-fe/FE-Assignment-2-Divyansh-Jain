@@ -1,5 +1,4 @@
 import { Box, Chip, Stack, useTheme } from '@mui/material';
-import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
@@ -7,18 +6,27 @@ import TableHead from '@mui/material/TableHead';
 
 import { Paper, Typography } from '@components';
 import { useTransaction } from '@hooks';
-import { formatToDayMonthYear, numberFormatter, titleCase } from '@utilities';
-
-import { TransactionTableConfig } from './Transactions.config';
 import {
-    generateTransactionMessage,
-    getStatusColor,
-} from './Transactions.helper';
-import { StyledTableCell, StyledTableRow } from './Transactions.styles';
+    formatToDayMonthYear,
+    numberFormatter,
+    sentenceCase,
+} from '@utilities';
+
+import { STATUS_COLOR_MAP } from './Transaction.constants';
+import { TransactionTableConfig } from './Transactions.config';
+import { generateTransactionMessage } from './Transactions.helper';
+import {
+    StyledTable,
+    StyledTableCell,
+    StyledTableRow,
+} from './Transactions.styles';
 
 export const Transactions = () => {
     const { transactions } = useTransaction() || {};
-    const { palette, breakpoints } = useTheme();
+    const {
+        palette,
+        typography: { pxToRem },
+    } = useTheme();
 
     return (
         <Paper component="section" aria-label="transaction">
@@ -33,15 +41,8 @@ export const Transactions = () => {
                     </Typography>
                 </Box>
                 {transactions && transactions.length > 0 ? (
-                    <TableContainer>
-                        <Table
-                            sx={{
-                                minWidth: breakpoints.values.md,
-                                overflow: 'auto',
-                                cursor: 'pointer',
-                            }}
-                            aria-label="transaction"
-                        >
+                    <TableContainer sx={{ borderRadius: pxToRem(12) }}>
+                        <StyledTable aria-label="transaction">
                             <TableHead>
                                 <StyledTableRow
                                     sx={{ background: palette.grey[50] }}
@@ -65,17 +66,21 @@ export const Transactions = () => {
                             <TableBody>
                                 {transactions.map((transaction) => (
                                     <StyledTableRow key={transaction.id} hover>
-                                        <StyledTableCell>
+                                        <StyledTableCell
+                                            sx={{
+                                                width: pxToRem(500),
+                                                maxWidth: pxToRem(500),
+                                            }}
+                                        >
                                             <Typography
                                                 variant="caption"
                                                 noWrap
                                                 minWidth={0}
                                                 display="inline-block"
-                                                maxWidth="40%"
                                             >
                                                 {generateTransactionMessage(
-                                                    transaction.status,
-                                                    transaction.type,
+                                                    transaction.transactionStatus,
+                                                    transaction.transactionType,
                                                     transaction.transactionDirection,
                                                 )}
                                             </Typography>
@@ -85,7 +90,7 @@ export const Transactions = () => {
                                                 minWidth={0}
                                                 variant="body2"
                                                 display="inline-block"
-                                                maxWidth="50%"
+                                                maxWidth="70%"
                                             >
                                                 {transaction.transactionDirection ===
                                                 'RECEIVED'
@@ -105,25 +110,32 @@ export const Transactions = () => {
                                         </StyledTableCell>
                                         <StyledTableCell>
                                             <Typography variant="h4">
-                                                {transaction.type === 'DEBIT' &&
-                                                    '-'}
+                                                {transaction.transactionType ===
+                                                    'DEBIT' && '-'}
                                                 {`\$${numberFormatter(transaction.amount, { commas: true })}`}
                                             </Typography>
                                         </StyledTableCell>
                                         <StyledTableCell>
                                             <Chip
-                                                label={titleCase(
-                                                    transaction.status,
+                                                label={sentenceCase(
+                                                    transaction.transactionStatus,
                                                 )}
-                                                color={getStatusColor(
-                                                    transaction.status,
-                                                )}
+                                                sx={(theme) => ({
+                                                    ...theme.typography
+                                                        .subtitle2,
+                                                })}
+                                                color={
+                                                    STATUS_COLOR_MAP[
+                                                        transaction
+                                                            .transactionStatus
+                                                    ]
+                                                }
                                             />
                                         </StyledTableCell>
                                     </StyledTableRow>
                                 ))}
                             </TableBody>
-                        </Table>
+                        </StyledTable>
                     </TableContainer>
                 ) : (
                     <Box>

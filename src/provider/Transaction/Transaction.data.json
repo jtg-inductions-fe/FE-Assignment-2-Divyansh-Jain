@@ -2,55 +2,55 @@
     "transactions": [
         {
             "id": "txn-01",
-            "type": "CREDIT",
+            "transactionType": "CREDIT",
             "transactionDirection": "RECEIVED",
             "from": "Bonnie Green",
-            "status": "COMPLETED",
+            "transactionStatus": "COMPLETED",
             "amount": 2300,
             "dateTime": "2021-04-23T00:00:00Z"
         },
         {
             "id": "txn-02",
-            "type": "DEBIT",
+            "transactionType": "DEBIT",
             "to": "Bonnie Green",
             "transactionDirection": "REFUNDED",
-            "status": "COMPLETED",
+            "transactionStatus": "COMPLETED",
             "amount": 650,
             "dateTime": "2021-04-23T00:00:00Z"
         },
         {
             "id": "txn-03",
-            "type": "CREDIT",
+            "transactionType": "CREDIT",
             "transactionDirection": "RECEIVED",
-            "status": "CANCELLED",
+            "transactionStatus": "CANCELLED",
             "from": "Jese Leos",
             "amount": 234,
             "dateTime": "2021-04-18T00:00:00Z"
         },
         {
             "id": "txn-04",
-            "type": "CREDIT",
+            "transactionType": "CREDIT",
             "transactionDirection": "RECEIVED",
             "from": "Bonnie Green",
-            "status": "IN PROGRESS",
+            "transactionStatus": "IN PROGRESS",
             "amount": 5000,
             "dateTime": "2021-04-15T00:00:00Z"
         },
         {
             "id": "txn-05",
-            "type": "CREDIT",
+            "transactionType": "CREDIT",
             "from": "Jese Leos",
             "transactionDirection": "RECEIVED",
-            "status": "IN PROGRESS",
+            "transactionStatus": "IN PROGRESS",
             "amount": 2300,
             "dateTime": "2021-04-15T00:00:00Z"
         },
         {
             "id": "txn-06",
-            "type": "CREDIT",
+            "transactionType": "CREDIT",
             "transactionDirection": "RECEIVED",
             "from": "THEMSBERG LLC",
-            "status": "COMPLETED",
+            "transactionStatus": "COMPLETED",
             "amount": 280,
             "dateTime": "2021-04-11T00:00:00Z"
         }

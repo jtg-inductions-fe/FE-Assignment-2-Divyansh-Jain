@@ -5,27 +5,6 @@ import {
 } from '@context';
 
 /**
- * Maps a transaction `status` to a corresponding color keyword.
- *
- * @param status - The status of the transaction:
- *   - "COMPLETED" → "success"
- *   - "CANCELLED" → "error"
- *   - "IN PROGRESS" → "info"
- *
- * @returns A string representing the color category.
- */
-export const getStatusColor = (status: TransactionStatus) => {
-    switch (status) {
-        case 'COMPLETED':
-            return 'success';
-        case 'IN PROGRESS':
-            return 'info';
-        case 'CANCELLED':
-            return 'error';
-    }
-};
-
-/**
  * Generates a transaction message based on the transaction `status`, `type`, and `direction`.
  *
  * @param status - The status of the transaction (e.g., "COMPLETED", "CANCELLED", "IN PROGRESS").

@@ -4,5 +4,5 @@ export {
     formatToDayMonth,
     formatToDayMonthYear,
     formatWithComma,
-    titleCase,
+    sentenceCase,
 } from './formatters';

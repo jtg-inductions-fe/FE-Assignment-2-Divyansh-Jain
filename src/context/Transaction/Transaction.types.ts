@@ -12,7 +12,7 @@ export type Transaction = {
     /**Name of Person Who has Initiated The Transaction */
     from?: string;
     /**Denotes Type of Transation e.g (DEBIT , CREDIT) */
-    type: TransactionType;
+    transactionType: TransactionType;
     /**
      * Denotes the business direction of the transaction.
      *
@@ -23,7 +23,7 @@ export type Transaction = {
      */
     transactionDirection: TransactionDirection;
     /** Current status of the transaction */
-    status: TransactionStatus;
+    transactionStatus: TransactionStatus;
     /** Amount involved in the transaction */
     amount: number;
     /** Date and time of the transaction */
