@@ -1,8 +1,5 @@
 import { Box, Chip, Stack, Tooltip, useTheme } from '@mui/material';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
+import { TableBody, TableCell, TableContainer, TableHead } from '@mui/material';
 
 import { Paper, Typography } from '@components';
 import { useTransaction } from '@hooks';
@@ -96,8 +93,8 @@ export const Transactions = () => {
                                                         sm: pxToRem(400),
                                                     },
                                                     width: {
-                                                        xs: pxToRem(225),
-                                                        sm: pxToRem(600),
+                                                        xs: '10%',
+                                                        sm: '30%',
                                                     },
                                                     maxWidth: {
                                                         xs: pxToRem(225),
@@ -123,7 +120,7 @@ export const Transactions = () => {
                                                         sx={{
                                                             maxWidth: {
                                                                 xs: '50%',
-                                                                sm: '60%',
+                                                                sm: '80%',
                                                             },
                                                         }}
                                                     >
