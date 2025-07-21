@@ -2,10 +2,10 @@ import { styled, Table, TableCell, TableRow } from '@mui/material';
 
 export const StyledTableCell = styled(TableCell)(({}) => ({
     border: 'none',
-    '&:first-child': {
+    '&:first-of-type': {
         borderRadius: '12px 0 0 12px',
     },
-    '&:last-child': {
+    '&:last-of-type': {
         borderRadius: '0 12px 12px 0',
     },
 }));
