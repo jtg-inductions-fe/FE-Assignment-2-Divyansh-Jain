@@ -91,8 +91,18 @@ export const Transactions = () => {
                                         >
                                             <StyledTableCell
                                                 sx={{
-                                                    width: pxToRem(300),
-                                                    maxWidth: pxToRem(300),
+                                                    minWidth: {
+                                                        xs: pxToRem(200),
+                                                        sm: pxToRem(400),
+                                                    },
+                                                    width: {
+                                                        xs: pxToRem(225),
+                                                        sm: pxToRem(600),
+                                                    },
+                                                    maxWidth: {
+                                                        xs: pxToRem(225),
+                                                        sm: pxToRem(600),
+                                                    },
                                                 }}
                                             >
                                                 <Typography
@@ -110,7 +120,12 @@ export const Transactions = () => {
                                                         minWidth={0}
                                                         variant="body2"
                                                         display="inline-block"
-                                                        maxWidth="60%"
+                                                        sx={{
+                                                            maxWidth: {
+                                                                xs: '50%',
+                                                                sm: '60%',
+                                                            },
+                                                        }}
                                                     >
                                                         {otherParty}
                                                     </Typography>
