@@ -7,12 +7,12 @@ import { Paper, Typography } from '@components';
 import { ROUTES } from '@routes';
 
 export const Footer = () => {
-    const { breakpoints, palette, spacing } = useTheme();
+    const { breakpoints, palette } = useTheme();
 
     const isDesktop = useMediaQuery(breakpoints.up('md'));
 
     return (
-        <Paper component="footer" style={{ padding: spacing(12) }}>
+        <Paper component="footer">
             <Stack
                 {...(isDesktop && {
                     direction: 'row',
