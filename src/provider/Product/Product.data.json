@@ -1,38 +1,40 @@
-[
-    {
-        "id": "1",
-        "productName": "Restaurant Booking App",
-        "techStack": "React & Bootstrap Framework",
-        "sales": 70
-    },
-    {
-        "id": "2",
-        "productName": "UI Kit",
-        "techStack": "React & Bootstrap Framework",
-        "sales": 54
-    },
-    {
-        "id": "3",
-        "productName": "Design System Pro",
-        "techStack": "Bootstrap Framework",
-        "sales": 47
-    },
-    {
-        "id": "4",
-        "productName": "Dashboard",
-        "techStack": "Tailwind, React",
-        "sales": 43
-    },
-    {
-        "id": "5",
-        "productName": "Glassmorphism UI",
-        "techStack": "Vue Js, Tailwind ",
-        "sales": 38
-    },
-    {
-        "id": "6",
-        "productName": "Multipurpose Template",
-        "techStack": "React & Bootstrap Framework",
-        "sales": 22
-    }
-]
+{
+    "products": [
+        {
+            "id": "1",
+            "productName": "Restaurant Booking App",
+            "techStack": "React & Bootstrap Framework",
+            "sales": 70
+        },
+        {
+            "id": "2",
+            "productName": "UI Kit",
+            "techStack": "React & Bootstrap Framework",
+            "sales": 54
+        },
+        {
+            "id": "3",
+            "productName": "Design System Pro",
+            "techStack": "Bootstrap Framework",
+            "sales": 47
+        },
+        {
+            "id": "4",
+            "productName": "Dashboard",
+            "techStack": "Tailwind, React",
+            "sales": 43
+        },
+        {
+            "id": "5",
+            "productName": "Glassmorphism UI",
+            "techStack": "Vue Js, Tailwind ",
+            "sales": 38
+        },
+        {
+            "id": "6",
+            "productName": "Multipurpose Template",
+            "techStack": "React & Bootstrap Framework",
+            "sales": 22
+        }
+    ]
+}
