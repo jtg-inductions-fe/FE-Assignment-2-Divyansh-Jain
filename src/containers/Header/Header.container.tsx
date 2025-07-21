@@ -113,6 +113,7 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
             width="100vw"
             zIndex={zIndex.drawer + 1}
             sx={{ backgroundColor: palette.common.white }}
+            component="header"
         >
             <Stack
                 direction="row"

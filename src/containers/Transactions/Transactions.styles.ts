@@ -27,5 +27,4 @@ export const StyledTableRow = styled(TableRow)(
 export const StyledTable = styled(Table)(({ theme: { breakpoints } }) => ({
     minWidth: breakpoints.values.md,
     overflow: 'auto',
-    cursor: 'pointer',
 }));

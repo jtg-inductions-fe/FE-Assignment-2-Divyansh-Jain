@@ -28,7 +28,12 @@ export const Sidebar = ({ isSidebarMounted, toggleSidebar }: SidebarProps) => {
             variant={isDesktop ? 'permanent' : 'temporary'}
             onClose={toggleSidebar}
         >
-            <Stack justifyContent="space-between" height="100%">
+            <Stack
+                justifyContent="space-between"
+                height="100%"
+                component="nav"
+                aria-label="sidebar"
+            >
                 <Stack overflow="auto">
                     <List
                         items={SidebarList.primary}
