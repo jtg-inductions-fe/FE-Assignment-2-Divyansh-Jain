@@ -66,7 +66,9 @@ export const Sales = () => {
                             strokeWidth={0}
                             hide={isMobile}
                             tickCount={data?.length}
-                            tickFormatter={numberFormatter}
+                            tickFormatter={(value) =>
+                                numberFormatter(value as number)
+                            }
                         />
                         <Tooltip
                             offset={isMobile ? -45 : -70}
