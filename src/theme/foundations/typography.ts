@@ -29,6 +29,7 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     fontWeightMedium: 500,
     fontWeightSemiBold: 600,
     fontWeightBold: 700,
+
     h1: {
         fontSize: typographyUtil.pxToRem(30),
         fontWeight: 700,

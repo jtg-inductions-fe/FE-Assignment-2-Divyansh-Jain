@@ -61,34 +61,32 @@ export const Transactions = () => {
                             {transactions?.map((transaction, index) => (
                                 <StyledTableRow key={index} hover>
                                     <StyledTableCell>
-                                        <Stack
-                                            direction="row"
-                                            alignItems="center"
-                                            gap={1}
+                                        <Typography
+                                            variant="caption"
+                                            noWrap
                                             minWidth={0}
+                                            display="inline-block"
+                                            maxWidth="40%"
                                         >
-                                            <Typography
-                                                variant="caption"
-                                                lines={1}
-                                                minWidth={0}
-                                            >
-                                                {generateTransactionMessage(
-                                                    transaction.status,
-                                                    transaction.type,
-                                                    transaction.transactionDirection,
-                                                )}
-                                            </Typography>
-                                            <Typography
-                                                lines={1}
-                                                minWidth={0}
-                                                variant="body2"
-                                            >
-                                                {transaction.transactionDirection ===
-                                                'RECEIVED'
-                                                    ? transaction.from
-                                                    : transaction.to}
-                                            </Typography>
-                                        </Stack>
+                                            {generateTransactionMessage(
+                                                transaction.status,
+                                                transaction.type,
+                                                transaction.transactionDirection,
+                                            )}
+                                        </Typography>
+                                        &nbsp;
+                                        <Typography
+                                            noWrap
+                                            minWidth={0}
+                                            variant="body2"
+                                            display="inline-block"
+                                            maxWidth="50%"
+                                        >
+                                            {transaction.transactionDirection ===
+                                            'RECEIVED'
+                                                ? transaction.from
+                                                : transaction.to}
+                                        </Typography>
                                     </StyledTableCell>
                                     <StyledTableCell>
                                         <Typography

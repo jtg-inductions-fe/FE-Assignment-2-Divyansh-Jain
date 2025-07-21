@@ -54,4 +54,11 @@ export const components: Components = {
             fontFaceDeclarations,
         },
     },
+    MuiTypography: {
+        styleOverrides: {
+            root: {
+                lineHeight: 1.5,
+            },
+        },
+    },
 };
