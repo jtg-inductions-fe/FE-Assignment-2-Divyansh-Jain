@@ -1,3 +1,9 @@
+import {
+    TransactionDirection,
+    TransactionStatus,
+    TransactionType,
+} from '@context';
+
 /**
  * Maps a transaction `status` to a corresponding color keyword.
  *
@@ -8,13 +14,6 @@
  *
  * @returns A string representing the color category.
  */
-
-import {
-    TransactionDirection,
-    TransactionStatus,
-    TransactionType,
-} from '@context';
-
 export const getStatusColor = (status: TransactionStatus) => {
     switch (status) {
         case 'COMPLETED':

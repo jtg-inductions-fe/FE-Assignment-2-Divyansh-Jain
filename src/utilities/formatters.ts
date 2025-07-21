@@ -98,8 +98,8 @@ export function titleCase(str: string) {
     if (str.length > 0) {
         const strArray = str.split(' ');
 
-        const titleCasedString = strArray.map(
-            (s) => s[0].toUpperCase() + s.slice(1).toLowerCase(),
+        const titleCasedString = strArray.map((word) =>
+            word ? word[0].toUpperCase() + word.slice(1).toLowerCase() : '',
         );
 
         return titleCasedString.join(' ');
