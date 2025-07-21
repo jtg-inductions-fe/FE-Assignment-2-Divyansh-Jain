@@ -1,0 +1,58 @@
+{
+    "transactions": [
+        {
+            "id": "txn-01",
+            "transactionType": "CREDIT",
+            "transactionDirection": "RECEIVED",
+            "from": "Bonnie Green",
+            "transactionStatus": "COMPLETED",
+            "amount": 2300,
+            "dateTime": "2021-04-23T00:00:00Z"
+        },
+        {
+            "id": "txn-02",
+            "transactionType": "DEBIT",
+            "to": "Bonnie Green",
+            "transactionDirection": "REFUNDED",
+            "transactionStatus": "COMPLETED",
+            "amount": 650,
+            "dateTime": "2021-04-23T00:00:00Z"
+        },
+        {
+            "id": "txn-03",
+            "transactionType": "CREDIT",
+            "transactionDirection": "RECEIVED",
+            "transactionStatus": "CANCELLED",
+            "from": "Jese Leos",
+            "amount": 234,
+            "dateTime": "2021-04-18T00:00:00Z"
+        },
+        {
+            "id": "txn-04",
+            "transactionType": "CREDIT",
+            "transactionDirection": "RECEIVED",
+            "from": "Bonnie Green",
+            "transactionStatus": "IN PROGRESS",
+            "amount": 5000,
+            "dateTime": "2021-04-15T00:00:00Z"
+        },
+        {
+            "id": "txn-05",
+            "transactionType": "CREDIT",
+            "from": "Jese Leos",
+            "transactionDirection": "RECEIVED",
+            "transactionStatus": "IN PROGRESS",
+            "amount": 2300,
+            "dateTime": "2021-04-15T00:00:00Z"
+        },
+        {
+            "id": "txn-06",
+            "transactionType": "CREDIT",
+            "transactionDirection": "RECEIVED",
+            "from": "THEMSBERG LLC",
+            "transactionStatus": "COMPLETED",
+            "amount": 280,
+            "dateTime": "2021-04-11T00:00:00Z"
+        }
+    ]
+}

@@ -29,6 +29,7 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     fontWeightMedium: 500,
     fontWeightSemiBold: 600,
     fontWeightBold: 700,
+
     h1: {
         fontSize: typographyUtil.pxToRem(30),
         fontWeight: 700,
@@ -58,6 +59,9 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     body2: {
         fontSize: typographyUtil.pxToRem(14),
         fontWeight: 600,
+        [theme.breakpoints.down('md')]: {
+            fontSize: typographyUtil.pxToRem(12),
+        },
     },
     subtitle1: {
         fontSize: typographyUtil.pxToRem(16),
@@ -66,6 +70,14 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     subtitle2: {
         fontSize: typographyUtil.pxToRem(12),
         fontWeight: 400,
+    },
+    caption: {
+        fontSize: typographyUtil.pxToRem(14),
+        fontWeight: 400,
+
+        [theme.breakpoints.down('md')]: {
+            fontSize: typographyUtil.pxToRem(12),
+        },
     },
     button: {
         fontSize: typographyUtil.pxToRem(14),

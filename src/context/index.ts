@@ -6,6 +6,11 @@ export { SalesContext } from './Sales';
 
 export type { Customer } from './Customer';
 export type { Product } from './Product';
-export type { Transaction } from './Transaction';
+export type {
+    Transaction,
+    TransactionDirection,
+    TransactionType,
+    TransactionStatus,
+} from './Transaction';
 export type { User } from './User';
 export type { Sales } from './Sales';
