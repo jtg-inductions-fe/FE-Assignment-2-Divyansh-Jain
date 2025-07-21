@@ -56,6 +56,7 @@ export const Sidebar = ({ isSidebarMounted, toggleSidebar }: SidebarProps) => {
                                 component={Link}
                                 to={item.to || ''}
                                 color={text.primary}
+                                onClick={toggleSidebar}
                             >
                                 {item.Icon && <item.Icon />}
                             </Box>

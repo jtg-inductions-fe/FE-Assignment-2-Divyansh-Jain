@@ -54,7 +54,21 @@ export const ErrorComponent = ({
                     <Typography variant="h1" textAlign="center">
                         {heading}
                     </Typography>
-                    <Tooltip title={bodyText}>
+                    <Tooltip
+                        title={bodyText}
+                        slotProps={{
+                            popper: {
+                                modifiers: [
+                                    {
+                                        name: 'offset',
+                                        options: {
+                                            offset: [0, 80],
+                                        },
+                                    },
+                                ],
+                            },
+                        }}
+                    >
                         <Typography
                             variant="body1"
                             color={palette.text.secondary}
