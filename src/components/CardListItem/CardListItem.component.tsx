@@ -8,12 +8,12 @@ import { CardListItemProps } from './CardListItem.types';
 export const CardListItem = ({
     avatarSrc,
     avatarAlt,
-    leftTitle,
-    leftSubtitle,
-    rightTitle,
-    rightSubtitle,
+    title,
+    subtitle,
+    value,
+    valueTooltip,
+    label,
     showDivider,
-    numberFormatter,
 }: CardListItemProps) => {
     const { palette } = useTheme();
     return (
@@ -33,18 +33,18 @@ export const CardListItem = ({
                 >
                     {avatarSrc && <Avatar src={avatarSrc} alt={avatarAlt} />}
                     <Box minWidth={0} maxWidth="100%">
-                        <Tooltip title={leftTitle}>
+                        <Tooltip title={title}>
                             <Typography variant="subtitle1" lines={1}>
-                                {leftTitle}
+                                {title}
                             </Typography>
                         </Tooltip>
-                        <Tooltip title={leftSubtitle}>
+                        <Tooltip title={subtitle}>
                             <Typography
                                 variant="subtitle2"
                                 color={palette.text.secondary}
                                 lines={1}
                             >
-                                {leftSubtitle}
+                                {subtitle}
                             </Typography>
                         </Tooltip>
                     </Box>
@@ -55,21 +55,19 @@ export const CardListItem = ({
                     gap={1}
                     maxWidth="30%"
                 >
-                    <Tooltip title={rightTitle}>
+                    <Tooltip title={valueTooltip ? valueTooltip : value}>
                         <Typography variant="subtitle1" lines={1}>
-                            {typeof rightTitle === 'number' && numberFormatter
-                                ? numberFormatter(rightTitle)
-                                : rightTitle}
+                            {value}
                         </Typography>
                     </Tooltip>
-                    {rightSubtitle && (
-                        <Tooltip title={rightSubtitle}>
+                    {label && (
+                        <Tooltip title={label}>
                             <Typography
                                 variant="subtitle1"
                                 color={palette.text.secondary}
                                 lines={1}
                             >
-                                {rightSubtitle}
+                                {label}
                             </Typography>
                         </Tooltip>
                     )}

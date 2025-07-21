@@ -2,7 +2,7 @@ import { List, ListItem, Stack, useMediaQuery, useTheme } from '@mui/material';
 
 import { CardListItem, Paper, Typography } from '@components';
 import { useCustomer } from '@hooks';
-import { numberFormatter } from '@utilities';
+import { formatWithComma, numberFormatter } from '@utilities';
 
 export const Customers = () => {
     const { customers } = useCustomer() || {};
@@ -30,15 +30,20 @@ export const Customers = () => {
                         customers?.map((customer, index, arr) => (
                             <CardListItem
                                 key={customer.id}
-                                rightTitle={customer.totalSpent}
-                                leftTitle={customer.fullname}
-                                leftSubtitle={customer.email}
+                                value={
+                                    '$' +
+                                    numberFormatter(customer.totalSpent, {
+                                        commas: true,
+                                    })
+                                }
+                                valueTooltip={formatWithComma(
+                                    customer.totalSpent,
+                                )}
+                                title={customer.fullname}
+                                subtitle={customer.email}
                                 avatarSrc={customer.profileUrl}
                                 avatarAlt={customer.fullname}
                                 showDivider={index < arr.length - 1}
-                                numberFormatter={(value) =>
-                                    `\$${numberFormatter(value)}`
-                                }
                             />
                         ))
                     ) : (

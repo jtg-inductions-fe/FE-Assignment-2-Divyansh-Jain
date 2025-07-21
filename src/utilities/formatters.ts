@@ -1,4 +1,14 @@
 /**
+ * Adds commas to a number using the US English locale format (e.g., "1,000,000").
+ *
+ * @param value - The number to format.
+ * @returns The formatted number string with commas.
+ */
+export function formatWithComma(value: number) {
+    return new Intl.NumberFormat('en-us').format(value);
+}
+
+/**
  * Formats and abbreviates large numbers into readable strings with suffixes.
  *
  * Converts numbers to:
@@ -6,20 +16,29 @@
  * - Millions (e.g., 1,200,000 → "1.2M")
  *
  * Rounds the value to the specified number of decimal places.
- *
  * @param value - The number to format.
- * @param decimal - Number of decimal places to include (default is 2).
+ * @param options - Optional configuration object.
+ * @param options.decimal - Number of decimal places to include (default is 2).
+ * @param options.commas - Whether to include commas based on the Indian numbering system (default is false).
  * @returns A formatted string with appropriate abbreviation (e.g., "1.23K", "4.56M").
  */
-export function numberFormatter(value: number, decimal: number = 2) {
+export function numberFormatter(
+    value: number,
+    {
+        decimal = 2,
+        commas = false,
+    }: { decimal?: number; commas?: boolean } = {},
+) {
     if (Math.abs(value) >= 1e6) {
-        return `${+(value / 1e6).toFixed(decimal)}M`;
+        const convertedValue = Number((value / 1e6).toFixed(decimal));
+        return `${commas ? formatWithComma(convertedValue) : convertedValue}M`;
     }
     if (Math.abs(value) >= 1e4) {
-        return `${+(value / 1e3).toFixed(decimal)}K`;
+        const convertedValue = Number((value / 1e3).toFixed(decimal));
+        return `${commas ? formatWithComma(convertedValue) : convertedValue}K`;
     }
 
-    return `${value}`;
+    return `${commas ? formatWithComma(value) : value}`;
 }
 
 /**
