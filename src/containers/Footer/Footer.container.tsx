@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 
-import { Facebook, GitHub, LinkedIn, Twitter } from '@mui/icons-material';
 import { Box, Stack, useMediaQuery, useTheme } from '@mui/material';
 
 import { Paper, Typography } from '@components';
-import { ROUTES } from '@routes';
+
+import { footerLinks } from './Footer.config';
 
 export const Footer = () => {
-    const { breakpoints, palette } = useTheme();
+    const { breakpoints } = useTheme();
 
     const isDesktop = useMediaQuery(breakpoints.up('md'));
 
@@ -20,39 +20,26 @@ export const Footer = () => {
                 })}
                 gap={8}
             >
-                <Typography variant="body1" color={palette.text.secondary}>
+                <Typography variant="body1" color="text.secondary">
                     &copy; 2021 Themesberg, LLC. All rights reserved.
                 </Typography>
 
                 <Stack direction="row" gap={6}>
-                    <Box
-                        component={Link}
-                        to={ROUTES.FACEBOOK}
-                        color={palette.text.primary}
-                    >
-                        <Facebook />
-                    </Box>
-                    <Box
-                        component={Link}
-                        to={ROUTES.TWITTER}
-                        color={palette.text.primary}
-                    >
-                        <Twitter />
-                    </Box>
-                    <Box
-                        component={Link}
-                        to={ROUTES.GITHUB}
-                        color={palette.text.primary}
-                    >
-                        <GitHub />
-                    </Box>
-                    <Box
-                        component={Link}
-                        to={ROUTES.LINKEDIN}
-                        color={palette.text.primary}
-                    >
-                        <LinkedIn />
-                    </Box>
+                    {footerLinks &&
+                        footerLinks.socialLinks &&
+                        footerLinks.socialLinks.map(
+                            ({ name, id, Icon, to }) => (
+                                <Box
+                                    key={id}
+                                    aria-label={name}
+                                    component={Link}
+                                    to={to}
+                                    color="text.primary"
+                                >
+                                    <Icon />
+                                </Box>
+                            ),
+                        )}
                 </Stack>
             </Stack>
         </Paper>
