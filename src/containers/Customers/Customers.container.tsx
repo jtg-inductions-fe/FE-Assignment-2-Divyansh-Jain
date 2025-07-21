@@ -25,7 +25,7 @@ export const Customers = () => {
         >
             <Stack gap={4}>
                 <Typography variant="h3">Latest Customers</Typography>
-                <List>
+                <List sx={{ overflowY: 'auto', height: pxToRem(370) }}>
                     {customers && customers.length > 0 ? (
                         customers?.map((customer, index, arr) => (
                             <CardListItem

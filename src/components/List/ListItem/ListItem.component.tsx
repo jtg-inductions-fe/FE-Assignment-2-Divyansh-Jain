@@ -60,7 +60,7 @@ export const ListItem = ({
                         </Tooltip>
                     </ListItemText>
 
-                    {item.count || item.children ? (
+                    {item.count !== undefined || item.children ? (
                         <Stack gap={1} flexDirection="row" alignItems="center">
                             {item.count !== undefined && (
                                 <Chip

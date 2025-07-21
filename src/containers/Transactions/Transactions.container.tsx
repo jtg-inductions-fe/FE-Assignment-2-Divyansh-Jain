@@ -48,7 +48,12 @@ export const Transactions = () => {
                     </Typography>
                 </Box>
                 {transactions && transactions.length > 0 ? (
-                    <TableContainer sx={{ borderRadius: pxToRem(12) }}>
+                    <TableContainer
+                        sx={{
+                            borderRadius: pxToRem(12),
+                            maxHeight: pxToRem(480),
+                        }}
+                    >
                         <StyledTable aria-label="transaction">
                             <TableHead>
                                 <StyledTableRow

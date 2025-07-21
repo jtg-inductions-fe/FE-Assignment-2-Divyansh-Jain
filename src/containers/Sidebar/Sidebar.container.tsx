@@ -26,6 +26,7 @@ export const Sidebar = ({ isSidebarMounted, toggleSidebar }: SidebarProps) => {
         <Drawer
             open={isSidebarMounted}
             variant={isDesktop ? 'permanent' : 'temporary'}
+            onClose={toggleSidebar}
         >
             <Stack justifyContent="space-between" height="100%">
                 <Stack overflow="auto">
