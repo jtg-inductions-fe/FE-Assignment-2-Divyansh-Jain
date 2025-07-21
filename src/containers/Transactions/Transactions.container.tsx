@@ -52,7 +52,9 @@ export const Transactions = () => {
                         <StyledTable aria-label="transaction">
                             <TableHead>
                                 <StyledTableRow
-                                    sx={{ background: palette.grey[50] }}
+                                    sx={{
+                                        background: palette.background.default,
+                                    }}
                                 >
                                     {TransactionTableConfig.map(
                                         ({ id, name }) => (
