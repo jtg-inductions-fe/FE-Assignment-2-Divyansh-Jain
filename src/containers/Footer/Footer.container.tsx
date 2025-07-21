@@ -35,6 +35,7 @@ export const Footer = () => {
                                     component={Link}
                                     to={to}
                                     color="text.primary"
+                                    target="_blank"
                                 >
                                     <Icon />
                                 </Box>

@@ -26,7 +26,4 @@ export const palette: PaletteOptions = {
     background: {
         default: '#F9FAFB',
     },
-    grey: {
-        '50': '#F9FAFB',
-    },
 };
