@@ -63,8 +63,8 @@ export const Transactions = () => {
                                 </StyledTableRow>
                             </TableHead>
                             <TableBody>
-                                {transactions.map((transaction, index) => (
-                                    <StyledTableRow key={index} hover>
+                                {transactions.map((transaction) => (
+                                    <StyledTableRow key={transaction.id} hover>
                                         <StyledTableCell>
                                             <Typography
                                                 variant="caption"
