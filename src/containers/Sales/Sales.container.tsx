@@ -41,7 +41,10 @@ export const Sales = () => {
             <Stack gap={4}>
                 <Stack direction="row" gap={3} sx={{ px: 2, py: 4 }}>
                     <Typography variant="h2">Sales</Typography>
-                    <MuiTooltip title="Note : This sales data is of year 2025">
+                    <MuiTooltip
+                        role="tooltip"
+                        title="Note : This sales data is of year 2025"
+                    >
                         <Box color={palette.text.secondary}>
                             <InfoOutlined color="inherit" />
                         </Box>

@@ -8,4 +8,5 @@ export type UserProfileProps = {
      * The user profile data to display
      */
     user: User;
+    handleLogout: () => void;
 };

@@ -17,7 +17,10 @@ import { Avatar, IconButton, Typography } from '@components';
 import { Popover as UserProfilePopover } from './Popover';
 import { UserProfileProps } from './UserProfile.types';
 
-export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
+export const UserProfile: React.FC<UserProfileProps> = ({
+    user,
+    handleLogout,
+}) => {
     const {
         breakpoints,
         typography: { pxToRem },
@@ -65,6 +68,11 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
                 elevated={isDesktop}
                 padding={0}
                 shape="circle"
+                sx={{
+                    '&:focus': {
+                        outline: 4,
+                    },
+                }}
             >
                 <Avatar alt={user.fullname} src={user.profileUrl} />
             </IconButton>
@@ -111,7 +119,12 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
                     </Stack>
 
                     <Divider orientation="horizontal" flexItem />
-                    <ListItemButton>
+                    <ListItemButton
+                        onClick={() => {
+                            handleClose();
+                            handleLogout();
+                        }}
+                    >
                         <ListItemIcon>
                             <LogoutIcon />
                         </ListItemIcon>
