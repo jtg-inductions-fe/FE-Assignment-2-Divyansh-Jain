@@ -2,6 +2,7 @@ import { List, ListItem, Stack, useMediaQuery, useTheme } from '@mui/material';
 
 import { CardListItem, Paper, Typography } from '@components';
 import { useProduct } from '@hooks';
+import { numberFormatter } from '@utilities';
 
 export const Products = () => {
     const { products } = useProduct() || {};
@@ -34,6 +35,7 @@ export const Products = () => {
                                 leftTitle={product.productName}
                                 leftSubtitle={product.techStack}
                                 showDivider={index < arr.length - 1}
+                                numberFormatter={numberFormatter}
                             />
                         ))
                     ) : (

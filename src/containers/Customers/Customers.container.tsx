@@ -37,7 +37,7 @@ export const Customers = () => {
                                 avatarAlt={customer.fullname}
                                 showDivider={index < arr.length - 1}
                                 numberFormatter={(value) =>
-                                    `$${numberFormatter(value)}`
+                                    `\$${numberFormatter(value)}`
                                 }
                             />
                         ))

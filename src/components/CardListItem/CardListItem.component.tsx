@@ -1,7 +1,6 @@
 import { Box, Divider, Stack, Tooltip, useTheme } from '@mui/material';
 
 import { Avatar, Typography } from '@components';
-import { numberFormatter as defaultNumberFormatter } from '@utilities';
 
 import { CardListItemProps } from './CardListItem.types';
 
@@ -14,7 +13,7 @@ export const CardListItem = ({
     rightTitle,
     rightSubtitle,
     showDivider,
-    numberFormatter = defaultNumberFormatter,
+    numberFormatter,
 }: CardListItemProps) => {
     const { palette } = useTheme();
     return (
@@ -57,8 +56,8 @@ export const CardListItem = ({
                     maxWidth="30%"
                 >
                     <Tooltip title={rightTitle}>
-                        <Typography variant="subtitle1">
-                            {typeof rightTitle === 'number'
+                        <Typography variant="subtitle1" lines={1}>
+                            {typeof rightTitle === 'number' && numberFormatter
                                 ? numberFormatter(rightTitle)
                                 : rightTitle}
                         </Typography>
