@@ -5,7 +5,7 @@ import { ListWrapperProps } from './List.types';
 
 /**
  * A wrapper around MUI's `List` component that renders content based on the provided items.
- * Accepts a list of items and toggle method as a parameter and handles their rendering of list items within the `List`.
+ * Accepts a list of items and toggle method as a parameter and handles  rendering of list items within the `List`.
  */
 const ListWrapper = ({
     items,
