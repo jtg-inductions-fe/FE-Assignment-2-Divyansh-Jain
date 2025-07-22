@@ -23,27 +23,33 @@ import { StyledListItemProps } from './ListItem.types';
 export const ListItem = ({
     renderItems,
     item,
-    toggleSidebar,
+    itemButtonProps,
     ...otherProps
 }: StyledListItemProps) => {
+    const { onClick, ...otherButtonProps } = itemButtonProps;
+
     const { palette } = useTheme();
     const [open, setOpen] = useState(false);
     return (
         <>
             <MuiListItem {...otherProps}>
                 <ListItemButton
+                    {...otherButtonProps}
                     sx={{
                         '&.active': {
                             color: palette.primary.main,
                         },
                     }}
-                    {...(item.children && {
-                        onClick: () => setOpen(!open),
-                        'aria-expanded': open,
-                        'aria-controls': `nested-${item.id}`,
-                    })}
+                    {...(item.children
+                        ? {
+                              onClick: () => {
+                                  setOpen(!open);
+                              },
+                              'aria-expanded': open,
+                              'aria-controls': `nested-${item.id}`,
+                          }
+                        : { onClick })}
                     {...(item.to && {
-                        onClick: toggleSidebar,
                         component: NavLink,
                         to: item.to,
                     })}
@@ -86,7 +92,7 @@ export const ListItem = ({
                 >
                     <List component="div" id={`nested-${item.id}`}>
                         {item.children &&
-                            renderItems(item.children, toggleSidebar)}
+                            renderItems(item.children, itemButtonProps)}
                     </List>
                 </Collapse>
             )}

@@ -29,11 +29,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
     useEffect(() => {
-        if (
-            !user.email.trim() ||
-            !user.fullname.trim() ||
-            !user.username.trim()
-        ) {
+        if (!user.fullname.trim() || !user.username.trim()) {
             throw Error('Invalid User');
         }
     }, [user]);
@@ -111,16 +107,6 @@ export const UserProfile: React.FC<UserProfileProps> = ({
                                     maxWidth="95%"
                                 >
                                     @{user.username}
-                                </Typography>
-                            </Tooltip>
-                            <Tooltip title={user.email}>
-                                <Typography
-                                    variant="caption"
-                                    lines={1}
-                                    color="text.secondary"
-                                    maxWidth="95%"
-                                >
-                                    {user.email}
                                 </Typography>
                             </Tooltip>
                         </Stack>

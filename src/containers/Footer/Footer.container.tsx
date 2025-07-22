@@ -12,7 +12,7 @@ export const Footer = () => {
     const isDesktop = useMediaQuery(breakpoints.up('md'));
 
     return (
-        <Paper component="footer">
+        <Paper component="footer" elevation={0}>
             <Stack
                 {...(isDesktop && {
                     direction: 'row',

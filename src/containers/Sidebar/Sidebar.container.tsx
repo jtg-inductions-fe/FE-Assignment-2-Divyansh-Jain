@@ -37,12 +37,16 @@ export const Sidebar = ({ isSidebarMounted, toggleSidebar }: SidebarProps) => {
                 <Stack overflow="auto">
                     <List
                         items={SidebarList.primary}
-                        toggleSidebar={toggleSidebar}
+                        itemButtonProps={{
+                            onClick: toggleSidebar,
+                        }}
                     />
                     <Divider />
                     <List
                         items={SidebarList.secondary}
-                        toggleSidebar={toggleSidebar}
+                        itemButtonProps={{
+                            onClick: toggleSidebar,
+                        }}
                     />
                 </Stack>
                 <Stack
