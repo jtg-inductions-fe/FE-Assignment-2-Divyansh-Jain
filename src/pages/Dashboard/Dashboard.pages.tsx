@@ -1,13 +1,28 @@
+import { lazy } from 'react';
+
 import { Stack, useMediaQuery, useTheme } from '@mui/material';
 
-import {
-    Customers,
-    Footer,
-    Hero,
-    Products,
-    Sales,
-    Transactions,
-} from '@containers';
+const Customers = lazy(() =>
+    import('@containers').then((module) => ({
+        default: module.Customers,
+    })),
+);
+
+const Footer = lazy(() =>
+    import('@containers').then((module) => ({ default: module.Footer })),
+);
+const Hero = lazy(() =>
+    import('@containers').then((module) => ({ default: module.Hero })),
+);
+const Products = lazy(() =>
+    import('@containers').then((module) => ({ default: module.Products })),
+);
+const Sales = lazy(() =>
+    import('@containers').then((module) => ({ default: module.Sales })),
+);
+const Transactions = lazy(() =>
+    import('@containers').then((module) => ({ default: module.Transactions })),
+);
 
 export const Dashboard = () => {
     const { breakpoints } = useTheme();

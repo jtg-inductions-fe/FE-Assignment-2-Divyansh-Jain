@@ -13,6 +13,7 @@ export const StyledBox = styled(Box)(
         padding: spacing(0, 4),
         maxWidth: '100%',
         minHeight: '100vh',
+        paddingBottom: spacing(4),
 
         [breakpoints.up('xs')]: {
             paddingTop: spacing(20),

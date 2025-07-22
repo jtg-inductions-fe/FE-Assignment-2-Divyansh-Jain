@@ -87,35 +87,43 @@ export const UserProfile: React.FC<UserProfileProps> = ({
                 }}
             >
                 <Stack py={2} width={pxToRem(300)}>
-                    <Stack alignItems="center" py={4} px={5}>
-                        <Avatar alt={user.fullname} src={user.profileUrl} />
-                        <Tooltip title={user.fullname}>
-                            <Typography
-                                variant="subtitle1"
-                                lines={1}
-                                maxWidth="80%"
-                            >
-                                {user.fullname}
-                            </Typography>
-                        </Tooltip>
-                        <Tooltip title={user.username}>
-                            <Typography
-                                variant="subtitle2"
-                                lines={1}
-                                maxWidth="80%"
-                            >
-                                @{user.username}
-                            </Typography>
-                        </Tooltip>
-                        <Tooltip title={user.email}>
-                            <Typography
-                                variant="body1"
-                                lines={1}
-                                maxWidth="80%"
-                            >
-                                {user.email}
-                            </Typography>
-                        </Tooltip>
+                    <Stack py={4} px={5} gap={2}>
+                        <Avatar
+                            alt={user.fullname}
+                            src={user.profileUrl}
+                            size="lg"
+                            sx={{ alignSelf: 'center' }}
+                        />
+                        <Stack alignItems="center">
+                            <Tooltip title={user.fullname}>
+                                <Typography
+                                    variant="h3"
+                                    lines={1}
+                                    maxWidth="95%"
+                                >
+                                    {user.fullname}
+                                </Typography>
+                            </Tooltip>
+                            <Tooltip title={user.username}>
+                                <Typography
+                                    variant="subtitle1"
+                                    lines={1}
+                                    maxWidth="95%"
+                                >
+                                    @{user.username}
+                                </Typography>
+                            </Tooltip>
+                            <Tooltip title={user.email}>
+                                <Typography
+                                    variant="caption"
+                                    lines={1}
+                                    color="text.secondary"
+                                    maxWidth="95%"
+                                >
+                                    {user.email}
+                                </Typography>
+                            </Tooltip>
+                        </Stack>
                     </Stack>
 
                     <Divider orientation="horizontal" flexItem />
@@ -124,8 +132,9 @@ export const UserProfile: React.FC<UserProfileProps> = ({
                             handleClose();
                             handleLogout();
                         }}
+                        sx={{ gap: 2 }}
                     >
-                        <ListItemIcon>
+                        <ListItemIcon sx={{ minWidth: 0 }}>
                             <LogoutIcon />
                         </ListItemIcon>
                         <ListItemText primary="Logout" />
