@@ -17,7 +17,7 @@ export const CardListItem = ({
 }: CardListItemProps) => {
     const { palette } = useTheme();
     return (
-        <Stack>
+        <Stack component="li">
             <Stack
                 direction="row"
                 justifyContent="space-between"

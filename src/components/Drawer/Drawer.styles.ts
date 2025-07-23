@@ -16,6 +16,7 @@ export const StyledDrawer = styled(Drawer)(
         [breakpoints.up('md')]: {
             width: '22%',
         },
+        minWidth: pxToRem(250),
 
         [`.${paperClasses.root}`]: {
             minWidth: pxToRem(250),

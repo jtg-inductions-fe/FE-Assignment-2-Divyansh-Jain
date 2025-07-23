@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 
 import { RouterProvider } from 'react-router-dom';
 
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, Stack, ThemeProvider } from '@mui/material';
 
 import { Loader } from '@components';
 import { MasterContextProvider } from '@provider';
@@ -16,7 +16,13 @@ createRoot(rootElement).render(
     <StrictMode>
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Suspense fallback={<Loader />}>
+            <Suspense
+                fallback={
+                    <Stack height="100vh" justifyContent="center">
+                        <Loader />
+                    </Stack>
+                }
+            >
                 <MasterContextProvider>
                     <RouterProvider router={router} />
                 </MasterContextProvider>

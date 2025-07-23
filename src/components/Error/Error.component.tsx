@@ -54,7 +54,7 @@ export const ErrorComponent = ({
                     <Typography variant="h1" textAlign="center">
                         {heading}
                     </Typography>
-                    <Tooltip title={bodyText}>
+                    <Tooltip title={bodyText} placement="top-end">
                         <Typography
                             variant="body1"
                             color={palette.text.secondary}

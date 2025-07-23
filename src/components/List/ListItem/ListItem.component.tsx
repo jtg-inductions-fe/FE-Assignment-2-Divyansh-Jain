@@ -23,25 +23,36 @@ import { StyledListItemProps } from './ListItem.types';
 export const ListItem = ({
     renderItems,
     item,
+    itemButtonProps,
     ...otherProps
 }: StyledListItemProps) => {
+    const { onClick, ...otherButtonProps } = itemButtonProps;
+
     const { palette } = useTheme();
     const [open, setOpen] = useState(false);
     return (
         <>
             <MuiListItem {...otherProps}>
                 <ListItemButton
+                    {...otherButtonProps}
                     sx={{
                         '&.active': {
                             color: palette.primary.main,
                         },
                     }}
-                    {...(item.children && {
-                        onClick: () => setOpen(!open),
-                        'aria-expanded': open,
-                        'aria-controls': `nested-${item.id}`,
+                    {...(item.children
+                        ? {
+                              onClick: () => {
+                                  setOpen(!open);
+                              },
+                              'aria-expanded': open,
+                              'aria-controls': `nested-${item.id}`,
+                          }
+                        : { onClick })}
+                    {...(item.to && {
+                        component: NavLink,
+                        to: item.to,
                     })}
-                    {...(item.to && { component: NavLink, to: item.to })}
                 >
                     {item.Icon && (
                         <ListItemIcon sx={{ color: 'inherit' }}>
@@ -55,7 +66,7 @@ export const ListItem = ({
                         </Tooltip>
                     </ListItemText>
 
-                    {item.count || item.children ? (
+                    {item.count !== undefined || item.children ? (
                         <Stack gap={1} flexDirection="row" alignItems="center">
                             {item.count !== undefined && (
                                 <Chip
@@ -80,7 +91,8 @@ export const ListItem = ({
                     sx={{ paddingLeft: 14 }}
                 >
                     <List component="div" id={`nested-${item.id}`}>
-                        {item.children && renderItems(item.children)}
+                        {item.children &&
+                            renderItems(item.children, itemButtonProps)}
                     </List>
                 </Collapse>
             )}

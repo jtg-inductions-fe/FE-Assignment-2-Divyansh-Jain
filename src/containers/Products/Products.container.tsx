@@ -25,7 +25,7 @@ export const Products = () => {
         >
             <Stack gap={4}>
                 <Typography variant="h3">Top Products</Typography>
-                <List>
+                <List sx={{ overflowY: 'auto', height: pxToRem(370) }}>
                     {products && products.length > 0 ? (
                         products.map((product, index, arr) => (
                             <CardListItem

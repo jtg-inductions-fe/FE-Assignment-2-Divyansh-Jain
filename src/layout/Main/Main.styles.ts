@@ -10,9 +10,10 @@ export const StyledBox = styled(Box)(
     }) => ({
         margin: 0,
         flexGrow: 1,
-        height: '100vh',
         padding: spacing(0, 4),
         maxWidth: '100%',
+        minHeight: '100vh',
+        paddingBottom: spacing(4),
 
         [breakpoints.up('xs')]: {
             paddingTop: spacing(20),

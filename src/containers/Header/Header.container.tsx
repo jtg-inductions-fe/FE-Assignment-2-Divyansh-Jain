@@ -98,12 +98,22 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
         void navigate(ROUTES.NOTIFICATIONS);
     };
 
+    /**
+     *
+     * Navigates to Login Page on click
+     *
+     */
+    const handleLogout = () => {
+        void navigate(ROUTES.LOGIN);
+    };
+
     return (
         <Stack
             position="fixed"
             width="100vw"
             zIndex={zIndex.drawer + 1}
             sx={{ backgroundColor: palette.common.white }}
+            component="header"
         >
             <Stack
                 direction="row"
@@ -121,32 +131,36 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
                             options={searchResults}
                             handleInputChange={handleInputChange}
                             handleSelection={handleSelection}
-                            placeholder="Search"
+                            placeholder="Search products"
                             getOptionLabel={getOptionLabel}
                             StartIcon={SearchIcon}
                         />
                     </Stack>
                 ) : (
                     <IconButton
-                        disableRipple
+                        disableTouchRipple
                         customColor={palette.text.primary}
                         onClick={toggleSidebar}
+                        aria-label="Menu"
                     >
                         <MenuIcon />
                     </IconButton>
                 )}
                 <Stack direction="row" alignItems="center" gap={3}>
                     <IconButton
-                        disableRipple
+                        disableTouchRipple
                         elevated={isDesktop}
                         shape="circle"
                         customColor={palette.text.primary}
                         onClick={handleNotificationsClick}
                         padding={spacing(1)}
+                        aria-label="notification"
                     >
                         <NotificationsIcon />
                     </IconButton>
-                    {user && <UserProfile user={user} />}
+                    {user && (
+                        <UserProfile user={user} handleLogout={handleLogout} />
+                    )}
                 </Stack>
             </Stack>
             <Divider />

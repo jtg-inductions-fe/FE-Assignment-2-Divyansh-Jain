@@ -17,7 +17,10 @@ import { Avatar, IconButton, Typography } from '@components';
 import { Popover as UserProfilePopover } from './Popover';
 import { UserProfileProps } from './UserProfile.types';
 
-export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
+export const UserProfile: React.FC<UserProfileProps> = ({
+    user,
+    handleLogout,
+}) => {
     const {
         breakpoints,
         typography: { pxToRem },
@@ -26,11 +29,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
     useEffect(() => {
-        if (
-            !user.email.trim() ||
-            !user.fullname.trim() ||
-            !user.username.trim()
-        ) {
+        if (!user.fullname.trim() || !user.username.trim()) {
             throw Error('Invalid User');
         }
     }, [user]);
@@ -65,6 +64,11 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
                 elevated={isDesktop}
                 padding={0}
                 shape="circle"
+                sx={{
+                    '&:focus': {
+                        outline: 4,
+                    },
+                }}
             >
                 <Avatar alt={user.fullname} src={user.profileUrl} />
             </IconButton>
@@ -79,40 +83,44 @@ export const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
                 }}
             >
                 <Stack py={2} width={pxToRem(300)}>
-                    <Stack alignItems="center" py={4} px={5}>
-                        <Avatar alt={user.fullname} src={user.profileUrl} />
-                        <Tooltip title={user.fullname}>
-                            <Typography
-                                variant="subtitle1"
-                                lines={1}
-                                maxWidth="80%"
-                            >
-                                {user.fullname}
-                            </Typography>
-                        </Tooltip>
-                        <Tooltip title={user.username}>
-                            <Typography
-                                variant="subtitle2"
-                                lines={1}
-                                maxWidth="80%"
-                            >
-                                @{user.username}
-                            </Typography>
-                        </Tooltip>
-                        <Tooltip title={user.email}>
-                            <Typography
-                                variant="body1"
-                                lines={1}
-                                maxWidth="80%"
-                            >
-                                {user.email}
-                            </Typography>
-                        </Tooltip>
+                    <Stack py={4} px={5} gap={2}>
+                        <Avatar
+                            alt={user.fullname}
+                            src={user.profileUrl}
+                            size="lg"
+                            sx={{ alignSelf: 'center' }}
+                        />
+                        <Stack alignItems="center">
+                            <Tooltip title={user.fullname}>
+                                <Typography
+                                    variant="h3"
+                                    lines={1}
+                                    maxWidth="95%"
+                                >
+                                    {user.fullname}
+                                </Typography>
+                            </Tooltip>
+                            <Tooltip title={user.username}>
+                                <Typography
+                                    variant="subtitle1"
+                                    lines={1}
+                                    maxWidth="95%"
+                                >
+                                    @{user.username}
+                                </Typography>
+                            </Tooltip>
+                        </Stack>
                     </Stack>
 
                     <Divider orientation="horizontal" flexItem />
-                    <ListItemButton>
-                        <ListItemIcon>
+                    <ListItemButton
+                        onClick={() => {
+                            handleClose();
+                            handleLogout();
+                        }}
+                        sx={{ gap: 2 }}
+                    >
+                        <ListItemIcon sx={{ minWidth: 0 }}>
                             <LogoutIcon />
                         </ListItemIcon>
                         <ListItemText primary="Logout" />

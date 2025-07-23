@@ -2,7 +2,11 @@ import { JSX } from 'react';
 
 import { To } from 'react-router-dom';
 
-import { ListItemProps, SvgIconTypeMap } from '@mui/material';
+import {
+    ListItemButtonProps,
+    ListItemProps,
+    SvgIconTypeMap,
+} from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 /**
  * Represents a  list item, which can be a base item, a collapsible item with children,
@@ -27,5 +31,10 @@ export type StyledListItemProps = ListItemProps & {
     /**Item to be displayed */
     item: ListItemType;
     /**Method used to render items provided as arguments*/
-    renderItems: (items: ListItemType[]) => JSX.Element[];
+    renderItems: (
+        items: ListItemType[],
+        itemButtonProps: ListItemButtonProps,
+    ) => JSX.Element[];
+    /**Props to be passed to ListItemButton */
+    itemButtonProps: ListItemButtonProps;
 };

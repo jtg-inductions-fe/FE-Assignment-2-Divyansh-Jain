@@ -10,7 +10,6 @@
  * @param delay time for which the function needs to wait before the next execution
  *
  */
-
 export function debounce<T extends (...args: Parameters<T>) => void>(
     fn: T,
     delay: number = 300,

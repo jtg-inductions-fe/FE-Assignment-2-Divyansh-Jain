@@ -14,7 +14,7 @@ import { Drawer, List } from '@components';
 import { SidebarList } from './Sidebar.config';
 import { SidebarProps } from './Sidebar.types';
 
-export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
+export const Sidebar = ({ isSidebarMounted, toggleSidebar }: SidebarProps) => {
     const {
         breakpoints,
         spacing,
@@ -26,12 +26,28 @@ export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
         <Drawer
             open={isSidebarMounted}
             variant={isDesktop ? 'permanent' : 'temporary'}
+            onClose={toggleSidebar}
         >
-            <Stack justifyContent="space-between" height="100%">
+            <Stack
+                justifyContent="space-between"
+                height="100%"
+                component="nav"
+                aria-label="sidebar"
+            >
                 <Stack overflow="auto">
-                    <List items={SidebarList.primary} />
+                    <List
+                        items={SidebarList.primary}
+                        itemButtonProps={{
+                            onClick: toggleSidebar,
+                        }}
+                    />
                     <Divider />
-                    <List items={SidebarList.secondary} />
+                    <List
+                        items={SidebarList.secondary}
+                        itemButtonProps={{
+                            onClick: toggleSidebar,
+                        }}
+                    />
                 </Stack>
                 <Stack
                     direction="row"
@@ -44,6 +60,7 @@ export const Sidebar = ({ isSidebarMounted }: SidebarProps) => {
                                 component={Link}
                                 to={item.to || ''}
                                 color={text.primary}
+                                onClick={toggleSidebar}
                             >
                                 {item.Icon && <item.Icon />}
                             </Box>

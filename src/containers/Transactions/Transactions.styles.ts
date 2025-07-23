@@ -24,8 +24,13 @@ export const StyledTableRow = styled(TableRow)(
     }),
 );
 
-export const StyledTable = styled(Table)(({ theme: { breakpoints } }) => ({
-    minWidth: breakpoints.values.md,
-    overflow: 'auto',
-    cursor: 'pointer',
-}));
+export const StyledTable = styled(Table)(
+    ({
+        theme: {
+            typography: { pxToRem },
+        },
+    }) => ({
+        minWidth: pxToRem(768),
+        overflow: 'auto',
+    }),
+);
