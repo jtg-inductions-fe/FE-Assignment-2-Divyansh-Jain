@@ -51,7 +51,7 @@ export const Sales = () => {
                     </MuiTooltip>
                 </Stack>
                 <StyledResponsiveContainer width="100%" height={500}>
-                    <LineChart data={data} margin={{ right: 40 }}>
+                    <LineChart data={data} margin={{ right: 40 }} tabIndex={-1}>
                         <XAxis
                             dataKey="date"
                             interval={0}

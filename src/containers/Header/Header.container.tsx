@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -91,14 +91,6 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
     }
 
     /**
-     * Navigates to /notifications on click
-     *
-     */
-    const handleNotificationsClick = () => {
-        void navigate(ROUTES.NOTIFICATIONS);
-    };
-
-    /**
      *
      * Navigates to Login Page on click
      *
@@ -147,17 +139,27 @@ export const Header = ({ toggleSidebar }: HeaderProps) => {
                     </IconButton>
                 )}
                 <Stack direction="row" alignItems="center" gap={3}>
-                    <IconButton
-                        disableTouchRipple
-                        elevated={isDesktop}
-                        shape="circle"
-                        customColor={palette.text.primary}
-                        onClick={handleNotificationsClick}
-                        padding={spacing(1)}
-                        aria-label="notification"
+                    <Box
+                        component={NavLink}
+                        to={ROUTES.NOTIFICATIONS}
+                        color="text.primary"
+                        sx={{
+                            '&.active': {
+                                color: 'primary.main',
+                            },
+                        }}
                     >
-                        <NotificationsIcon />
-                    </IconButton>
+                        <IconButton
+                            disableTouchRipple
+                            elevated={isDesktop}
+                            shape="circle"
+                            color="inherit"
+                            padding={spacing(1)}
+                            aria-label="notification"
+                        >
+                            <NotificationsIcon />
+                        </IconButton>
+                    </Box>
                     {user && (
                         <UserProfile user={user} handleLogout={handleLogout} />
                     )}
