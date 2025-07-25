@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import {
     Box,
     Button,
@@ -24,6 +26,7 @@ export const ErrorComponent = ({
     heading,
     bodyText,
     handleButtonClick,
+    to,
 }: ErrorComponentProps) => {
     const {
         breakpoints,
@@ -69,6 +72,7 @@ export const ErrorComponent = ({
                     variant="contained"
                     sx={{ borderRadius: pxToRem(12) }}
                     onClick={handleButtonClick}
+                    {...(to !== undefined && { component: Link, to })}
                 >
                     {buttonText}
                 </Button>

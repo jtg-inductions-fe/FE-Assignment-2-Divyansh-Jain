@@ -4,6 +4,7 @@ import {
     Box,
     Divider,
     Stack,
+    Toolbar,
     Tooltip,
     useMediaQuery,
     useTheme,
@@ -27,12 +28,15 @@ export const Sidebar = ({ isSidebarMounted, toggleSidebar }: SidebarProps) => {
             open={isSidebarMounted}
             variant={isDesktop ? 'permanent' : 'temporary'}
             onClose={toggleSidebar}
+            component="aside"
         >
+            <Toolbar />
             <Stack
                 justifyContent="space-between"
                 height="100%"
                 component="nav"
                 aria-label="sidebar"
+                overflow="hidden"
             >
                 <Stack overflow="auto">
                     <List

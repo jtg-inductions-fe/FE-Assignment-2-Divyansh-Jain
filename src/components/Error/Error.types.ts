@@ -1,3 +1,5 @@
+import { To } from 'react-router-dom';
+
 export type ErrorComponentProps = {
     /**Path for the main image*/
     imagePath: string;
@@ -10,5 +12,7 @@ export type ErrorComponentProps = {
     /**Text to display on the button*/
     buttonText: string;
     /**function to handle click event on button */
-    handleButtonClick: () => void;
+    handleButtonClick?: () => void;
+    /**Path to navigate on button click */
+    to?: To;
 };
