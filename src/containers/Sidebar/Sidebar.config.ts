@@ -61,7 +61,7 @@ export const SidebarList: SidebarListConfig = {
             Icon: MessagesIcon,
             text: 'Messages',
             to: ROUTES.MESSAGES,
-            count: 0,
+            count: 9,
         },
         {
             id: 'sidebar-authentication',
