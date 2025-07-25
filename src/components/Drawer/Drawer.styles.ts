@@ -5,7 +5,6 @@ export const StyledDrawer = styled(Drawer)(
     ({
         theme: {
             breakpoints,
-            spacing,
             typography: { pxToRem },
         },
     }) => ({
@@ -22,11 +21,9 @@ export const StyledDrawer = styled(Drawer)(
             minWidth: pxToRem(250),
             [breakpoints.down('lg')]: {
                 width: '80%',
-                paddingTop: spacing(16),
             },
             [breakpoints.up('md')]: {
                 width: '22%',
-                paddingTop: spacing(18),
             },
         },
     }),
